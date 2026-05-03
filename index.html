@@ -13,7 +13,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
@@ -22,7 +21,6 @@
   <script src="https://fast.wistia.net/player.js" async></script>
 
   <style>
-
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -39,9 +37,7 @@
       --radius: 12px;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Montserrat', sans-serif;
@@ -83,14 +79,12 @@
       text-transform: uppercase;
     }
 
-    .logo span {
-      color: var(--accent);
-    }
+    .logo span { color: var(--accent); }
 
     .header-cta {
       font-size: 12px;
       font-weight: 800;
-      color: #0a0a0a;
+      color: #ffffff;
       background: var(--accent);
       text-decoration: none;
       padding: 9px 20px;
@@ -99,10 +93,7 @@
       letter-spacing: 0.06em;
     }
 
-    .hero {
-      padding: 88px 0 64px;
-      text-align: center;
-    }
+    .hero { padding: 88px 0 64px; text-align: center; }
 
     .badge {
       display: inline-flex;
@@ -128,11 +119,7 @@
       text-transform: uppercase;
     }
 
-    h1 em {
-      font-style: normal;
-      color: var(--accent);
-      display: block;
-    }
+    h1 em { font-style: normal; color: var(--accent); display: block; }
 
     .h1-sub {
       font-size: 12px;
@@ -146,16 +133,38 @@
     .hero-sub {
       font-size: 16px;
       line-height: 1.75;
-      color: var(--gray-light);
+      color: var(--gray);
       max-width: 500px;
       margin: 0 auto 44px;
+    }
+
+    /* --- VIDEO SECTION --- */
+    #audioAlert {
+      display: none;
+      background: #ffeb3b;
+      color: #000;
+      padding: 15px;
+      font-weight: 900;
+      font-size: 13px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 3px solid #000;
+      text-transform: uppercase;
+      animation: pulse-alert 1.5s infinite;
+    }
+
+    @keyframes pulse-alert {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
     }
 
     .video-wrap {
       margin-bottom: 36px;
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.45);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+      position: relative;
     }
 
     .video-thumb {
@@ -163,51 +172,56 @@
       width: 100%;
       padding-top: 56.25%;
       background: #000;
-      overflow: hidden;
-      border-radius: var(--radius);
     }
 
-    .play-btn {
+    .play-btn-overlay {
       position: absolute;
       inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      background: rgba(0,0,0,0.35);
-      transition: background 0.2s;
+      background: rgba(0,0,0,0.2);
       cursor: pointer;
-      z-index: 2;
-    }
-
-    .play-btn:hover {
-      background: rgba(0,0,0,0.5);
+      z-index: 10;
     }
 
     .play-circle {
-      width: 84px;
-      height: 84px;
+      width: 90px;
+      height: 90px;
       background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 48px rgba(230,57,70,0.7);
+      position: relative;
+      box-shadow: 0 0 40px rgba(230,57,70,0.6);
+    }
+
+    .play-circle::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 50%;
+      z-index: -1;
+      animation: ripple 2s infinite;
+    }
+
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.8); opacity: 0; }
     }
 
     .play-label {
       color: white;
-      font-size: 13px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 900;
       text-transform: uppercase;
+      margin-top: 20px;
       letter-spacing: 0.1em;
-    }
-
-    .play-sub {
-      color: rgba(255,255,255,0.5);
-      font-size: 12px;
-      margin-top: -6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     #videoPlayer {
@@ -216,13 +230,7 @@
       z-index: 1;
     }
 
-    #videoPlayer iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
+    /* --- CTA & STATS --- */
     .btn-primary {
       display: block;
       width: 100%;
@@ -231,13 +239,14 @@
       font-weight: 900;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0a0a0a;
-      background: var(--accent);
+      color: #ffffff;
+      background: var(--black);
       border-radius: var(--radius);
       text-decoration: none;
       margin-bottom: 12px;
-      box-shadow: 0 8px 40px rgba(230,57,70,0.45);
+      transition: background 0.2s;
     }
+    .btn-primary:hover { background: var(--accent); }
 
     .cta-note {
       text-align: center;
@@ -246,12 +255,6 @@
       margin-bottom: 56px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin: 0 0 56px;
     }
 
     .stats {
@@ -264,52 +267,9 @@
       border: 1px solid #e0e0e0;
     }
 
-    .stat {
-      background: #f4f4f4;
-      padding: 28px 16px;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-size: 30px;
-      font-weight: 900;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 10px;
-      color: var(--gray);
-      line-height: 1.4;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .section-label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: clamp(22px, 4vw, 34px);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
-
-    .section-sub {
-      font-size: 15px;
-      color: var(--gray);
-      margin-bottom: 28px;
-      line-height: 1.65;
-    }
+    .stat { background: #f4f4f4; padding: 28px 16px; text-align: center; }
+    .stat-num { font-size: 30px; font-weight: 900; color: var(--accent); display: block; margin-bottom: 6px; }
+    .stat-label { font-size: 10px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
 
     .booking-section {
       background: #f4f4f4;
@@ -320,87 +280,27 @@
       border: 1px solid #e8e8e8;
     }
 
-    .booking-title {
-      font-size: clamp(20px, 4vw, 30px);
-      font-weight: 900;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
-
-    .booking-sub {
-      font-size: 15px;
-      color: #555555;
-      margin-bottom: 32px;
-      line-height: 1.75;
-    }
-
     .btn-calendly {
       display: inline-block;
       padding: 22px 56px;
       font-size: 15px;
       font-weight: 900;
-      color: #0a0a0a;
+      color: #ffffff;
       background: var(--accent);
       border-radius: var(--radius);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
     }
 
-    footer {
-      border-top: 1px solid #e0e0e0;
-      padding: 32px 0;
-      text-align: center;
-    }
-
-    .footer-logo {
-      font-weight: 900;
-      font-size: 15px;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .footer-logo span {
-      color: var(--accent);
-    }
-
-    footer p {
-      font-size: 11px;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+    footer { border-top: 1px solid #e0e0e0; padding: 32px 0; text-align: center; }
+    .footer-logo { font-weight: 900; font-size: 15px; text-transform: uppercase; margin-bottom: 8px; }
+    .footer-logo span { color: var(--accent); }
 
     @media (max-width: 600px) {
-
-      .hero {
-        padding: 60px 0 48px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .header-cta {
-        display: none;
-      }
-
-      .booking-section {
-        padding: 36px 20px;
-      }
-
-      .btn-calendly {
-        padding: 18px 28px;
-        font-size: 13px;
-      }
-
+      h1 { font-size: 34px; }
+      .stats { grid-template-columns: 1fr; }
+      .header-cta { display: none; }
     }
-
   </style>
 </head>
 
@@ -408,78 +308,43 @@
 
   <header>
     <div class="container">
-      <a class="logo" href="#">
-        Flux<span>Clients</span>.ch
-      </a>
-
-      <a class="header-cta" href="#audit">
-        Audit gratuit
-      </a>
+      <a class="logo" href="#">Flux<span>Clients</span>.ch</a>
+      <a class="header-cta" href="#audit">Audit gratuit</a>
     </div>
   </header>
 
   <section class="hero">
-
     <div class="container">
+      <div class="badge">PME Suisse romande · Services & produits à +3'000 CHF</div>
 
-      <div class="badge">
-        PME Suisse romande · Services & produits à +3'000 CHF
-      </div>
+      <h1>Comment signer <em>1 à 2 nouveaux</em> clients par semaine</h1>
 
-      <h1>
-        Comment signer
-        <em>1 à 2 nouveaux</em>
-        clients par semaine
-      </h1>
+      <div class="h1-sub">Sans prospection téléphonique · Sans SEO complexe · Sans bouche-à-oreille</div>
 
-      <div class="h1-sub">
-        Sans prospection téléphonique · Sans SEO complexe · Sans bouche-à-oreille
-      </div>
+      <p class="hero-sub">Il existe un système qui va chercher vos clients pour vous pendant que vous gérez votre business.</p>
 
-      <p class="hero-sub">
-        Il existe un système qui va chercher vos clients pour vous pendant que vous gérez votre business.
-      </p>
+      <div id="audioAlert">⚠️ LA VIDÉO A DÉMARRÉ : CLIQUEZ 1X SUR LA VIDÉO POUR ACTIVER LE SON 🔈</div>
 
       <div class="video-wrap">
-
         <div class="video-thumb">
-
-          <div class="play-btn" id="videoOverlay" onclick="startVideo()">
-
+          
+          <div class="play-btn-overlay" id="videoOverlay" onclick="startVideo()">
             <div class="play-circle">
-              <svg width="28" height="28" viewBox="0 0 24 24">
+              <svg width="32" height="32" viewBox="0 0 24 24">
                 <polygon points="7,4 21,12 7,20" fill="white"/>
               </svg>
             </div>
-
-            <span class="play-label">
-              Regarder la vidéo
-            </span>
-
-            <span class="play-sub">
-              7 minutes · Gratuit
-            </span>
-
+            <span class="play-label">Cliquez ici pour démarrer la vidéo</span>
           </div>
 
           <div id="videoPlayer">
-
-            <div
-              class="wistia_responsive_padding"
-              style="padding:56.25% 0 0 0;position:relative;height:100%;"
-            >
-
-              <div
-                class="wistia_responsive_wrapper"
-                style="height:100%;left:0;position:absolute;top:0;width:100%;"
-              >
-
+            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;height:100%;">
+              <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
                 <iframe
                   id="wistiaFrame"
                   src="https://fast.wistia.net/embed/iframe/gr25cqtnhc?web_component=true&seo=true"
                   title="FluxClients Video"
                   allow="autoplay; fullscreen"
-                  allowtransparency="true"
                   frameborder="0"
                   scrolling="no"
                   class="wistia_embed"
@@ -487,100 +352,50 @@
                   width="100%"
                   height="100%"
                 ></iframe>
-
               </div>
-
             </div>
-
           </div>
 
         </div>
-
       </div>
 
-      <a class="btn-primary" href="#audit">
-        → Réserver mon audit stratégique gratuit
-      </a>
-
-      <p class="cta-note">
-        30 minutes · Gratuit · Sans engagement
-      </p>
-
-      <hr class="divider">
+      <a class="btn-primary" href="#audit">→ Réserver mon audit stratégique gratuit</a>
+      <p class="cta-note">30 minutes · Gratuit · Sans engagement</p>
 
       <div class="stats">
-
-        <div class="stat">
-          <span class="stat-num">800k</span>
-          <span class="stat-label">CHF générés</span>
-        </div>
-
-        <div class="stat">
-          <span class="stat-num">7-10j</span>
-          <span class="stat-label">Pour lancer votre tunnel</span>
-        </div>
-
-        <div class="stat">
-          <span class="stat-num">0 CHF</span>
-          <span class="stat-label">Pour l'audit stratégique</span>
-        </div>
-
+        <div class="stat"><span class="stat-num">800k</span><span class="stat-label">CHF générés</span></div>
+        <div class="stat"><span class="stat-num">7-10j</span><span class="stat-label">Délai de lancement</span></div>
+        <div class="stat"><span class="stat-num">0 CHF</span><span class="stat-label">Coût de l'audit</span></div>
       </div>
 
       <div class="booking-section" id="audit">
-
-        <p class="booking-title">
-          Réservez votre audit stratégique gratuit
-        </p>
-
-        <p class="booking-sub">
-          30 minutes pour analyser votre situation ensemble.
-        </p>
-
-        <a
-          class="btn-calendly"
-          href="https://calendly.com/artisanpro/artisanprospere"
-          target="_blank"
-        >
-          → Choisir mon créneau
-        </a>
-
+        <p style="font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 10px;">Accès limité</p>
+        <p class="booking-title">Réservez votre audit stratégique</p>
+        <p class="booking-sub">30 minutes pour analyser votre situation et définir votre plan d'acquisition.</p>
+        <a class="btn-calendly" href="https://calendly.com/artisanpro/artisanprospere" target="_blank">→ Choisir mon créneau</a>
       </div>
-
     </div>
-
   </section>
 
   <footer>
-
     <div class="container">
-
-      <p class="footer-logo">
-        Flux<span>Clients</span>.ch
-      </p>
-
-      <p>
-        © 2026 FluxClients.ch · Morges, Suisse
-      </p>
-
+      <p class="footer-logo">Flux<span>Clients</span>.ch</p>
+      <p>© 2026 FluxClients.ch · Morges, Suisse</p>
     </div>
-
   </footer>
 
   <script>
-
     function startVideo() {
-
-      const overlay = document.getElementById('videoOverlay');
-
-      overlay.remove();
-
+      // 1. Cacher l'overlay
+      document.getElementById('videoOverlay').style.display = 'none';
+      
+      // 2. Afficher le bandeau jaune d'instruction sonore
+      document.getElementById('audioAlert').style.display = 'block';
+      
+      // 3. Lancer la vidéo avec autoplay
       const iframe = document.getElementById('wistiaFrame');
-
-      iframe.src =
-        'https://fast.wistia.net/embed/iframe/gr25cqtnhc?autoplay=1&web_component=true&seo=true';
+      iframe.src = iframe.src + "&autoplay=1";
     }
-
   </script>
 
 </body>
