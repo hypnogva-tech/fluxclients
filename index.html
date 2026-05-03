@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FluxClients.ch — Comment signer 1 à 2 nouveaux clients par semaine</title>
-  <meta name="description" content="Pour les PME en Suisse romande qui veulent un flux régulier de nouveaux clients sans prospecter.">
+  <title>FluxClients.ch — Signature de 1 à 2 nouveaux clients par semaine</title>
+  <meta name="description" content="Système d'acquisition proactif pour les PME en Suisse romande.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,43 +14,50 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --black: #0a0a0a; --white: #ffffff; --gray: #777777; --gray-light: #bbbbbb; --accent: #e63946; --accent-dark: #c1121f; --radius: 12px; }
+    :root { --black: #0a0a0a; --white: #ffffff; --gray: #777777; --accent: #e63946; --radius: 12px; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Montserrat', sans-serif; background: #ffffff; color: #0a0a0a; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Montserrat', sans-serif; background: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
     .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    
     header { padding: 18px 0; border-bottom: 1px solid #e0e0e0; background: rgba(255,255,255,0.97); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
     header .container { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-weight: 900; font-size: 18px; color: #0a0a0a; text-decoration: none; letter-spacing: -0.02em; text-transform: uppercase; }
+    .logo { font-weight: 900; font-size: 18px; color: #0a0a0a; text-decoration: none; text-transform: uppercase; }
     .logo span { color: var(--accent); }
-    .header-cta { font-size: 12px; font-weight: 800; color: #ffffff; background: var(--accent); text-decoration: none; padding: 9px 20px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.06em; }
-    .hero { padding: 88px 0 64px; text-align: center; }
-    .badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(230,57,70,0.4); padding: 6px 18px; border-radius: 999px; margin-bottom: 36px; }
-    h1 { font-weight: 900; font-size: clamp(38px, 7.5vw, 64px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 16px; text-transform: uppercase; }
-    h1 em { font-style: normal; color: var(--accent); display: block; }
-    .h1-sub { font-size: 12px; font-weight: 700; color: #666666; letter-spacing: 0.12em; margin-bottom: 36px; text-transform: uppercase; }
-    .hero-sub { font-size: 16px; line-height: 1.75; color: var(--gray); max-width: 500px; margin: 0 auto 44px; }
-    #audioAlert { display: none; background: #ffeb3b; color: #000; padding: 15px; font-weight: 900; font-size: 13px; border-radius: 8px; margin-bottom: 15px; border: 3px solid #000; text-transform: uppercase; animation: pulse-alert 1.5s infinite; }
-    @keyframes pulse-alert { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-    .video-wrap { margin-bottom: 36px; border-radius: var(--radius); overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.3); position: relative; }
+    
+    .hero { padding: 60px 0; text-align: center; }
+    .badge { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(230,57,70,0.4); padding: 6px 18px; border-radius: 999px; margin-bottom: 24px; }
+    h1 { font-weight: 900; font-size: clamp(32px, 7vw, 56px); line-height: 1.1; margin-bottom: 16px; text-transform: uppercase; }
+    h1 em { font-style: normal; color: var(--accent); }
+    .h1-sub { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 30px; text-transform: uppercase; }
+
+    /* VIDEO SECTION */
+    #audioAlert { display: none; background: #ffeb3b; color: #000; padding: 15px; font-weight: 900; font-size: 13px; border-radius: 8px; margin-bottom: 15px; border: 2px solid #000; text-transform: uppercase; }
+    .video-wrap { margin-bottom: 30px; border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.2); position: relative; }
     .video-thumb { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
-    .play-btn-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); cursor: pointer; z-index: 10; }
-    .play-circle { width: 90px; height: 90px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 40px rgba(230,57,70,0.6); }
-    .play-circle::after { content: ""; position: absolute; width: 100%; height: 100%; background: var(--accent); border-radius: 50%; z-index: -1; animation: ripple 2s infinite; }
-    @keyframes ripple { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.8); opacity: 0; } }
-    .play-label { color: white; font-size: 14px; font-weight: 900; text-transform: uppercase; margin-top: 20px; letter-spacing: 0.1em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-    #videoPlayer { position: absolute; inset: 0; z-index: 1; }
-    .btn-primary { display: block; width: 100%; padding: 22px 32px; font-size: 15px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: #ffffff; background: var(--black); border-radius: var(--radius); text-decoration: none; margin-bottom: 12px; transition: background 0.2s; }
+    .play-btn-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); cursor: pointer; z-index: 10; }
+    .play-circle { width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .play-label { color: white; font-size: 13px; font-weight: 800; text-transform: uppercase; margin-top: 15px; }
+
+    /* BUTTONS */
+    .btn-primary { display: block; width: 100%; padding: 20px; font-size: 16px; font-weight: 900; text-transform: uppercase; color: #fff; background: var(--black); border-radius: var(--radius); text-decoration: none; margin-bottom: 10px; transition: 0.2s; }
     .btn-primary:hover { background: var(--accent); }
-    .cta-note { text-align: center; font-size: 11px; color: var(--gray); margin-bottom: 56px; letter-spacing: 0.08em; text-transform: uppercase; }
-    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-bottom: 64px; border-radius: var(--radius); overflow: hidden; border: 1px solid #e0e0e0; }
-    .stat { background: #f4f4f4; padding: 28px 16px; text-align: center; }
-    .stat-num { font-size: 30px; font-weight: 900; color: var(--accent); display: block; margin-bottom: 6px; }
-    .stat-label { font-size: 10px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
-    .booking-section { background: #f4f4f4; border-radius: var(--radius); padding: 52px 10px; margin-bottom: 64px; text-align: center; border: 1px solid #e8e8e8; }
-    footer { border-top: 1px solid #e0e0e0; padding: 32px 0; text-align: center; }
-    .footer-logo { font-weight: 900; font-size: 15px; text-transform: uppercase; margin-bottom: 8px; }
-    .footer-logo span { color: var(--accent); }
-    @media (max-width: 600px) { h1 { font-size: 34px; } .stats { grid-template-columns: 1fr; } .header-cta { display: none; } }
+    .cta-note { font-size: 11px; color: var(--gray); margin-bottom: 40px; text-transform: uppercase; }
+
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 40px; }
+    .stat { background: #f9f9f9; padding: 20px 10px; text-align: center; border-radius: 8px; }
+    .stat-num { font-size: 24px; font-weight: 900; color: var(--accent); display: block; }
+    .stat-label { font-size: 9px; color: var(--gray); text-transform: uppercase; }
+
+    /* FOOTER SECTION */
+    .booking-section { background: #f4f4f4; border-radius: var(--radius); padding: 40px 20px; margin-bottom: 40px; text-align: center; }
+    .btn-accent { display: inline-block; padding: 20px 40px; font-size: 16px; font-weight: 900; color: #fff; background: var(--accent); border-radius: var(--radius); text-decoration: none; text-transform: uppercase; }
+    
+    footer { border-top: 1px solid #eee; padding: 30px 0; text-align: center; font-size: 12px; color: var(--gray); }
+    
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -58,59 +65,51 @@
   <header>
     <div class="container">
       <a class="logo" href="#">Flux<span>Clients</span>.ch</a>
-      <a class="header-cta" href="#audit">Audit gratuit</a>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <div class="badge">PME Suisse romande · Services & produits à +3'000 CHF</div>
-      <h1>Comment signer <em>1 à 2 nouveaux</em> clients par semaine</h1>
-      <div class="h1-sub">Sans prospection téléphonique · Sans SEO complexe · Sans bouche-à-oreille</div>
-      <p class="hero-sub">Il existe un système qui va chercher vos clients pour vous pendant que vous gérez votre business.</p>
+      <div class="badge">PME Suisse romande · Résultats prédictibles</div>
+      <h1>Signez <em>1 à 2 nouveaux</em> clients par semaine</h1>
+      <div class="h1-sub">Sans prospection téléphonique · Sans bouche-à-oreille passif</div>
 
-      <div id="audioAlert">⚠️ LA VIDÉO A DÉMARRÉ : CLIQUEZ 1X SUR LA VIDÉO POUR ACTIVER LE SON 🔈</div>
+      <div id="audioAlert">⚠️ CLIQUEZ SUR LA VIDÉO POUR ACTIVER LE SON 🔈</div>
 
       <div class="video-wrap">
         <div class="video-thumb">
           <div class="play-btn-overlay" id="videoOverlay" onclick="startVideo()">
             <div class="play-circle">
-              <svg width="32" height="32" viewBox="0 0 24 24"><polygon points="7,4 21,12 7,20" fill="white"/></svg>
+              <svg width="30" height="30" viewBox="0 0 24 24"><polygon points="7,4 21,12 7,20" fill="white"/></svg>
             </div>
-            <span class="play-label">Cliquez ici pour démarrer la vidéo</span>
+            <span class="play-label">Voir la méthode (7 min)</span>
           </div>
-          <div id="videoPlayer">
-            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;height:100%;">
-              <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-                <iframe id="wistiaFrame" src="https://fast.wistia.net/embed/iframe/gr25cqtnhc?web_component=true&seo=true" title="FluxClients Video" allow="autoplay; fullscreen" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
-              </div>
-            </div>
+          <div style="position: absolute; inset: 0;">
+            <iframe id="wistiaFrame" src="https://fast.wistia.net/embed/iframe/gr25cqtnhc?web_component=true&seo=true" title="FluxClients Video" allow="autoplay; fullscreen" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
           </div>
         </div>
       </div>
 
-      <a class="btn-primary" href="#audit">→ Réserver mon audit stratégique gratuit</a>
+      <a class="btn-primary" href="https://calendly.com/artisanpro/audit-offert-de-30-min-flux" target="_blank">→ Réserver mon audit gratuit</a>
       <p class="cta-note">30 minutes · Gratuit · Sans engagement</p>
 
       <div class="stats">
         <div class="stat"><span class="stat-num">800k</span><span class="stat-label">CHF générés</span></div>
-        <div class="stat"><span class="stat-num">7-10j</span><span class="stat-label">Délai de lancement</span></div>
+        <div class="stat"><span class="stat-num">7-10j</span><span class="stat-label">Mise en place</span></div>
         <div class="stat"><span class="stat-num">0 CHF</span><span class="stat-label">Coût de l'audit</span></div>
       </div>
 
-      <div class="booking-section" id="audit">
-        <p style="font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 10px;">Accès limité</p>
-        <h2 style="margin-bottom: 20px; text-transform: uppercase; font-weight: 900;">Réservez votre audit</h2>
-        
-        <div class="calendly-inline-widget" data-url="https://calendly.com/artisanpro/audit-offert-de-30-min-flux" style="min-width:320px;height:700px;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <div class="booking-section">
+        <h2 style="margin-bottom: 15px; font-weight: 900; text-transform: uppercase;">Prêt à passer à l'action ?</h2>
+        <p style="margin-bottom: 25px; color: var(--gray);">Analysez votre potentiel d'acquisition avec un expert lors d'un audit de 30 minutes.</p>
+        <a class="btn-accent" href="https://calendly.com/artisanpro/audit-offert-de-30-min-flux" target="_blank">→ Choisir mon créneau</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p class="footer-logo">Flux<span>Clients</span>.ch</p>
+      <p style="font-weight: 800; color: #000; margin-bottom: 5px;">FLUXCLIENTS.CH</p>
       <p>© 2026 FluxClients.ch · Morges, Suisse</p>
     </div>
   </footer>
@@ -123,5 +122,6 @@
       iframe.src = iframe.src + "&autoplay=1";
     }
   </script>
+
 </body>
 </html>
