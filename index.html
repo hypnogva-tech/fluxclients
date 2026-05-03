@@ -6,9 +6,23 @@
   <title>FluxClients.ch — Signature de 1 à 2 nouveaux clients par semaine</title>
   <meta name="description" content="Système d'acquisition proactif pour les PME en Suisse romande.">
 
+  <link rel="preconnect" href="https://fast.wistia.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap">
+
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1868540217061272'); 
+    fbq('track', 'PageView');
+  </script>
 
   <script src="https://fast.wistia.net/player.js" async></script>
 
@@ -16,7 +30,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --black: #0a0a0a; --white: #ffffff; --gray: #777777; --accent: #e63946; --radius: 12px; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Montserrat', sans-serif; background: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Montserrat', sans-serif; background: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; font-display: swap; }
     .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
     
     header { padding: 18px 0; border-bottom: 1px solid #e0e0e0; background: rgba(255,255,255,0.97); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
@@ -30,7 +44,6 @@
     h1 em { font-style: normal; color: var(--accent); }
     .h1-sub { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 30px; text-transform: uppercase; }
 
-    /* VIDEO SECTION */
     #audioAlert { display: none; background: #ffeb3b; color: #000; padding: 15px; font-weight: 900; font-size: 13px; border-radius: 8px; margin-bottom: 15px; border: 2px solid #000; text-transform: uppercase; }
     .video-wrap { margin-bottom: 30px; border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.2); position: relative; }
     .video-thumb { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
@@ -38,18 +51,15 @@
     .play-circle { width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .play-label { color: white; font-size: 13px; font-weight: 800; text-transform: uppercase; margin-top: 15px; }
 
-    /* BUTTONS */
     .btn-primary { display: block; width: 100%; padding: 20px; font-size: 16px; font-weight: 900; text-transform: uppercase; color: #fff; background: var(--black); border-radius: var(--radius); text-decoration: none; margin-bottom: 10px; transition: 0.2s; }
     .btn-primary:hover { background: var(--accent); }
     .cta-note { font-size: 11px; color: var(--gray); margin-bottom: 40px; text-transform: uppercase; }
 
-    /* STATS */
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 40px; }
     .stat { background: #f9f9f9; padding: 20px 10px; text-align: center; border-radius: 8px; }
     .stat-num { font-size: 24px; font-weight: 900; color: var(--accent); display: block; }
     .stat-label { font-size: 9px; color: var(--gray); text-transform: uppercase; }
 
-    /* FOOTER SECTION */
     .booking-section { background: #f4f4f4; border-radius: var(--radius); padding: 40px 20px; margin-bottom: 40px; text-align: center; }
     .btn-accent { display: inline-block; padding: 20px 40px; font-size: 16px; font-weight: 900; color: #fff; background: var(--accent); border-radius: var(--radius); text-decoration: none; text-transform: uppercase; }
     
@@ -74,7 +84,7 @@
       <h1>Signez <em>1 à 2 nouveaux</em> clients par semaine</h1>
       <div class="h1-sub">Sans prospection téléphonique · Sans bouche-à-oreille passif</div>
 
-      <div id="audioAlert">⚠️ CLIQUEZ SUR LA VIDÉO 1x POUR ACTIVER LE SON 🔈</div>
+      <div id="audioAlert">⚠️ CLIQUEZ SUR LA VIDÉO POUR ACTIVER LE SON 🔈</div>
 
       <div class="video-wrap">
         <div class="video-thumb">
