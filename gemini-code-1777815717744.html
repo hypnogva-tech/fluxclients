@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre inscription | FluxClients</title>
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'TON_ID_PIXEL'); // <--- REMPLACE ICI
+    fbq('track', 'PageView');
+    fbq('track', 'Lead'); // Déclenche l'événement de conversion
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=TON_ID_PIXEL&ev=PageView&noscript=1"
+    /></noscript>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f7f6; color: #333; }
+        .container { text-align: center; padding: 40px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; }
+        h1 { color: #0052FF; }
+        p { line-height: 1.6; }
+        .btn { display: inline-block; margin-top: 20px; padding: 12px 24px; background-color: #0052FF; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>✅ C'est confirmé !</h1>
+        <p>Votre rendez-vous a bien été enregistré. Nous avons hâte d'échanger avec vous sur la croissance de votre activité.</p>
+        <p><em>Un email de confirmation vient de vous être envoyé.</em></p>
+        <a href="https://www.fluxclients.ch" class="btn">Retour au site</a>
+    </div>
+
+</body>
+</html>
