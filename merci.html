@@ -1,16 +1,34 @@
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1868540217061272'); // ID corrigé ici
-fbq('track', 'PageView');
-fbq('track', 'Lead'); // Ceci track ta conversion
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1868540217061272&ev=PageView&noscript=1"
-/></noscript>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci | FluxClients</title>
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1868540217061272'); 
+    fbq('track', 'PageView');
+    fbq('track', 'Lead'); 
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; text-align: center; padding: 50px; }
+        .card { max-width: 500px; margin: auto; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #e63946; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>✅ C'est confirmé !</h1>
+        <p>Votre audit gratuit est réservé. Vérifiez vos emails.</p>
+        <a href="https://www.fluxclients.ch">Retour au site</a>
+    </div>
+</body>
+</html>
