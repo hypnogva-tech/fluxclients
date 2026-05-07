@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Programme de lancement - Panneaux solaires & rénovation énergétique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #1f2933;
+      background: #f5f7fa;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+    @media (min-width: 768px) {
+      .page-wrapper { padding: 32px 0 80px; }
+    }
+    .hero {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 20px 28px;
+      box-shadow: 0 10px 30px rgba(15, 35, 52, 0.08);
+      margin-bottom: 32px;
+      border: 1px solid #e4e7eb;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: #0b7285;
+      background: #e3fafc;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #102a43;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 2rem; }
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #52606d;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      font-weight: 600;
+      color: #0b7285;
+    }
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    @media (min-width: 640px) {
+      .hero-cta { flex-direction: row; align-items: center; }
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #0b7285;
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 999px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .btn-primary:hover {
+      background: #086271;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #52606d;
+    }
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 22px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #e4e7eb;
+    }
+    .section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #102a43;
+    }
+    .section p {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      color: #334e68;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 8px;
+    }
+    li {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: #334e68;
+    }
+    .section-muted {
+      background: #f8fafc;
+    }
+    .faq-item {
+      margin-bottom: 12px;
+    }
+    .faq-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #102a43;
+    }
+    .cta-final {
+      text-align: center;
+      padding-top: 8px;
+    }
+    .cta-final p {
+      margin-bottom: 12px;
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #8291a4;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="badge">Programme de lancement – Offre limitée à 2 entreprises</div>
+      <h1>
+        Remplissez votre carnet de chantiers en panneaux solaires & rénovation énergétique en Suisse romande
+        grâce à la pub Meta… <span class="highlight">sans payer d’honoraires le premier mois</span>
+      </h1>
+      <p class="hero-subtitle">
+        Je lance un programme de lancement pour <strong>2 entreprises</strong> de
+        <strong>pompes à chaleur, panneaux solaires ou rénovation énergétique</strong> en Suisse romande :
+        je mets en place et gère vos campagnes Facebook / Instagram pendant 30 jours,
+        vous ne payez que le <strong>budget publicitaire</strong>.
+      </p>
+      <div class="hero-cta">
+        <a href="#appel" class="btn-primary">Réserver un appel de 15 minutes</a>
+        <span class="btn-secondary">Sans engagement – on vérifie d’abord si votre entreprise est éligible.</span>
+      </div>
+    </header>
+
+    <!-- SECTION 1 : POUR QUI -->
+    <section class="section">
+      <h2>Est-ce que cette page s’adresse à vous ?</h2>
+      <p>Cette page est faite pour vous si :</p>
+      <ul>
+        <li>Vous installez des <strong>pompes à chaleur</strong>, des <strong>panneaux solaires</strong>, ou vous faites de la <strong>rénovation énergétique</strong> (isolation, toiture, fenêtres, rénovation globale) en <strong>Suisse romande</strong></li>
+        <li>Aujourd’hui, vos clients viennent surtout :
+          <ul>
+            <li>du <strong>bouche-à-oreille</strong>,</li>
+            <li>de votre <strong>site internet</strong>,</li>
+            <li>ou de <strong>plateformes de devis</strong> où le prospect reçoit plusieurs offres</li>
+          </ul>
+        </li>
+        <li>Vous aimeriez recevoir <strong>plus de demandes de devis qualifiées</strong>, de manière <strong>régulière</strong>, sans devoir recruter un commercial supplémentaire</li>
+        <li>Vous êtes prêt à investir un <strong>budget pub</strong> (à partir de 500–800 CHF sur 30 jours) si vous voyez des résultats concrets</li>
+      </ul>
+      <p>Si vous vous reconnaissez, la suite devrait vous intéresser.</p>
+    </section>
+
+    <!-- SECTION 2 : PROBLÈME -->
+    <section class="section section-muted">
+      <h2>Le problème avec votre acquisition actuelle</h2>
+      <p>La plupart des entreprises énergie &amp; solaire en Suisse romande fonctionnent avec trois canaux :</p>
+      <ul>
+        <li><strong>Le bouche-à-oreille</strong>  
+          – C’est précieux, mais vous ne décidez pas <em>quand</em> il arrive. Certains mois c’est plein, d’autres c’est le calme plat.</li>
+        <li><strong>Le site internet</strong>  
+          – S’il n’est pas en première page de Google, il reste quasiment invisible. Et même s’il est visible, il ne touche que les gens déjà en recherche active.</li>
+        <li><strong>Les plateformes de devis</strong>  
+          – Le prospect reçoit souvent 3 à 5 offres en même temps. Vous êtes mis en concurrence sur le prix, et vous perdez du temps sur des demandes peu qualifiées.</li>
+      </ul>
+      <p>Résultat :</p>
+      <ul>
+        <li>Vous n’avez <strong>pas vraiment de contrôle</strong> sur le nombre de demandes de devis qui arrivent chaque mois</li>
+        <li>Vous ne savez pas combien vous coûte réellement <strong>un chantier signé</strong></li>
+        <li>Et beaucoup de propriétaires qui ont un projet <strong>ne vous voient jamais</strong> : ils tombent sur vos concurrents</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3 : SYSTÈME -->
+    <section class="section">
+      <h2>Un système simple pour générer des demandes de devis qualifiées</h2>
+      <p>L’idée n’est pas de tout remplacer, mais d’ajouter un <strong>système simple et mesurable</strong> au-dessus de ce que vous faites déjà.</p>
+      <p>Ce système repose sur la <strong>publicité Meta (Facebook &amp; Instagram)</strong> :</p>
+      <ul>
+        <li>Nous définissons ensemble votre <strong>zone d’intervention</strong> (cantons, régions) et les <strong>types de chantiers</strong> que vous voulez vraiment développer (PAC, solaire, rénovation énergétique…)</li>
+        <li>Je crée des campagnes qui montrent votre entreprise uniquement à des <strong>propriétaires</strong> ou décideurs dans votre zone, qui correspondent à votre <strong>client idéal</strong></li>
+        <li>Ces personnes cliquent sur une page simple ou un formulaire de demande de devis, et laissent leurs coordonnées</li>
+        <li>Vous recevez ces <strong>demandes de devis</strong> directement → vous les rappelez → vous signez les chantiers</li>
+      </ul>
+      <p>Vous ne touchez pas à la partie technique ou aux campagnes. Vous continuez à faire votre métier, je m’occupe de faire venir les bonnes personnes vers vous.</p>
+      <div style="margin-top: 10px;">
+        <a href="#appel" class="btn-primary">Réserver un appel de 15 minutes</a>
+      </div>
+    </section>
+
+    <!-- SECTION 4 : QUI SUIS-JE -->
+    <section class="section section-muted">
+      <h2>Qui suis-je pour vous parler de ça ?</h2>
+      <p>Je m’appelle <strong>Sam</strong>, je suis basé en Suisse romande et je suis <strong>spécialisé en publicité Meta</strong> (Facebook / Instagram).</p>
+      <ul>
+        <li>Depuis plusieurs années, je gère des campagnes publicitaires qui ont généré plus de <strong>800 000 CHF de chiffre d’affaires</strong> dans le domaine des services en ligne.</li>
+        <li>J’ai été formé et accompagné par des spécialistes Meta Ads reconnus, et mon métier, c’est d’optimiser les campagnes pour transformer un budget publicitaire en <strong>demandes concrètes</strong>.</li>
+      </ul>
+      <p>Aujourd’hui, je choisis de concentrer ce savoir-faire sur <strong>un seul type d’entreprises</strong> : celles qui participent à la <strong>transition énergétique</strong> des bâtiments en Suisse romande :</p>
+      <ul>
+        <li>pompes à chaleur</li>
+        <li>panneaux solaires</li>
+        <li>rénovation énergétique (isolation, toitures, fenêtres, etc.)</li>
+      </ul>
+      <p>Je ne suis pas une grosse agence. Je travaille avec peu de clients en même temps pour suivre les chiffres de près et optimiser chaque campagne.</p>
+    </section>
+
+    <!-- SECTION 5 : PROGRAMME DE LANCEMENT -->
+    <section class="section">
+      <h2>Le Programme de Lancement – Offre Bêta pour 2 entreprises</h2>
+      <p>Comme je lance cette offre spécifiquement pour les entreprises de <strong>panneaux solaires</strong> et de <strong>rénovation énergétique</strong> en Suisse romande, je propose un <strong>Programme de Lancement</strong> pour <strong>2 entreprises uniquement</strong>.</p>
+      <p>L’objectif : tester la pub Meta <strong>sérieusement</strong> pendant 30 jours, <strong>sans que vous ayez à payer mes honoraires</strong> au départ.</p>
+
+      <h3 style="font-size:1rem; margin:10px 0 6px;">Ce que je fais pour vous pendant 30 jours</h3>
+      <ul>
+        <li><strong>Stratégie &amp; cadrage (Semaine 1)</strong>  
+          1 appel de 45–60 minutes pour comprendre votre activité, votre zone, vos chantiers, vos marges et ce que vous faites déjà.</li>
+        <li><strong>Mise en place des campagnes</strong>  
+          Création de 2–3 messages publicitaires, paramétrage des campagnes Meta, mise en place d’un <strong>formulaire Facebook</strong> ou d’une <strong>page simple</strong> pour collecter les demandes de devis.</li>
+        <li><strong>Lancement &amp; optimisation (30 jours)</strong>  
+          Lancement, ajustements hebdos (ciblage, textes, visuels, budget) et suivi des demandes générées.</li>
+        <li><strong>Bilan en fin de période</strong>  
+          Nombre total de demandes de devis, estimation du <strong>coût par demande</strong>, votre retour sur la qualité, et discussion sur la suite.</li>
+      </ul>
+
+      <h3 style="font-size:1rem; margin:10px 0 6px;">Combien ça vous coûte ?</h3>
+      <ul>
+        <li><strong>Honoraires Sam (mois 1) : 0 CHF</strong> – je ne facture pas mon travail de mise en place et de gestion sur les 30 premiers jours.</li>
+        <li><strong>Budget publicitaire : 500 à 800 CHF</strong> – versés directement à Meta (Facebook / Instagram).</li>
+      </ul>
+      <p>En clair : vous testez la pub Meta pendant 30 jours, <strong>sans payer d’honoraires</strong>, uniquement le budget publicitaire, pour voir combien de demandes de devis qualifiées on peut générer pour votre entreprise.</p>
+
+      <h3 style="font-size:1rem; margin:10px 0 6px;">En échange, je vous demande :</h3>
+      <ul>
+        <li>un <strong>retour honnête</strong> sur la qualité des demandes reçues,</li>
+        <li>l’autorisation d’utiliser les chiffres de la campagne (anonymisés si besoin) comme <strong>cas d’étude</strong>,</li>
+        <li>et, si le test est concluant, de discuter d’une <strong>collaboration payante</strong> pour la suite (forfait mensuel de gestion).</li>
+      </ul>
+      <div style="margin-top: 10px;">
+        <a href="#appel" class="btn-primary">Réserver un appel de 15 minutes</a>
+        <div class="small-note">Offre limitée à 2 entreprises – nous vérifions d’abord ensemble si c’est pertinent pour vous.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 : APPEL -->
+    <section class="section section-muted" id="appel">
+      <h2>Comment se passe l’appel de 15 minutes ?</h2>
+      <p>L’appel de 15 minutes n’est pas un cours de marketing ni un long pitch commercial. Son but est simple : <strong>vérifier si ça vaut la peine de lancer ce test chez vous</strong>.</p>
+      <p>Pendant cet appel, nous allons :</p>
+      <ul>
+        <li>Faire un rapide point sur :
+          <ul>
+            <li>ce que vous faites aujourd’hui pour trouver des clients,</li>
+            <li>ce qui fonctionne bien,</li>
+            <li>ce qui vous pose problème.</li>
+          </ul>
+        </li>
+        <li>Voir si votre <strong>zone</strong>, votre <strong>type de chantiers</strong> et votre <strong>capacité actuelle</strong> se prêtent bien à ce type de campagne.</li>
+        <li>Répondre à vos questions sur le fonctionnement du test, le budget pub et la suite possible si les résultats sont bons.</li>
+      </ul>
+      <p>À la fin de l’appel :</p>
+      <ul>
+        <li>Soit on décide ensemble que ce n’est <strong>pas le bon moment</strong> / pas le bon canal → et on s’arrête là.</li>
+        <li>Soit on valide que le test a du sens → et on planifie la suite (accord, accès, lancement).</li>
+      </ul>
+      <div style="margin-top: 10px;">
+        <!-- Remplace # par ton lien Calendly -->
+        <a href="#" class="btn-primary">Choisir mon créneau sur Calendly</a>
+        <div class="small-note">Cliquez, choisissez un créneau, et on voit ensemble si le programme est adapté à votre entreprise.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 : FAQ -->
+    <section class="section">
+      <h2>Questions fréquentes</h2>
+
+      <div class="faq-item">
+        <strong>Et si je travaille déjà avec quelqu’un sur Google Ads ?</strong>
+        <p>Aucun problème. Google et Meta sont deux canaux différents :</p>
+        <ul>
+          <li>Google touche les gens qui cherchent activement « installateur PAC Genève » maintenant.</li>
+          <li>Meta permet d’aller chercher les propriétaires plus tôt, directement dans leur fil d’actualité.</li>
+        </ul>
+        <p>Je ne vous demande pas d’arrêter ce qui fonctionne. Ce programme sert à voir si Meta peut devenir un <strong>canal complémentaire rentable</strong> pour vous.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Vous garantissez combien de leads ou de chantiers ?</strong>
+        <p>Je ne vous promets pas un nombre précis avant d’avoir testé dans votre contexte réel.</p>
+        <p>Ce que je vous garantis :</p>
+        <ul>
+          <li>un <strong>travail sérieux</strong> de mise en place et d’optimisation,</li>
+          <li>des <strong>chiffres clairs</strong> en fin de période (nombre de demandes, coût par demande),</li>
+          <li>et le fait que sur le 1er mois, vous ne payez <strong>aucun honoraire</strong>, uniquement le budget de pub.</li>
+        </ul>
+      </div>
+
+      <div class="faq-item">
+        <strong>Est-ce que je dois m’engager sur plusieurs mois ?</strong>
+        <p>Non. Le Programme de Lancement dure 30 jours. À la fin, nous faisons le point et vous décidez librement :</p>
+        <ul>
+          <li>d’arrêter,</li>
+          <li>d’ajuster,</li>
+          <li>ou de continuer avec un forfait de gestion classique si le retour est intéressant pour vous.</li>
+        </ul>
+      </div>
+
+      <div class="faq-item">
+        <strong>Quel budget pub dois-je prévoir exactement ?</strong>
+        <p>Je recommande un budget initial de <strong>500 à 800 CHF</strong> pour ces 30 jours de test. C’est suffisant pour :</p>
+        <ul>
+          <li>commencer à générer des demandes de devis,</li>
+          <li>et obtenir des données réelles (coût par demande, qualité des leads).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 8 : CTA FINAL -->
+    <section class="section cta-final">
+      <h2>Prêt à tester la pub Meta sans prendre le risque de payer une agence pour rien ?</h2>
+      <p>
+        Si vous installez des <strong>pompes à chaleur</strong>, des <strong>panneaux solaires</strong> ou que vous faites de la
+        <strong>rénovation énergétique</strong> en Suisse romande, ce Programme de Lancement est fait pour vous.
+      </p>
+      <p>
+        Je prends à ma charge mes honoraires du 1er mois,  
+        vous ne payez que la <strong>pub</strong>,  
+        et nous voyons ensemble ce que cela donne, chiffres à l’appui.
+      </p>
+      <a href="#" class="btn-primary">Réserver un appel de 15 minutes</a>
+      <div class="small-note">Offre limitée à 2 entreprises – cliquez, choisissez un créneau, et on voit ensemble si c’est pour vous.</div>
+    </section>
+
+  </div>
+</body>
+</html>
