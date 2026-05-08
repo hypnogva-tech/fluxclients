@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluxClients.ch — 20 leads qualifiés en 60 jours ou remboursé</title>
+  <meta name="description" content="20 demandes de devis qualifiées en 60 jours pour les installateurs PAC, solaire et rénovation énergétique en Suisse romande — ou remboursement intégral.">
+
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1496766415024234');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1496766415024234&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #777777;
+      --accent: #0a6e52;
+      --green: #3ecf8e;
+      --radius: 12px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    /* HEADER */
+    header { padding: 18px 0; border-bottom: 1px solid #e0e0e0; background: rgba(255,255,255,0.97); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+    header .container { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-weight: 900; font-size: 18px; color: #0a0a0a; text-decoration: none; text-transform: uppercase; }
+    .logo span { color: #3ecf8e; }
+    .places-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(62,207,142,0.3);
+      padding: 6px 14px; border-radius: 999px;
+    }
+    .places-dot { width: 6px; height: 6px; border-radius: 50%; background: #3ecf8e; animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* HERO */
+    .hero { padding: 52px 0 0; text-align: center; }
+    .badge {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; color: var(--accent);
+      border: 1px solid rgba(62,207,142,0.4);
+      padding: 6px 18px; border-radius: 999px; margin-bottom: 24px;
+    }
+    h1 {
+      font-weight: 900; font-size: clamp(28px, 6vw, 48px);
+      line-height: 1.08; margin-bottom: 14px; text-transform: uppercase;
+    }
+    h1 em { font-style: normal; color: #0a6e52; }
+    .h1-sub {
+      font-size: 12px; font-weight: 700; color: #666;
+      margin-bottom: 28px; text-transform: uppercase; line-height: 1.6;
+    }
+
+    /* GARANTIE BOX */
+    .garantie-box {
+      background: #0a0a0a;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .garantie-icon { font-size: 32px; margin-bottom: 10px; }
+    .garantie-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: #fff; margin-bottom: 12px;
+    }
+    .garantie-text {
+      font-size: clamp(16px, 3.5vw, 22px); font-weight: 900;
+      color: #fff; line-height: 1.2; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .garantie-text em { font-style: normal; color: #fff; }
+    .garantie-note {
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* BULLETS */
+    .bullets {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 32px; text-align: left;
+    }
+    .bullet {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px;
+      background: #f9f9f9; border-radius: 8px;
+      border-left: 3px solid #3ecf8e;
+    }
+    .bullet-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .bullet-text { font-size: 13px; font-weight: 600; color: #0a0a0a; line-height: 1.5; }
+    .bullet-text span { color: var(--gray); font-weight: 400; font-size: 12px; display: block; margin-top: 2px; }
+
+    /* FORMULAIRE */
+    .form-section {
+      background: #f4f4f4;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      margin-bottom: 32px;
+    }
+    .form-title {
+      font-size: 14px; font-weight: 900; text-transform: uppercase;
+      margin-bottom: 6px; text-align: center;
+    }
+    .form-sub {
+      font-size: 11px; color: var(--gray); text-align: center;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block; font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: #444; margin-bottom: 6px;
+    }
+    .field select,
+    .field input {
+      width: 100%; padding: 13px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 600;
+      border: 2px solid #e0e0e0; border-radius: 8px;
+      background: #fff; color: #0a0a0a;
+      outline: none; transition: border-color 0.15s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field select:focus,
+    .field input:focus { border-color: #3ecf8e; }
+    .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23777' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+    .btn-submit {
+      display: block; width: 100%; padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px; font-weight: 900; text-transform: uppercase;
+      color: #071a0f; background: #3ecf8e;
+      border: none; border-radius: var(--radius);
+      cursor: pointer; transition: background 0.2s;
+      margin-top: 20px;
+    }
+    .btn-submit:hover { background: #085c44; }
+    .form-note {
+      font-size: 10px; color: var(--gray); text-align: center;
+      text-transform: uppercase; margin-top: 10px; line-height: 1.6;
+    }
+
+    /* CONFIRMATION (cachée par défaut) */
+    .confirmation {
+      display: none;
+      background: #0a0a0a; border-radius: var(--radius);
+      padding: 40px 24px; text-align: center; margin-bottom: 32px;
+    }
+    .confirmation .check { font-size: 48px; margin-bottom: 16px; }
+    .confirmation h3 {
+      font-size: 20px; font-weight: 900; text-transform: uppercase;
+      color: #fff; margin-bottom: 10px;
+    }
+    .confirmation h3 em { font-style: normal; color: #fff; }
+    .confirmation p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 40px; }
+    .stat { background: #f9f9f9; padding: 20px 10px; text-align: center; border-radius: 8px; }
+    .stat-num { font-size: 22px; font-weight: 900; color: #0a6e52; display: block; margin-bottom: 4px; }
+    .stat-label { font-size: 9px; color: var(--gray); text-transform: uppercase; font-weight: 700; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #eee; padding: 30px 0; text-align: center; font-size: 12px; color: var(--gray); }
+
+    .h1-sans {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      margin-bottom: 28px;
+    }
+    .h1-sans span {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #c47a00;
+      background: #fff8e6;
+      border: 1px solid rgba(196,122,0,0.25);
+      padding: 5px 12px; border-radius: 999px;
+    }
+    @media (max-width: 520px) {
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a class="logo" href="#">Flux<span>Clients</span>.ch</a>
+      <div class="places-badge"><div class="places-dot"></div> 5 places restantes</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="badge">Offre spéciale · Installateurs & Entrepreneurs · Romandie</div>
+
+      <h1><em>20 leads qualifiés</em><br>en 60 jours<br>— ou <em>remboursé.</em></h1>
+
+      <div class="h1-sub">
+        PAC · Solaire · Isolation · Fenêtres · VMC · Rénovation énergétique
+      </div>
+      <div class="h1-sans">
+        <span>✕ Sans prospection</span>
+        <span>✕ Sans plateformes de devis</span>
+        <span>✕ Sans bouche-à-oreille</span>
+      </div>
+
+      <!-- GARANTIE -->
+      <div class="garantie-box">
+        <div class="garantie-icon">🛡️</div>
+        <div class="garantie-label">Garantie remboursement intégral</div>
+        <div class="garantie-text">Si vous n'obtenez pas<br><em>20 demandes de devis qualifiées</em><br>en 60 jours —</div>
+        <div class="garantie-text" style="margin-top:8px;">Je vous <em>rembourse intégralement.</em></div>
+        <div class="garantie-note" style="margin-top:12px;">Sans discussion · Honoraires inclus</div>
+      </div>
+
+      <!-- BULLETS -->
+      <div class="bullets">
+        <div class="bullet">
+          <div class="bullet-icon">🎯</div>
+          <div class="bullet-text">
+            20 leads qualifiés minimum en 60 jours
+            <span>Nom, téléphone, projet réel dans votre secteur — pas des curieux.</span>
+          </div>
+        </div>
+        <div class="bullet">
+          <div class="bullet-icon">⚡</div>
+          <div class="bullet-text">
+            Mise en place en 7 à 10 jours
+            <span>Campagnes Meta créées, lancées et optimisées de A à Z par moi.</span>
+          </div>
+        </div>
+        <div class="bullet">
+          <div class="bullet-icon">🔒</div>
+          <div class="bullet-text">
+            Zéro risque pour vous
+            <span>Résultat non atteint = remboursement intégral de mes honoraires. Sans discussion.</span>
+          </div>
+        </div>
+        <div class="bullet">
+          <div class="bullet-icon">📍</div>
+          <div class="bullet-text">
+            100% Suisse romande
+            <span>Leads ciblés dans votre zone d'intervention — pas des contacts hors zone.</span>
+          </div>
+        </div>
+        <div class="bullet" style="border-left-color: #3ecf8e; background: #f0faf5;">
+          <div class="bullet-icon">💰</div>
+          <div class="bullet-text" style="color: #0a6e52;">
+            1 seul chantier signé rembourse tout votre investissement
+            <span style="color: #2a7a5a;">Et vous laisse une belle marge. Tout le reste, c'est du bénéfice net.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats">
+        <div class="stat"><span class="stat-num">800k+</span><span class="stat-label">CHF générés via Meta</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">Places disponibles</span></div>
+        <div class="stat"><span class="stat-num">60j</span><span class="stat-label">Garantie résultat</span></div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="form-section" id="formSection">
+        <div class="form-title">Postuler pour une place</div>
+        <div class="form-sub">Je vous rappelle sous 24h pour valider votre dossier</div>
+
+        <form id="qualifForm" onsubmit="submitForm(event)">
+          <div class="field">
+            <label>Votre métier principal</label>
+            <select name="metier" required>
+              <option value="" disabled selected>Choisissez votre activité</option>
+              <option>Installateur pompes à chaleur (PAC)</option>
+              <option>Installateur panneaux solaires</option>
+              <option>Isolation façade / toiture</option>
+              <option>Remplacement fenêtres & portes</option>
+              <option>VMC double flux</option>
+              <option>Chauffage pellets / bois</option>
+              <option>Bornes de recharge (EV)</option>
+              <option>Rénovation énergétique globale</option>
+              <option>Autre</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Votre canton principal d'intervention</label>
+            <select name="canton" required>
+              <option value="" disabled selected>Choisissez votre canton</option>
+              <option>Vaud (VD)</option>
+              <option>Genève (GE)</option>
+              <option>Fribourg (FR)</option>
+              <option>Neuchâtel (NE)</option>
+              <option>Valais (VS)</option>
+              <option>Jura (JU)</option>
+              <option>Berne francophone (BE)</option>
+              <option>Plusieurs cantons romands</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Combien de chantiers signez-vous par mois actuellement ?</label>
+            <select name="chantiers" required>
+              <option value="" disabled selected>Sélectionnez une fourchette</option>
+              <option>Moins de 3 chantiers / mois</option>
+              <option>3 à 6 chantiers / mois</option>
+              <option>6 à 10 chantiers / mois</option>
+              <option>Plus de 10 chantiers / mois</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Votre budget pub mensuel disponible</label>
+            <select name="budget" required>
+              <option value="" disabled selected>Sélectionnez un budget</option>
+              <option>500 – 800 CHF / mois</option>
+              <option>800 – 1500 CHF / mois</option>
+              <option>1500 – 3000 CHF / mois</option>
+              <option>Plus de 3000 CHF / mois</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Votre prénom et nom</label>
+            <input type="text" name="nom" placeholder="Ex. Jean Dupont" required>
+          </div>
+
+          <div class="field">
+            <label>Votre numéro de téléphone</label>
+            <input type="tel" name="tel" placeholder="Ex. 079 123 45 67" required>
+          </div>
+
+          <button type="submit" class="btn-submit">→ Je postule pour une place</button>
+          <p class="form-note">5 places maximum · Je vous rappelle sous 24h · Sans engagement</p>
+        <div style="margin-top:20px; padding-top:16px; border-top:1px solid #e0e0e0; text-align:center;">
+          <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#444;">
+            Samy · Spécialiste Meta Ads · Morges, Suisse romande
+          </p>
+          <p style="font-size:11px; color:#999; text-transform:uppercase; letter-spacing:0.06em; margin-top:4px;">
+            800 000 CHF de CA générés via Meta Ads
+          </p>
+        </div>
+        </form>
+      </div>
+
+      <!-- CONFIRMATION -->
+      <div class="confirmation" id="confirmation">
+        <div class="check">✅</div>
+        <h3>Demande <em>reçue !</em></h3>
+        <p>Je vous rappelle dans les <strong style="color:#fff">24 heures</strong> pour valider votre place et voir si votre entreprise correspond au programme.<br><br>En attendant, vérifiez vos messages — je vous enverrai peut-être un SMS.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p style="font-weight: 800; color: #000; margin-bottom: 5px;">FLUXCLIENTS.CH</p>
+      <p>© 2026 FluxClients.ch · Morges, Suisse · Spécialiste Meta Ads Romandie</p>
+    </div>
+  </footer>
+
+  <script>
+    function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('qualifForm');
+      const data = new FormData(form);
+
+      // Pixel Meta — Lead event
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead');
+      }
+
+      // Cacher le formulaire, afficher confirmation
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+
+      // Scroll vers la confirmation
+      document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+
+</body>
+</html>
