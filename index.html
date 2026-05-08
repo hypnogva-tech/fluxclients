@@ -283,8 +283,9 @@
         <div class="form-title">Postuler pour une place</div>
         <div class="form-sub">Je vous rappelle sous 24h pour valider votre dossier</div>
 
-        <form id="qualifForm" action="https://formspree.io/f/mlgzwvzn" method="POST" onsubmit="submitForm(event)">
+        <form id="qualifForm" action="https://formspree.io/f/mlgzwvzn" method="POST">
           <input type="hidden" name="_replyto" value="contact@fluxclients.ch">
+          <input type="hidden" name="_next" value="https://fluxclients.ch/merci">
           <input type="hidden" name="_subject" value="Nouvelle postulation FluxClients.ch — Offre Garantie">
           <div class="field">
             <label>Votre métier principal</label>
