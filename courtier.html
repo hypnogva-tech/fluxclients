@@ -3,373 +3,553 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Système d'Acquisition Souverain — Cabinets de Courtage Suisse</title>
-<meta name="description" content="Automatisez la génération de vos leads qualifiés à 3 CHF et stoppez la dépendance aux fiches partagées.">
+<title>Habitac — Génération de Rendez-vous d’Estimation Immobilière</title>
+<meta name="description" content="Générez entre 5 et 20 rendez-vous d’estimation qualifiés par mois grâce aux publicités Meta. Système clé en main pour mandataires et agences.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --fire:#FF5C00;--fire2:#FF8C00;
-  --dark:#FFFFFF;--dark2:#F5F5F5;--dark3:#1A1A1A;
-  --light:#FFFFFF;--light2:#F7F5F2;--light3:#F0EDE8;
-  --text:#1A1A1A;--text2:#555555;
-  --white:#111111;--grey:#555555;
-  --border:rgba(255,92,0,0.15);--border2:rgba(0,0,0,0.1);
-  --border3:rgba(0,0,0,0.08);
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: rgba(37, 99, 233, 0.05);
+  --dark: #0F172A;
+  --dark-light: #1E293B;
+  --light: #F8FAFC;
+  --border: #E2E8F0;
+  --text: #334155;
+  --success: #10B981;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#FFFFFF;color:#111111;font-family:'Outfit',sans-serif;line-height:1.6;overflow-x:hidden}
-h1,h2,h3{line-height:1.05}
-img{max-width:100%;display:block;height:auto}
-body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:0}
 
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);border-bottom:1px solid rgba(0,0,0,0.12);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;background:linear-gradient(90deg,var(--fire),var(--fire2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-btn{background:linear-gradient(135deg,var(--fire),var(--fire2));color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:11px 24px;text-decoration:none;border-radius:2px;transition:opacity .2s}
-.nav-btn:hover{opacity:.85}
-@media(min-width:600px){.nav-email{display:block !important}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; color: var(--dark); background: #FFFFFF; line-height: 1.6; overflow-x: hidden; }
 
-.hero{position:relative;padding:130px 20px 90px;background:#FFFFFF;overflow:hidden;text-align:center}
-.hero-bg{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(255,92,0,0.12) 0%,transparent 70%);pointer-events:none}
-.hero-bg2{position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,140,0,0.06) 0%,transparent 70%);pointer-events:none}
-.hi{max-width:860px;margin:0 auto;position:relative;z-index:1}
-.pre-h{display:inline-flex;align-items:center;gap:8px;background:#FF5C00;border:1px solid rgba(255,92,0,0.3);color:#ffffff;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:8px 18px;margin-bottom:28px;border-radius:2px}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,110px);letter-spacing:2px;color:#111111;margin-bottom:20px;line-height:0.95}
-.fire{background:linear-gradient(90deg,var(--fire),var(--fire2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(17px,2vw,22px);color:rgba(0,0,0,0.7);line-height:1.6;margin-bottom:12px;max-width:660px;margin-left:auto;margin-right:auto;font-weight:500}
-.hero-sub strong{color:#111111}
-.hero-tension{font-size:clamp(14px,1.6vw,16px);color:rgba(255,92,0,0.85);font-weight:600;margin-bottom:36px;letter-spacing:0.5px}
-.pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px;justify-content:center}
-.pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:8px 18px;font-size:13px;color:rgba(0,0,0,0.7);border-radius:2px;font-weight:500}
-.hero-cta-note{font-size:12px;color:#555555;margin-top:12px}
+/* Structures Globales */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.sec { padding: 80px 0; }
+.sec-grey { padding: 80px 0; background: var(--light); }
+.tc { text-align: center; }
+.lbl { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; display: block; margin-bottom: 12px; }
+h2 { font-size: clamp(28px, 4vw, 42px); color: var(--dark); line-height: 1.2; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+.sub { font-size: 16px; color: var(--text); max-width: 640px; margin: 0 auto 48px; }
 
-.btn{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--fire),var(--fire2));color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:15px;letter-spacing:2px;text-transform:uppercase;padding:22px 52px;text-decoration:none;border-radius:2px;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 40px rgba(255,92,0,0.35);max-width:520px;width:100%}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 50px rgba(255,92,0,0.5)}
+/* Boutons */
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #FFF; font-weight: 700; font-size: 15px; padding: 16px 36px; text-decoration: none; border-radius: 8px; transition: all .2s; box-shadow: 0 4px 14px rgba(37, 99, 233, 0.25); border: none; cursor: pointer; }
+.btn:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37, 99, 233, 0.35); }
 
-.proof{background:#F5F5F5;border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(0,0,0,0.12);padding:22px 20px}
-.proof-inner{max-width:860px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap}
-.pi{text-align:center}
-.pi-n{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:2px;background:linear-gradient(90deg,var(--fire),var(--fire2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.pi-l{font-size:10px;color:#555555;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
-.psep{width:1px;height:36px;background:var(--border2)}
+/* Navigation */
+.nav { background: #FFF; border-bottom: 1px solid var(--border); padding: 16px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); background: rgba(255,255,255,0.95); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 22px; font-weight: 800; color: var(--dark); letter-spacing: -0.5px; }
+.logo span { color: var(--primary); }
+.nav .btn { padding: 10px 20px; font-size: 13px; border-radius: 6px; }
 
-.dv{height:1px;background:linear-gradient(90deg,transparent,#FF5C00,transparent);max-width:500px;margin:0 auto}
-.sec{padding:80px 20px;position:relative}
-.sn{max-width:860px;margin:0 auto}
-.sm{max-width:680px;margin:0 auto}
-.sw{max-width:1100px;margin:0 auto}
-.bw{background:#F5F5F5}.bl{background:var(--dark3)}
-.tc{text-align:center}
-.sec h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);letter-spacing:2px;margin-bottom:12px;color:#111111}
-.lbl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--fire);font-weight:700;display:block;margin-bottom:12px}
-.sub{color:#555555;font-size:15px;margin-bottom:40px;line-height:1.7}
-.cta-sec{padding:60px 20px;text-align:center;background:var(--dark3);border-top:1px solid rgba(0,0,0,0.12);border-bottom:1px solid rgba(0,0,0,0.12)}
-.cta-sec .btn{margin:0 auto}
-.cta-sec p{font-size:11px;color:#555555;margin-top:12px}
+/* Hero Section */
+.hero { padding: 80px 0 60px; background: radial-gradient(circle at 90% 10%, rgba(37, 99, 233, 0.05) 0%, transparent 50%); text-align: center; }
+.stars { color: #F59E0B; font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+.hero h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 800; color: var(--dark); line-height: 1.15; margin-bottom: 24px; letter-spacing: -1px; }
+.hero h1 span { color: var(--primary); }
+.hero .sub-hero { font-size: 18px; color: var(--text); max-width: 760px; margin: 0 auto 36px; }
 
-.pb-list{display:flex;flex-direction:column;gap:14px;max-width:640px;margin:0 auto 40px}
-.pb-item{display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:rgba(255,92,0,0.04);border-left:3px solid var(--fire);border-radius:0 4px 4px 0;border:1px solid rgba(255,92,0,0.15);border-left:3px solid var(--fire)}
-.pb-icon{font-size:20px;flex-shrink:0;margin-top:2px}
-.pb-item p{font-size:15px;color:var(--text2);line-height:1.55}
-.pb-item p strong{color:var(--text)}
+/* Compteurs Stats */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 800px; margin: 48px auto 0; padding-top: 40px; border-top: 1px solid var(--border); }
+.stat-card h3 { font-size: clamp(32px, 4vw, 46px); font-weight: 800; color: var(--dark); line-height: 1; margin-bottom: 4px; }
+.stat-card h3 span { color: var(--primary); }
+.stat-card p { font-size: 13px; color: var(--text); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
 
-.story-wrap{max-width:720px;margin:0 auto}
-.story-wrap p{font-size:16px;color:rgba(0,0,0,0.7);line-height:1.9;margin-bottom:18px}
-.story-wrap p strong{color:var(--fire)}
-.story-quote{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.5vw,36px);letter-spacing:1px;color:#111111;line-height:1.2;border-left:4px solid var(--fire);padding:16px 24px;margin:32px 0;background:rgba(255,92,0,0.05)}
-.story-milestones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:32px 0}
-.sm-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.1);border-radius:2px}
-.sm-check{width:26px;height:26px;flex-shrink:0;background:linear-gradient(135deg,var(--fire),var(--fire2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#fff}
-.sm-item p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.4}
+/* Logos réassurance */
+.brand-sec { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 24px 0; background: var(--light); text-align: center; }
+.brand-sec p { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #94A3B8; margin-bottom: 14px; }
+.brand-grid { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; opacity: 0.6; font-weight: 700; color: #64748B; font-size: 14px; letter-spacing: 1px; }
 
-.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-bottom:40px}
-.mg-item{background:var(--dark3);padding:32px 28px;position:relative;overflow:hidden}
-.mg-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--fire),transparent)}
-.mg-num{font-family:'Bebas Neue',sans-serif;font-size:56px;letter-spacing:2px;color:rgba(255,92,0,0.15);line-height:1;margin-bottom:8px}
-.mg-item h3{font-size:14px;font-weight:700;color:#111111;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
-.mg-item p{font-size:13px;color:#555555;line-height:1.65}
+/* Grilles de contenu & Problèmes */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.contexte-text p, .solution-text p { font-size: 16px; color: var(--text); margin-bottom: 16px; line-height: 1.7; }
 
-.get-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:40px}
-.gc{background:var(--light);padding:32px 26px;position:relative;overflow:hidden;border:1px solid var(--border3);box-shadow:0 2px 8px rgba(0,0,0,0.05)}
-.gc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--fire),transparent)}
-.gc .gi{font-size:30px;margin-bottom:14px}
-.gc h3{font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;color:var(--text)}
-.gc p{font-size:13px;color:var(--text2);line-height:1.65}
+/* Tableau & Listes d'outils */
+.tool-box { background: var(--light); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-top: 32px; }
+.tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.tool-col h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.tool-list { list-style: none; }
+.tool-list li { font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--text); }
+.tool-list li::before { content: "•"; font-size: 20px; line-height: 1; }
+.tool-bad li::before { color: #EF4444; content: "✕"; font-size: 12px; font-weight: bold; }
+.tool-good li::before { color: var(--success); content: "✓"; font-size: 12px; font-weight: bold; }
 
-.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:40px}
-.yt-facade{border-radius:4px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.4);cursor:pointer;position:relative;background:#000}
-.yt-facade img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:opacity .2s}
-.yt-facade:hover img{opacity:.75}
-.yt-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;background:rgba(255,92,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
-.yt-play::after{content:'';width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:18px solid #fff;margin-left:4px}
-.yt-iframe-wrap{border-radius:4px;overflow:hidden}
-.yt-iframe-wrap iframe{width:100%;aspect-ratio:16/9;border:none;display:block}
-.yt-name{padding:10px 12px;font-size:12px;font-weight:600;color:rgba(0,0,0,0.6);background:var(--dark3)}
+/* Matrice Comparaison Stratégies */
+.matrix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+.matrix-card { border: 1px solid var(--border); border-radius: 12px; padding: 28px; background: #FFF; position: relative; }
+.matrix-card.featured { border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(37, 99, 233, 0.08); }
+.matrix-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #FFF; font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.matrix-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 16px; }
+.matrix-section { margin-bottom: 16px; }
+.matrix-section h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8; margin-bottom: 6px; }
+.matrix-section p { font-size: 13px; color: var(--text); line-height: 1.5; margin-bottom: 4px; }
 
-.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-bottom:40px}
-.tc-card{background:var(--light);padding:28px 24px;position:relative;overflow:hidden;border:1px solid var(--border3);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.tc-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--fire),transparent)}
-.tc-card .stars{color:var(--fire);font-size:12px;letter-spacing:3px;margin-bottom:12px}
-.tc-card .res{font-size:11px;font-weight:700;color:var(--fire);background:#FF5C00;border:1px solid #FF5C00;padding:4px 12px;display:inline-block;margin-bottom:14px;border-radius:2px;letter-spacing:0.5px}
-.tc-card .txt{font-size:13px;color:var(--text2);line-height:1.75;font-style:italic;margin-bottom:14px}
-.tc-card .au{font-size:10px;color:#999;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+/* Études de cas (Chiffres de réussite) */
+.cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.case-card { border: 1px solid var(--border); border-radius: 12px; padding: 32px; background: #FFF; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+.case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.case-user h4 { font-size: 16px; font-weight: 700; color: var(--dark); }
+.case-user p { font-size: 12px; color: var(--text); font-weight: 500; }
+.case-tag { font-size: 11px; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
+.case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cs-box { padding: 12px 0; }
+.cs-box span { font-size: 24px; font-weight: 800; color: var(--dark); display: block; line-height: 1.2; }
+.cs-box label { font-size: 11px; text-transform: uppercase; color: #64748B; letter-spacing: 0.5px; font-weight: 600; }
 
-.fi{border-bottom:1px solid rgba(0,0,0,0.1);padding:20px 0;cursor:pointer}
-.fq{font-size:15px;font-weight:600;display:flex;justify-content:space-between;gap:16px;color:#111111}
-.ft{color:var(--fire);font-size:22px;font-weight:300;flex-shrink:0;line-height:1.2;transition:transform .25s}
-.fi.open .ft{transform:rotate(45deg)}
-.fa{font-size:13px;color:#555555;line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s}
-.fi.open .fa{max-height:300px;padding-top:12px}
+/* Étapes du processus */
+.steps-list { display: flex; flex-direction: column; gap: 16px; max-width: 760px; margin: 0 auto; }
+.step-item { display: flex; gap: 24px; padding: 24px; border: 1px solid var(--border); border-radius: 12px; background: #FFF; align-items: flex-start; }
+.step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--primary-light); color: var(--primary); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+.step-content p { font-size: 14px; color: var(--text); line-height: 1.6; }
 
-.offer-box{background:rgba(255,92,0,0.06);border:1px solid rgba(255,92,0,0.3);padding:40px;border-radius:4px;margin-bottom:32px;text-align:left}
-.offer-items{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
-.offer-item{display:flex;align-items:center;gap:14px;font-size:15px;color:rgba(0,0,0,0.8)}
-.offer-item .check{width:22px;height:22px;flex-shrink:0;background:linear-gradient(135deg,var(--fire),var(--fire2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff}
-.price-reveal{border-top:1px solid rgba(255,255,255,0.1);padding-top:28px;text-align:center}
-.price-big{font-family:'Bebas Neue',sans-serif;font-size:80px;letter-spacing:3px;color:#111111;line-height:1}
-.price-big span{font-size:32px;color:var(--fire)}
-.price-sub{font-size:13px;color:#555555;margin-top:6px}
-.price-context{font-size:13px;color:rgba(255,255,255,0.4);margin-top:10px;line-height:1.6}
+/* Témoignages & Bloc Garantie */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 40px 0; }
+.t-card { background: var(--light); padding: 24px; border-radius: 8px; border: 1px solid var(--border); }
+.t-card p { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.6; }
+.t-card p strong { color: var(--primary); font-style: normal; }
+.t-author { font-size: 12px; font-weight: 700; color: var(--dark); margin-top: 14px; text-transform: uppercase; letter-spacing: 0.5px; display: block; }
 
-.urg{padding:80px 20px;background:linear-gradient(135deg,var(--dark) 0%,#1a0800 100%);text-align:center;position:relative;overflow:hidden}
-.urg-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,#FF5C00 0%,transparent 70%);pointer-events:none}
-.urg h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,72px);letter-spacing:3px;max-width:700px;margin:0 auto 16px;color:#111111;position:relative;z-index:1}
-.urg p{color:rgba(255,255,255,0.45);font-size:16px;max-width:460px;margin:0 auto 36px;line-height:1.7;position:relative;z-index:1}
+.garantie-box { background: linear-gradient(135deg, var(--dark) 0%, #020617 100%); color: #FFF; border-radius: 16px; padding: 48px; text-align: center; margin-top: 60px; position: relative; overflow: hidden; }
+.garantie-box h3 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+.garantie-box p { font-size: 15px; color: #94A3B8; max-width: 680px; margin: 0 auto 28px; line-height: 1.6; }
 
-.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.97);border-top:2px solid var(--fire);backdrop-filter:blur(12px);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:20px;z-index:999;transform:translateY(100%);transition:transform .4s ease}
-.sticky.show{transform:translateY(0)}
-.sticky p{font-size:13px;color:rgba(0,0,0,0.6)}
-.sticky p strong{color:#111111}
-.stn{background:linear-gradient(135deg,var(--fire),var(--fire2));color:#fff;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;border:none;cursor:pointer;white-space:nowrap;text-decoration:none;border-radius:2px;box-shadow:0 4px 20px rgba(255,92,0,0.4)}
+/* FAQ */
+.faq-wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 20px; cursor: pointer; background: #FFF; transition: background .15s; }
+.faq-item:hover { background: var(--light); }
+.faq-q { font-size: 15px; font-weight: 600; color: var(--dark); display: flex; justify-content: space-between; align-items: center; }
+.faq-q::after { content: "+"; font-size: 20px; font-weight: 300; color: var(--primary); transition: transform .2s; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { font-size: 14px; color: var(--text); line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height .25s ease, margin-top .15s; }
+.faq-item.open .faq-a { max-height: 200px; margin-top: 12px; }
 
-.tg{position:fixed;bottom:80px;right:20px;width:52px;height:52px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(34,158,217,.4);z-index:998;text-decoration:none;font-size:22px}
+/* Avis Google */
+.reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
+.rev-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px; background: #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+.rev-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.rev-author h5 { font-size: 14px; font-weight: 700; color: var(--dark); }
+.rev-author p { font-size: 11px; color: #94A3B8; }
+.rev-stars { color: #F59E0B; font-size: 12px; letter-spacing: 1px; }
+.rev-card p { font-size: 13px; color: var(--text); line-height: 1.6; }
 
-footer{padding:28px 20px;border-top:1px solid rgba(0,0,0,0.12);text-align:center;font-size:11px;color:#555555;line-height:2.2;background:#FFFFFF}
-footer a{color:#555555;text-decoration:none}
-footer a:hover{color:var(--fire)}
+/* Footer */
+footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; background: var(--light); }
+footer p { font-size: 13px; color: #94A3B8; margin-bottom: 16px; }
+.socials { display: flex; justify-content: center; gap: 16px; font-size: 13px; font-weight: 600; }
+.socials a { color: var(--text); text-decoration: none; }
+.socials a:hover { color: var(--primary); }
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hi > *{animation:fadeUp .6s ease both}
-.pre-h{animation-delay:.1s}.hero h1{animation-delay:.2s}
-.hero-sub{animation-delay:.3s}.hero-tension{animation-delay:.35s}
-.pills{animation-delay:.4s}.hero-cta-wrap{animation-delay:.5s}
+/* Vidéo Façade */
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: #000; margin-bottom: 40px; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-@media(max-width:700px){.get-grid{grid-template-columns:1fr}.story-milestones{grid-template-columns:1fr}}
-@media(max-width:600px){.yt-grid{grid-template-columns:1fr}}
-@media(max-width:500px){.sticky{flex-direction:column;gap:8px;padding:12px}.proof-inner{gap:20px}.psep{display:none}.offer-box{padding:24px 20px}.price-big{font-size:60px}}
+/* Répulsif Mobile */
+@media (max-width: 900px) {
+  .grid-2, .matrix-grid, .cases-grid, .testimonials-grid, .reviews-grid { grid-template-columns: 1fr; gap: 24px; }
+  .tool-grid { grid-template-columns: 1fr; }
+}
 </style>
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1301759878210181');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1301759878210181&ev=PageView&noscript=1"
-  /></noscript>
-  </head>
+</head>
 <body>
 
 <nav class="nav">
-  <span class="nav-logo">Courage Académie</span>
-  <div style="display:flex;align-items:center;gap:16px">
-    <a href="mailto:contact@lesambitieuxaccomplis.com" style="font-size:12px;color:#888;text-decoration:none;display:none" class="nav-email">contact@lesambitieuxaccomplis.com</a>
-    <a href="#offre" class="nav-btn">Postuler →</a>
+  <div class="container nav-inner">
+    <div class="logo">Habitac<span>.</span></div>
+    <a href="#contact" class="btn">Réserver un appel</a>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"></div><div class="hero-bg2"></div>
-  <div class="hi">
-    <div class="pre-h">⚡ POUR LES PATRONS DE CABINETS EN SUISSE ROMANDE</div>
-    <h1>CONSTRUISEZ VOTRE<br>MACHINE À LEADS,<br><span class="fire">SOYEZ SOUVERAINS.</span></h1>
-
-    <div style="margin:32px auto;max-width:720px;border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.12)">
-      <div style="position:relative;padding-bottom:56.25%;height:0">
-        <iframe src="https://www.youtube.com/embed/dZWHBJ6o2Fk"
-          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen loading="lazy"
-          style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
-      </div>
+  <div class="container">
+    <div class="stars">★★★★★</div>
+    <span class="lbl">+400 Clients satisfaits</span>
+    <h1>Générez entre 5 et 20<br><span>rendez-vous d’estimation</span><br>qualifiés par mois</h1>
+    <p class="sub sub-hero">Nous mettons en place pour les mandataires et agences immobilières un système clé en main permettant de générer des rendez-vous d’estimation de manière régulière, sans dépendre de la prospection terrain ou téléphonique.</p>
+    
+    <div style="max-width: 680px; margin: 0 auto;">
+      <a href="#contact" class="btn" style="width: 100%; max-width: 400px; margin-bottom: 14px;">Réserver un appel de découverte</a>
     </div>
 
-    <p class="hero-sub">Ne louez plus des campagnes à des agences externes. <strong>Intégrez le système.</strong><br>Générez vos propres leads exclusifs (Immo / Prévoyance) à 3 CHF. <strong>À vie.</strong></p>
-    <p class="hero-tension">→ Une implémentation technique pas à pas (Done With You), calibrée pour le marché suisse.</p>
-
-    <div class="pills">
-      <div class="pill">🇨🇭 Marché Suisse Romand</div>
-      <div class="pill">🎯 Leads Immobiliers Exclusifs</div>
-      <div class="pill">📈 Prévoyance & Hypothèques</div>
-      <div class="pill">⚙️ Autonomie à 100%</div>
-      <div class="pill">🛠️ Copywriting & Tunnels Clés en Main</div>
-      <div class="pill">💰 Tracking & ROI Garanti</div>
-    </div>
-    <div class="hero-cta-wrap" style="display:flex;flex-direction:column;align-items:center">
-      <a href="#offre" class="btn">Installer la Machine dans ma Boîte →</a>
-      <p class="hero-cta-note">⬇️ Lisez ce diagnostic — vous allez immédiatement comprendre le piège actuel</p>
+    <div class="stats-grid">
+      <div class="stat-card"><h3>420<span>+</span></h3><p>professionnels accompagnés</p></div>
+      <div class="stat-card"><h3>3<span>M+</span></h3><p>Budgets publicitaires investis</p></div>
+      <div class="stat-card"><h3>35<span>%</span></h3><p>Augmentation du CA moyen</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec" style="background:var(--light2)">
-  <div class="sn">
-    <span class="lbl tc" style="text-align:center;display:block">Le diagnostic</span>
-    <h2 class="tc" style="margin-bottom:12px;color:var(--text)">Le cercle vicieux<br>de l'acquisition</h2>
-    <p class="tc sub" style="color:var(--text2)">Acheter des leads ou louer une agence média est en train de saigner la marge de votre cabinet.</p>
-    <div class="pb-list">
-      <div class="pb-item"><div class="pb-icon">🛑</div><p>Vous achetez des fiches de leads à 80 CHF l'unité. <strong>Elles ont déjà été vendues à 3 concurrents.</strong></p></div>
-      <div class="pb-item"><div class="pb-icon">💸</div><p>Une agence média classique vous demande 3'000 CHF par mois. <strong>Le jour où vous arrêtez de payer, vous n'avez plus rien.</strong></p></div>
-      <div class="pb-item"><div class="pb-icon">🕶️</div><p>Les prestataires gardent vos campagnes dans une "boîte noire". <strong>Vous n'avez aucun contrôle, aucune transparence.</strong></p></div>
-      <div class="pb-item"><div class="pb-icon">📞</div><p>Vos courtiers s'épuisent à appeler des fichiers froids. <strong>Leur temps ultra-précieux est gâché en prospection inutile.</strong></p></div>
-      <div class="pb-item"><div class="pb-icon">🔁</div><p>Le coût d'acquisition explose chaque année. <strong>Votre croissance dépend d'intermédiaires qui s'engraissent sur votre dos.</strong></p></div>
+<div class="brand-sec">
+  <div class="container">
+    <p>Ils nous ont fait confiance</p>
+    <div class="brand-grid">
+      <div>IAD FRANCE</div>
+      <div>SAFTI</div>
+      <div>OPTIMHOME</div>
+      <div>REMAX</div>
+      <div>AGENCES INDÉPENDANTES</div>
     </div>
-    <p class="tc" style="font-size:18px;color:var(--text);font-weight:700;max-width:540px;margin:0 auto">La seule issue — c'est de posséder votre propre actif d'acquisition interne.<br><span class="fire">C'est le modèle Souverain.</span></p>
   </div>
-</section>
-
-<div class="cta-mid" style="padding:40px 20px;text-align:center;background:var(--fire);background:linear-gradient(135deg,var(--fire),var(--fire2))">
-  <a href="#offre" class="btn" style="margin:0 auto;max-width:420px;font-size:13px;padding:18px 36px;background:#fff;color:var(--fire);box-shadow:none">Je prends le contrôle de mes leads →</a>
 </div>
 
-<div class="dv"></div>
-
-<section style="padding:80px 20px;background:#F5F5F5">
-  <div style="max-width:780px;margin:0 auto">
-
-    <span style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--fire);font-weight:700;display:block;text-align:center;margin-bottom:16px">Pourquoi les agences traditionnelles échouent</span>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,48px);letter-spacing:2px;color:#111111;text-align:center;margin-bottom:40px">
-      Le "Done For You" traditionnel<br><span style="background:linear-gradient(90deg,#FF5C00,#FF8C00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">est un piège de dépendance.</span>
-    </h2>
-
-    <div style="display:grid;gap:16px;margin-bottom:60px">
-      <div style="background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.1);border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start">
-        <span style="font-size:22px;flex-shrink:0">📉</span>
-        <div>
-          <p style="font-weight:700;color:#111111;margin-bottom:4px">Zéro capitalisation en interne</p>
-          <p style="font-size:14px;color:#555555;line-height:1.7">Lorsque vous déléguez à une agence, les compétences Meta, les audiences récoltées et l'optimisation restent chez elle. Vous financez son savoir-faire au lieu de financer la valeur de votre propre entreprise.</p>
-        </div>
-      </div>
-      <div style="background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.1);border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start">
-        <span style="font-size:22px;flex-shrink:0">🔥</span>
-        <div>
-          <p style="font-weight:700;color:#111111;margin-bottom:4px">Désalignement total d'intérêts</p>
-          <p style="font-size:14px;color:#555555;line-height:1.7">Une agence veut encaisser son abonnement mensuel avec le moins d'efforts possible. Elle s'en fout de la qualité finale du lead au téléphone. Vous, vous voulez signer des mandats chez le notaire.</p>
-        </div>
-      </div>
-      <div style="background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.1);border-radius:8px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start">
-        <span style="font-size:22px;flex-shrink:0">📊</span>
-        <div>
-          <p style="font-weight:700;color:#111111;margin-bottom:4px">La déconnexion du marché local</p>
-          <p style="font-size:14px;color:#555555;line-height:1.7">Le marché de la Romandie (Vaud, Genève, Valais, Fribourg, Neuchâtel, Jura) a des spécificités uniques. Les stratégies génériques des agences étrangères balancent votre budget publicitaire par la fenêtre.</p>
-        </div>
-      </div>
+<section class="sec">
+  <div class="container grid-2">
+    <div class="contexte-text">
+      <span class="lbl">Le contexte actuel</span>
+      <h2>L'essoufflement de la prospection traditionnelle</h2>
+      <p>La pige téléphonique, le démarchage terrain, le porte à porte… Ces méthodes ont longtemps fonctionné. Aujourd’hui, elles sont de plus en plus saturées, chronophages et génèrent des taux de conversion en baisse.</p>
+      <p><strong>Résultat :</strong> plus d’efforts pour moins de mandats, et une défiance croissante des propriétaires envers ces approches directes.</p>
+      <p>Face à ces évolutions, la publicité sur les réseaux sociaux s’impose comme une alternative moderne et efficace pour développer votre activité.</p>
     </div>
-
-    <span style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--fire);font-weight:700;display:block;text-align:center;margin-bottom:16px">Ce qui fonctionne vraiment</span>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,48px);letter-spacing:2px;color:#111111;text-align:center;margin-bottom:16px">
-      Le modèle Done With You :<br><span style="background:linear-gradient(90deg,#FF5C00,#FF8C00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Bâtir votre propre actif.</span>
-    </h2>
-    <p style="color:#555555;font-size:15px;text-align:center;line-height:1.8;margin-bottom:48px">On ne fait pas à votre place pour vous rendre esclave. On installe le système ensemble.<br>En 90 jours, votre cabinet maîtrise <strong style="color:#111111">l'intégralité de sa chaîne d'acquisition.</strong></p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:60px">
-
-      <div style="background:linear-gradient(135deg,rgba(255,92,0,0.08),rgba(255,140,0,0.04));border:1px solid #FF5C00;border-radius:10px;padding:24px;text-align:center">
-        <div style="font-size:32px;margin-bottom:12px">🛠️</div>
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#111111;margin-bottom:8px">Duplication de l'Écosystème</p>
-        <p style="font-size:13px;color:#555555;line-height:1.6">On clone et on adapte à votre cabinet mes tunnels de vente exacts et mes architectures de campagnes qui génèrent actuellement du lead qualifié à 3 CHF sur le sol suisse.</p>
-      </div>
-
-      <div style="background:linear-gradient(135deg,rgba(255,92,0,0.08),rgba(255,140,0,0.04));border:1px solid #FF5C00;border-radius:10px;padding:24px;text-align:center">
-        <div style="font-size:32px;margin-bottom:12px">📐</div>
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#111111;margin-bottom:8px">Tracking & Data Souveraine</p>
-        <p style="font-size:13px;color:#555555;line-height:1.6">Configuration avancée de l'API de conversion Meta et du tracking. Vos données vous appartiennent. L'algorithme apprend pour votre compte publicitaire, pas pour celui d'un tiers.</p>
-      </div>
-
-      <div style="background:linear-gradient(135deg,rgba(255,92,0,0.08),rgba(255,140,0,0.04));border:1px solid #FF5C00;border-radius:10px;padding:24px;text-align:center">
-        <div style="font-size:32px;margin-bottom:12px">👁️</div>
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#111111;margin-bottom:8px">Revue Créative Hebdomadaire</p>
-        <p style="font-size:13px;color:#555555;line-height:1.6">Chaque semaine, nous analysons vos visuels, vos scripts vidéo et vos hooks publicitaires. Vous apprenez précisément ce qui fait cliquer un propriétaire ou un emprunteur suisse.</p>
-      </div>
-
-      <div style="background:linear-gradient(135deg,rgba(255,92,0,0.08),rgba(255,140,0,0.04));border:1px solid #FF5C00;border-radius:10px;padding:24px;text-align:center">
-        <div style="font-size:32px;margin-bottom:12px">🤝</div>
-        <p style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:#111111;margin-bottom:8px">Autonomisation & Transfert</p>
-        <p style="font-size:13px;color:#555555;line-height:1.6">Je forme personnellement un membre de votre équipe (ou vous-même) à piloter le tableau de bord, couper les créas fatiguées et relancer les variantes gagnantes. La machine tourne chez vous.</p>
-      </div>
-
-    </div>
-
-    <div style="margin-top:48px">
-      <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#111;text-align:center;margin-bottom:8px">LA PREUVE DU SYSTÈME EN DIRECT</p>
-      <p style="font-size:14px;color:#555;text-align:center;margin-bottom:24px">Des architectures de campagnes réelles. Sans filtre. Des coûts au lead imbattables.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
-        <div>
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid rgba(0,0,0,0.1)">
-            <iframe src="https://www.youtube.com/embed/k7a9XUZD1ug?start=183"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p style="font-size:12px;color:#888;text-align:center;margin-top:8px">Démonstration technique — Génération de leads à 3 CHF</p>
-        </div>
-        <div>
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid rgba(0,0,0,0.1)">
-            <iframe src="https://www.youtube.com/embed/CONqsV9VgAo?start=252"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p style="font-size:12px;color:#888;text-align:center;margin-top:8px">Architecture interne — Tunnel de capture exclusif</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:linear-gradient(135deg,rgba(255,92,0,0.12),rgba(255,140,0,0.06));border:1px solid rgba(255,92,0,0.3);border-radius:12px;padding:36px;text-align:center;margin-top:40px">
-      <p style="font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3vw,36px);letter-spacing:2px;color:#111111;margin-bottom:16px">L'OFFRE DONE WITH YOU</p>
-      <p style="font-size:15px;color:rgba(0,0,0,0.8);line-height:1.9;max-width:600px;margin:0 auto">
-        Un accompagnement intensif de <strong style="color:#111111">3 mois</strong> pour implémenter votre machine souveraine. Pas de blabla théorique. Nous installons l'écosystème publicitaire, nous formons vos équipes, et nous monitorons ensemble les métriques jusqu'à l'indépendance totale de votre cabinet. <strong style="color:var(--fire)">Vous n'achetez plus de leads — vous possédez la mine.</strong>
-      </p>
+    <div class="solution-text" style="background: var(--light); padding: 40px; border-radius: 16px; border: 1px solid var(--border);">
+      <span class="lbl">Notre solution</span>
+      <h2>Une méthode moderne, structurée et orientée résultats</h2>
+      <p>Grâce à la publicité sur Meta (Facebook & Instagram), il est aujourd’hui possible de toucher des propriétaires en amont de leur projet de vente, directement sur votre secteur géographique.</p>
+      <p>Nous mettons en place pour vous un système publicitaire complet, de la création des campagnes à leur pilotage, afin de générer un flux prévisible d’estimations qualifiées.</p>
     </div>
   </div>
 </section>
 
-<section class="sec" id="offre" style="background:#FFFFFF">
-  <div class="sm tc">
-    <span class="lbl">L'investissement capitalisable</span>
-    <h2>Bâtissez votre actif publicitaire</h2>
-    <p class="sub">Une seule facture pour stopper définitivement les frais d'agence mensuels.</p>
+<section class="sec-grey">
+  <div class="container">
+    <span class="lbl tc">L'outil mal utilisé</span>
+    <h2 class="tc">C’est quoi Meta Ads ?</h2>
+    <p class="tc sub">Intégrée dans un système structuré et optimisé, la publicité Meta devient un levier fiable pour générer des demandes de rendez-vous d’estimation qualifiées de manière régulière.</p>
 
-    <div class="offer-box">
-      <div class="offer-items">
-        <div class="offer-item"><div class="check">✓</div><p>Déploiement complet des Tunnels à Leads exclusifs</p></div>
-        <div class="offer-item"><div class="check">✓</div><p>Configuration de l'API de conversion & pixel souverain</p></div>
-        <div class="offer-item"><div class="check">✓</div><p>Sessions hebdomadaires d'optimisation technique pendant 3 mois</p></div>
-        <div class="offer-item"><div class="check">✓</div><p>Formation complète de vos équipes internes (Transfert de compétences)</p></div>
-        <div class="offer-item"><div class="check">✓</div><p>Scripts publicitaires, Hooks & Templates de visuels validés en Suisse</p></div>
+    <div class="tool-box">
+      <p style="font-size: 15px; color: var(--text); margin-bottom: 24px; text-align: center;">Contrairement aux méthodes de prospection traditionnelles (terrain, téléphone, boîtage), cette approche permet de générer des contacts intéressés et non sollicités, sans démarchage intrusif ni perte de temps.</p>
+      <div class="tool-grid">
+        <div class="tool-col">
+          <h4 style="color: #EF4444;">Ce que vous arrêtez de subir :</h4>
+          <ul class="tool-list tool-bad">
+            <li>Dépendre uniquement de la prospection terrain</li>
+            <li>Être invisible auprès des propriétaires vendeurs de votre secteur</li>
+            <li>Subir une concurrence toujours plus présente et agressive</li>
+          </ul>
+        </div>
+        <div class="tool-col">
+          <h4 style="color: var(--success);">Ce que vous commencez à bâtir :</h4>
+          <ul class="tool-list tool-good">
+            <li>Gagner en visibilité locale auprès des vrais propriétaires</li>
+            <li>Générer des demandes d’estimation entrantes de façon autonome</li>
+            <li>Construire une image professionnelle, moderne et rassurante</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <span class="lbl tc">Pourquoi c’est intéressant ?</span>
+    <h2 class="tc">Comparaison des stratégies d'acquisition</h2>
+    <p class="tc sub">Analysez objectivement vos leviers pour comprendre la puissance du ciblage numérique.</p>
+
+    <div class="matrix-grid">
+      <div class="matrix-card">
+        <h3>Prospection terrain</h3>
+        <div class="matrix-section">
+          <h5>Avantages</h5>
+          <p>• Méthode connue et maîtriséehistoriquement.</p>
+        </div>
+        <div class="matrix-section">
+          <h5>Limites</h5>
+          <p>• Très chronophage et énergivore</p>
+          <p>• Forte concurrence sur le secteur</p>
+          <p>• Taux de réponse en forte baisse</p>
+          <p>• Image parfois perçue comme intrusive</p>
+        </div>
       </div>
 
-      <div class="price-reveal">
-        <div class="price-big">10'000 <span>CHF</span></div>
-        <p class="price-sub">Paiement unique — Amorti dès les premiers mandats exclusifs</p>
+      <div class="matrix-card featured">
+        <div class="matrix-badge">Le plus efficace</div>
+        <h3>Meta Ads</h3>
+        <div class="matrix-section">
+          <h5>Avantages</h5>
+          <p>• Visibilité locale ultra-ciblée</p>
+          <p>• Prospects vendeurs entrants spontanés</p>
+          <p>• Demandes d’estimation qualifiées</p>
+          <p>• Résultats mesurables et pilotables</p>
+        </div>
+        <div class="matrix-section">
+          <h5>Limites</h5>
+          <p>• Requiert une expertise technique spécifique</p>
+          <p>• Investissement publicitaire requis</p>
+        </div>
+      </div>
+
+      <div class="matrix-card">
+        <h3>Réseau / Recommandation</h3>
+        <div class="matrix-section">
+          <h5>Avantages</h5>
+          <p>• Prospects généralement très qualifiés</p>
+          <p>• Relation de confiance pré-existante</p>
+        </div>
+        <div class="matrix-section">
+          <h5>Limites</h5>
+          <p>• Volume totalement irrégulier</p>
+          <p>• Dépendance absolue au bouche-à-oreille</p>
+          <p>• Faible capacité d’accélération volontaire</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-grey">
+  <div class="container tc">
+    <span class="lbl">L’accompagnement</span>
+    <h2>Découvrez notre système en vidéo</h2>
+    <p class="sub">Voyez concrètement l'envers du décor et comment l'architecture est déployée.</p>
+    
+    <div style="max-width: 760px; margin: 0 auto;">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/dZWHBJ6o2Fk" allowfullscreen></iframe>
+      </div>
+      <a href="#contact" class="btn">Découvrir le programme e-learning</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <span class="lbl tc">Études de cas</span>
+    <h2 class="tc">Ils ont utilisé notre système publicitaire</h2>
+    <p class="tc sub">Voici les métriques brutes obtenues par différents profils immobiliers.</p>
+
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-user"><h4>Jean Valery Saul</h4><p>Conseiller IAD</p></div>
+          <span class="case-tag">Exclusivité</span>
+        </div>
+        <div class="case-stats">
+          <div class="cs-box"><span>180 €</span><label>Budget investi</label></div>
+          <div class="cs-box"><span>24 000</span><label>Personnes touchées</label></div>
+          <div class="cs-box" style="grid-column: span 2; border-top: 1px dashed var(--border); margin-top: 8px;">
+            <span style="color: var(--success);">1 Mandat Exclusif Rentré</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-user"><h4>Thomas Arnoldy</h4><p>Mandataire Immobilier</p></div>
+          <span class="case-tag">Performance</span>
+        </div>
+        <div class="case-stats">
+          <div class="cs-box"><span>134 €</span><label>Budget investi</label></div>
+          <div class="cs-box"><span>15 000</span><label>Personnes touchées</label></div>
+          <div class="cs-box" style="grid-column: span 2; border-top: 1px dashed var(--border); margin-top: 8px;">
+            <span style="color: var(--success);">2 Mandats Exclusifs Signés</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-user"><h4>Agence Home Immo</h4><p>Structure Locale</p></div>
+          <span class="case-tag">Volume</span>
+        </div>
+        <div class="case-stats">
+          <div class="cs-box"><span>400 €</span><label>Budget investi</label></div>
+          <div class="cs-box"><span>37 000</span><label>Personnes touchées</label></div>
+          <div class="cs-box" style="grid-column: span 2; border-top: 1px dashed var(--border); margin-top: 8px;">
+            <span style="color: var(--primary);">161 Prospects Qualifiés</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-user"><h4>Développement Neuf</h4><p>Stratégie Ciblée</p></div>
+          <span class="case-tag">Acquéreurs</span>
+        </div>
+        <div class="case-stats">
+          <div class="cs-box"><span>2 000 €</span><label>Budget investi</label></div>
+          <div class="cs-box"><span>60 000</span><label>Personnes touchées</label></div>
+          <div class="cs-box" style="grid-column: span 2; border-top: 1px dashed var(--border); margin-top: 8px;">
+            <span style="color: var(--primary);">1 200 Leads Acheteurs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-grey">
+  <div class="container">
+    <span class="lbl tc">La structure</span>
+    <h2 class="tc">Comment fonctionne notre accompagnement</h2>
+    <p class="tc sub">Un déploiement méthodique en 5 étapes pour sécuriser votre flux d'estimations.</p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Étape 1 — Définition du secteur</h3>
+          <p>Nous définissons votre secteur de diffusion, votre budget publicitaire et la stratégie la plus performante, puis mettons en place un environnement publicitaire clé en main.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Étape 2 — Création et paramétrage des campagnes</h3>
+          <p>Nous prenons en charge l’ensemble de la création : visuels, vidéos et messages publicitaires, ainsi que le paramétrage complet des campagnes sur Meta. Vous n’avez rien à gérer.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Étape 3 — Lancement des campagnes et premières demandes</h3>
+          <p>Les campagnes sont mises en ligne sur votre secteur ciblé et commencent à générer leurs premières demandes d’estimation sous 24 à 48 heures.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Étape 4 — Suivi et optimisation du lancement (recommandée)</h3>
+          <p>Après le lancement, nous assurons un suivi actif dès les premières semaines afin d’analyser les performances et d’effectuer les ajustements nécessaires pour stabiliser les coûts.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Étape 5 — Accompagnement et exploitation des leads</h3>
+          <p>Nous vous accompagnons pas à pas dans le traitement des contacts générés afin d’optimiser les prises de rendez-vous réelles et la signature de mandats exclusifs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <span class="lbl tc">Garantie contractuelle</span>
+    <h2 class="tc">Un engagement clair sur les résultats</h2>
+    
+    <div class="testimonials-grid">
+      <div class="t-card">
+        <p>« Avec moins de <strong>200 € de publicité</strong> le premier mois, j’ai généré <strong>2 mandats de vente</strong> »</p>
+        <span class="t-author">Thomas Arnoldy — Novéo Immo</span>
+      </div>
+      <div class="t-card">
+        <p>« J’ai eu <strong>80 leads le premier mois</strong>, qui ont abouti à <strong>12 rendez-vous d’estimation</strong>. »</p>
+        <span class="t-author">Axel Anrep — Safti</span>
+      </div>
+      <div class="t-card">
+        <p>« En un mois, j’ai généré <strong>35 leads qualifiés</strong>, réalisé une dizaine d’estimations et <strong>rentré un mandat</strong> »</p>
+        <span class="t-author">Jean-Valéry Saul — IAD</span>
       </div>
     </div>
 
-    <a href="https://calendly.com/VOTRE_LIEN_CALENDLY" target="_blank" class="btn" style="box-shadow: 0 8px 30px rgba(255,92,0,0.2);">Postuler pour installer le Système →</a>
-    <p style="font-size:12px;color:#666;margin-top:14px;">⚠️ Limité à 3 cabinets de courtage par trimestre pour garantir la qualité du suivi.</p>
+    <div class="garantie-box">
+      <span class="lbl" style="color: #60A5FA;">SATISFAIT OU REMBOURSÉ</span>
+      <h3>Impossible d’en sortir perdant</h3>
+      <p>C’est pourquoi nous prenons un engagement clair : si, sur une période de 12 mois, vous ne générez pas au minimum 30 rendez-vous d’estimation grâce à notre système, nous vous remboursons intégralement votre investissement.</p>
+      <a href="#contact" class="btn" style="background: #FFF; color: var(--dark); box-shadow: none;">Réserver mon appel de découverte</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-grey">
+  <div class="container grid-2" id="contact" style="align-items: center;">
+    <div>
+      <span class="lbl">Le fondateur</span>
+      <h2>Qui suis-je ?</h2>
+      <p style="font-size: 16px; color: var(--text); margin-bottom: 16px;">Fort de 5 années d’expérience en publicité, j’ai accompagné de nombreux professionnels de l’immobilier et constaté que les méthodes de prospection traditionnelles devenaient de moins en moins efficaces et de plus en plus chronophages.</p>
+      <p style="font-size: 16px; color: var(--text);"><strong>Habitac</strong> est né de ce constat : proposer un accompagnement structuré, clé en main et orienté résultats, permettant aux professionnels de l’immobilier de développer leur activité sans dépendre de la prospection terrain.</p>
+    </div>
+    <div style="background: #FFF; border: 1px solid var(--border); padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+      <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 12px;">Planifiez votre diagnostic</h3>
+      <p style="font-size: 14px; color: var(--text); margin-bottom: 24px;">Sélectionnez un créneau pour analyser votre secteur et valider la faisabilité des campagnes publicitaires.</p>
+      <div style="background: var(--light); border: 2px dashed var(--border); height: 260px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94A3B8; font-size: 14px; font-weight: 500;">
+        [ Intégration de votre Calendly ici ]
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <span class="lbl tc">FAQ</span>
+    <h2 class="tc">Questions fréquentes</h2>
+    <p class="tc sub">Tout ce que vous devez savoir avant de déployer le système publicitaire.</p>
+
+    <div class="faq-wrap">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">À qui s’adresse votre accompagnement ?</div>
+        <div class="faq-a">Cet accompagnement est conçu pour les mandataires et agences immobilières qui souhaitent générer des rendez-vous d’estimation qualifiés de manière régulière, sans avoir à dépendre de la prospection terrain ou du démarchage téléphonique.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">En combien de temps puis-je obtenir mes premiers résultats ?</div>
+        <div class="faq-a">Dès la validation et la mise en ligne des campagnes publicitaires (étape 3), le système commence généralement à capter et générer les premières requêtes sous 24 à 48 heures sur votre zone exclusive.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Est-ce que je devez rappeler les leads moi-même ?</div>
+        <div class="faq-a">Oui, les leads demandent une estimation ou entrent en contact de manière volontaire. C'est ensuite à votre équipe commerciale de faire le suivi téléphonique qualifié pour acter le rendez-vous physique.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Travaillez-vous avec plusieurs professionnels sur le même secteur ?</div>
+        <div class="faq-a">Non, afin de garantir l'efficacité de l'infrastructure publicitaire et de ne pas créer de concurrence interne artificielle, nous limitons l'accès aux campagnes par secteur géographique strict.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-grey">
+  <div class="container">
+    <span class="lbl tc">Preuve sociale</span>
+    <h2 class="tc">Avis certifiés Google</h2>
+    
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-author"><h5>Thibault Bellanger</h5><p>Il y a 1 semaine</p></div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <p>Nous utilisons cette solution depuis plusieurs mois au sein de notre agence et les résultats sont clairement au rendez-vous. Nous recevons aujourd’hui des demandes vendeurs de manière régulière. Plusieurs estimations obtenues se sont rapidement transformées en mandats.</p>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-author"><h5>Alexandre Gapihan</h5><p>Il y a 1 mois</p></div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <p>Samuel a généré 47 prospects en un peu plus de deux semaines, avec déjà plusieurs rendez-vous d’estimation réalisés. Son pilotage de la campagne est sérieux, réactif et surtout efficace. Les contacts sont qualifiés et permettent d’avancer concrètement.</p>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-author"><h5>Carole Nubourgh</h5><p>Il y a 1 mois</p></div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <p>Je suis ravie des services d'Habitac et de l'accompagnement de Samuel. C'est une expérience enrichissante qui me permet clairement d'accroître ma demande de leads. Evidemment, il faut les travailler mais le vivier de leads est au rendez-vous !</p>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-author"><h5>Kristof Rej</h5><p>Il y a 4 mois</p></div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <p>5 ventes validées et actées en l'espace de 6 mois grâce à la mise en place de cette architecture publicitaire. Je recommande fortement l'accompagnement d'Habitac.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2026 Courage Académie B2B. Tous droits réservés.</p>
+  <div class="container">
+    <p>&copy; 2026 Habitac Formation. Tous droits réservés.</p>
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Linkedin</a>
+    </div>
+  </div>
 </footer>
 
 </body>
