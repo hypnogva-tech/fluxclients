@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courtiers en Assurance — Suisse Romande</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #0f1b35;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      padding: 14px 24px;
+      text-align: center;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .topbar .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #475569;
+      font-weight: 500;
+    }
+    .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
+
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    .card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card h1 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .card h1 .hl {
+      background: #2563eb;
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    .card .sub {
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-wrap {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 36px 32px;
+    }
+    .form-wrap label {
+      display: block;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+    .form-wrap input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #0f1b35;
+      background: #ffffff;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border 0.2s;
+    }
+    .form-wrap input:focus { border-color: #2563eb; }
+    .form-wrap input::placeholder { color: #94a3b8; }
+
+    .form-wrap button {
+      width: 100%;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .form-wrap button:hover { background: #1d4ed8; }
+
+    .disclaimer {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #f1f5f9;
+    }
+    footer p { font-size: 12px; color: #94a3b8; }
+    footer a { color: #64748b; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="pill">
+      <span class="dot"></span>
+      Réservé aux directeurs de cabinets en Suisse Romande
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <h1>
+        Vos clients premium<br />
+        sont sur Meta.<br />
+        <span class="hl">Vous ne le saviez pas encore.</span>
+      </h1>
+      <p class="sub">
+        Découvrez comment générer des rendez-vous exclusifs avec des profils CSP+ suisses — sans dépendre du bouche à oreille.
+      </p>
+
+      <div class="form-wrap">
+        <form action="/video" method="get">
+          <label for="prenom">Votre prénom</label>
+          <input type="text" id="prenom" name="prenom" placeholder="Alexandre" required />
+
+          <label for="email">Votre email professionnel</label>
+          <input type="email" id="email" name="email" placeholder="alexandre@cabinet.ch" required />
+
+          <button type="submit">Voir la méthode en vidéo →</button>
+        </form>
+        <p class="disclaimer">Aucun engagement · Aucune carte bancaire · 5 minutes</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      &copy; 2026 · <a href="#">Mentions légales</a> · <a href="#">Politique de confidentialité</a> · <a href="mailto:contact@tondomaine.ch">contact@tondomaine.ch</a>
+    </p>
+  </footer>
+
+</body>
+</html>
