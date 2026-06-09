@@ -22,107 +22,144 @@
   /></noscript>
   <!-- End Meta Pixel Code -->
   <style>
+    :root {
+      --navy: #0f1b35; --navy2: #1e3a5f; --green: #22c55e;
+      --muted: #64748b; --muted2: #94a3b8; --line: #f1f5f9; --line2: #e2e8f0; --bg: #f8fafc;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #ffffff; color: #0f1b35; min-height: 100vh; display: flex; flex-direction: column; }
-    .topbar { padding: 14px 24px; text-align: center; border-bottom: 1px solid #f1f5f9; }
-    .topbar .pill { display: inline-flex; align-items: center; gap: 8px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 100px; padding: 6px 16px; font-size: 13px; color: #475569; font-weight: 500; }
-    .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
-    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 24px; }
-    .card { max-width: 640px; width: 100%; text-align: center; }
-    .card h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 900; line-height: 1.15; letter-spacing: -1px; margin-bottom: 20px; }
-    .card h1 .hl { background: #0f1b35; color: #fff; padding: 2px 10px; border-radius: 6px; }
-    .card .sub { font-size: clamp(15px, 2.5vw, 18px); color: #64748b; line-height: 1.6; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
-    .checks { text-align: left; max-width: 420px; margin: 0 auto 36px; display: flex; flex-direction: column; gap: 12px; }
-    .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: #0f1b35; }
-    .check-icon { color: #22c55e; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-    .cta-btn { display: inline-block; background: #0f1b35; color: #fff; font-size: 17px; font-weight: 700; padding: 18px 40px; border-radius: 14px; text-decoration: none; transition: background 0.2s, transform 0.15s; margin-bottom: 16px; }
-    .cta-btn:hover { background: #1e3a5f; transform: translateY(-2px); }
-    .cta-note { font-size: 13px; color: #94a3b8; }
-    .separator { height: 1px; background: #f1f5f9; margin: 40px 0; }
-    .social-proof { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; text-align: left; max-width: 480px; margin: 0 auto 36px; }
-    .sp-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 12px; }
-    .sp-text { font-size: 15px; color: #0f1b35; line-height: 1.6; font-style: italic; margin-bottom: 12px; }
-    .sp-author { font-size: 13px; color: #64748b; font-weight: 600; }
-    footer { padding: 20px; text-align: center; border-top: 1px solid #f1f5f9; }
-    footer p { font-size: 12px; color: #94a3b8; }
-    footer a { color: #64748b; text-decoration: underline; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #ffffff; color: var(--navy); }
+
+    .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
+    /* Pastille d'audience mise en évidence, juste sous le titre (taille mobile réduite, desktop ajusté plus bas) */
+    .audience { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.4); color: var(--navy); font-weight: 700; font-size: 13px; padding: 7px 15px; border-radius: 100px; margin-bottom: 18px; }
+
+    /* Layout : 1 colonne (mobile) -> 2 colonnes (desktop).
+       Mobile resserré pour faire remonter le calendrier le plus haut possible. */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 14px 20px 48px; display: grid; grid-template-columns: 1fr; gap: 18px; }
+
+    /* HERO compact */
+    .hero h1 { font-size: clamp(29px, 6vw, 44px); font-weight: 900; line-height: 1.12; letter-spacing: -1px; margin-bottom: 12px; }
+    .hero h1 .hl { background: var(--navy); color: #fff; padding: 2px 10px; border-radius: 6px; }
+    .hero .sub { font-size: clamp(15px, 2.4vw, 18px); color: var(--muted); line-height: 1.55; max-width: 520px; }
+
+    /* CHECKS (au-dessus du calendrier) */
+    .checks { display: flex; flex-direction: column; gap: 10px; }
+    .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--navy); }
+    .check-icon { color: var(--green); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* BOOKING : note + widget Calendly dans une carte */
+    .booking .cta-note { font-size: 13px; color: var(--muted2); font-weight: 500; text-align: center; margin-bottom: 12px; }
+    .cal-card { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 28px rgba(15,27,53,0.07); background: #fff; }
+    /* Hauteur : en-tête événement (photo/titre/durée) + calendrier.
+       Une fois la "Description" vidée dans Calendly, l'en-tête est court et le calendrier remonte. */
+    .calendly-inline-widget { min-width: 300px; height: 720px; }
+
+    /* HOW IT WORKS */
+    .how h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 28px; }
+    .steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .steps .line { position: absolute; left: 19px; top: 40px; bottom: 40px; width: 2px; background: var(--line2); }
+    .step { display: flex; gap: 20px; padding-bottom: 24px; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step .num { width: 40px; height: 40px; background: var(--navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0; z-index: 1; }
+    .step .body { padding-top: 8px; }
+    .step .body strong { font-size: 15px; }
+    .step .body p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+
+    /* FOUNDER */
+    .founder { padding-top: 28px; border-top: 1px solid var(--line); }
+    .founder .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted2); margin-bottom: 10px; }
+    .founder p.bio { font-size: 14px; color: var(--navy); line-height: 1.7; margin-bottom: 12px; }
+    .founder p.name { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+    footer { padding: 24px 20px; text-align: center; border-top: 1px solid var(--line); margin-top: 8px; }
+    footer p { font-size: 12px; color: var(--muted2); }
+    footer a { color: var(--muted); text-decoration: underline; }
+
+    /* DESKTOP : 2 colonnes, Calendly sticky toujours visible */
+    @media (min-width: 900px) {
+      /* gap: 28px (vertical, resserré) 48px (entre colonnes texte/calendrier) */
+      .wrap { grid-template-columns: 1.05fr 0.95fr; gap: 28px 48px; align-items: start; padding-top: 20px; }
+      .hero    { grid-column: 1; grid-row: 1; }
+      .checks  { grid-column: 1; grid-row: 2; }
+      .how     { grid-column: 1; grid-row: 3; }
+      .founder { grid-column: 1; grid-row: 4; }
+      /* Pastille d'audience : taille rétablie sur desktop (mobile reste plus petit) */
+      .audience { font-size: 14.5px; padding: 8px 18px; }
+      /* Calendrier collé en haut de l'écran, visible sans scroll */
+      .booking { grid-column: 2; grid-row: 1 / span 4; position: sticky; top: 16px; }
+      .booking .cta-note { margin-bottom: 10px; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="pill">
-      <span class="dot"></span>
-      Pour les artisans de Suisse romande
-    </div>
-  </div>
+  <div class="wrap">
 
-  <div class="main">
-    <div class="card">
-
-
-
+    <!-- HERO (compact) -->
+    <div class="hero">
       <h1>
         Remplissez votre carnet de chantiers<br />
         <span class="hl">sans bouche-à-oreille</span><br />
         grâce à Meta Ads 🇨🇭
       </h1>
-
+      <div class="audience"><span class="dot"></span> Pour les artisans de Suisse romande</div>
       <p class="sub">
         Vous attendez que les clients viennent à vous ? Les plateformes de leads vous envoient des gens qui veulent casser les prix ? Il existe une meilleure façon.
       </p>
-
-      <div class="checks">
-        <div class="check"><span class="check-icon">✓</span> Des demandes de devis qualifiées chaque semaine</div>
-        <div class="check"><span class="check-icon">✓</span> Des clients dans votre secteur géographique</div>
-        <div class="check"><span class="check-icon">✓</span> Zéro plateforme de leads revendus à la concurrence</div>
-        <div class="check"><span class="check-icon">✓</span> Vous contrôlez le nombre de chantiers que vous générez</div>
-      </div>
-
-      <p class="cta-note" style="margin-bottom:16px;">Gratuit · 30 min · Sans engagement · Réservé aux artisans de Suisse romande</p>
-      <!-- Début de widget en ligne Calendly -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans" style="min-width:320px;height:700px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Fin de widget en ligne Calendly -->
-
-      <div class="separator"></div>
-
-      <div style="text-align:left; max-width:520px; margin:0 auto;">
-        <h2 style="font-size:20px; font-weight:800; letter-spacing:-0.5px; margin-bottom:28px; text-align:center;">Comment fonctionne notre accompagnement</h2>
-        <div style="display:flex; flex-direction:column; gap:0; position:relative;">
-          <div style="position:absolute; left:19px; top:40px; bottom:40px; width:2px; background:#e2e8f0;"></div>
-          <div style="display:flex; gap:20px; padding-bottom:24px; position:relative;">
-            <div style="width:40px; height:40px; background:#0f1b35; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; flex-shrink:0; z-index:1;">1</div>
-            <div style="padding-top:8px;"><strong style="font-size:15px;">Définition de votre cible et secteur</strong><p style="font-size:13px; color:#64748b; line-height:1.6; margin-top:4px;">Nous définissons votre zone géographique, votre client idéal et la stratégie publicitaire la plus performante pour votre secteur en Suisse romande.</p></div>
-          </div>
-          <div style="display:flex; gap:20px; padding-bottom:24px; position:relative;">
-            <div style="width:40px; height:40px; background:#0f1b35; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; flex-shrink:0; z-index:1;">2</div>
-            <div style="padding-top:8px;"><strong style="font-size:15px;">Création et paramétrage des campagnes</strong><p style="font-size:13px; color:#64748b; line-height:1.6; margin-top:4px;">Nous prenons en charge l'ensemble de la création : visuels, vidéos et messages publicitaires. Vous n'avez rien à gérer.</p></div>
-          </div>
-          <div style="display:flex; gap:20px; padding-bottom:24px; position:relative;">
-            <div style="width:40px; height:40px; background:#0f1b35; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; flex-shrink:0; z-index:1;">3</div>
-            <div style="padding-top:8px;"><strong style="font-size:15px;">Lancement et premières demandes</strong><p style="font-size:13px; color:#64748b; line-height:1.6; margin-top:4px;">Les campagnes sont mises en ligne dans votre région et commencent à générer leurs premières demandes en 24 à 48 heures.</p></div>
-          </div>
-          <div style="display:flex; gap:20px; padding-bottom:24px; position:relative;">
-            <div style="width:40px; height:40px; background:#0f1b35; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; flex-shrink:0; z-index:1;">4</div>
-            <div style="padding-top:8px;"><strong style="font-size:15px;">Suivi et optimisation continue</strong><p style="font-size:13px; color:#64748b; line-height:1.6; margin-top:4px;">Nous assurons un suivi actif pour analyser les performances et effectuer les ajustements nécessaires. Cette phase améliore progressivement la qualité des demandes.</p></div>
-          </div>
-          <div style="display:flex; gap:20px; position:relative;">
-            <div style="width:40px; height:40px; background:#0f1b35; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; flex-shrink:0; z-index:1;">5</div>
-            <div style="padding-top:8px;"><strong style="font-size:15px;">Accompagnement et exploitation des leads</strong><p style="font-size:13px; color:#64748b; line-height:1.6; margin-top:4px;">Nous vous accompagnons dans le traitement des contacts générés afin d'optimiser la prise de rendez-vous et la conversion en clients.</p></div>
-          </div>
-        </div>
-
-        <div style="margin-top:40px; padding-top:32px; border-top:1px solid #f1f5f9; display:flex; gap:20px; align-items:flex-start;">
-          <div style="flex:1;">
-            <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; margin-bottom:10px;">Le fondateur</p>
-            <p style="font-size:14px; color:#0f1b35; line-height:1.7; margin-bottom:12px;">Fort de 5 années d'expérience en publicité digitale, j'ai accompagné de nombreuses PME romandes et constaté que les méthodes traditionnelles devenaient de moins en moins efficaces.<br><br>Flux Client est né de ce constat : un accompagnement structuré, clé en main et orienté résultats.</p>
-            <p style="font-size:14px; font-weight:700; color:#0f1b35;">Samy Dahhaoui · Fondateur FluxClient</p>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- CHECKS (au-dessus du calendrier, mobile + desktop) -->
+    <div class="checks">
+      <div class="check"><span class="check-icon">✓</span> Des demandes de devis qualifiées chaque semaine</div>
+      <div class="check"><span class="check-icon">✓</span> Des clients dans votre secteur géographique</div>
+      <div class="check"><span class="check-icon">✓</span> Vous contrôlez le nombre de chantiers que vous générez</div>
+    </div>
+
+    <!-- BOOKING (Calendly) — sticky à droite sur desktop -->
+    <div class="booking">
+      <div class="cal-card">
+        <!-- Début de widget en ligne Calendly -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans?hide_gdpr_banner=1&primary_color=0f1b35"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Fin de widget en ligne Calendly -->
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how">
+      <h2>Comment fonctionne notre accompagnement</h2>
+      <div class="steps">
+        <div class="line"></div>
+        <div class="step">
+          <div class="num">1</div>
+          <div class="body"><strong>Définition de votre cible et secteur</strong><p>Nous définissons votre zone géographique, votre client idéal et la stratégie publicitaire la plus performante pour votre secteur en Suisse romande.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div class="body"><strong>Création et paramétrage des campagnes</strong><p>Nous prenons en charge l'ensemble de la création : visuels, vidéos et messages publicitaires. Vous n'avez rien à gérer.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div class="body"><strong>Lancement et premières demandes</strong><p>Les campagnes sont mises en ligne dans votre région et commencent à générer leurs premières demandes en 24 à 48 heures.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div class="body"><strong>Suivi et optimisation continue</strong><p>Nous assurons un suivi actif pour analyser les performances et effectuer les ajustements nécessaires. Cette phase améliore progressivement la qualité des demandes.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div class="body"><strong>Accompagnement et exploitation des leads</strong><p>Nous vous accompagnons dans le traitement des contacts générés afin d'optimiser la prise de rendez-vous et la conversion en clients.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDER -->
+    <div class="founder">
+      <p class="label">Le fondateur</p>
+      <p class="bio">Fort de 5 années d'expérience en publicité digitale, j'ai accompagné de nombreuses PME romandes et constaté que les méthodes traditionnelles devenaient de moins en moins efficaces.<br><br>Flux Client est né de ce constat : un accompagnement structuré, clé en main et orienté résultats.</p>
+      <p class="name">Samy Dahhaoui · Fondateur FluxClient</p>
+    </div>
+
   </div>
 
   <footer>
