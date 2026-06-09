@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/artisans", "destination": "/artisans/index.html" },
+    { "source": "/bienvenue", "destination": "/bienvenue.html" },
+    { "source": "/courtier", "destination": "/courtier.html" },
+    { "source": "/merci", "destination": "/merci.html" },
+    { "source": "/video", "destination": "/video.html" }
+  ]
+}
