@@ -32,7 +32,7 @@
 
     .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
     /* Pastille d'audience (taille mobile réduite, desktop ajusté plus bas) */
-    .audience { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.4); color: var(--navy); font-weight: 700; font-size: 13px; padding: 7px 15px; border-radius: 100px; margin-bottom: 18px; }
+    .audience { display: flex; width: fit-content; align-items: center; gap: 8px; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.4); color: var(--navy); font-weight: 700; font-size: 13px; padding: 7px 15px; border-radius: 100px; margin: 0 auto 18px; }
 
     /* Layout : 1 colonne (mobile) -> 2 colonnes (desktop). */
     .wrap { max-width: 1080px; margin: 0 auto; padding: 14px 20px 48px; display: grid; grid-template-columns: 1fr; gap: 18px; }
