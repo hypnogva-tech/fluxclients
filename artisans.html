@@ -41,7 +41,7 @@
     .section-title { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--navy); margin-bottom: 18px; }
 
     /* HERO compact */
-    .hero h1 { font-size: clamp(29px, 6vw, 44px); font-weight: 900; line-height: 1.12; letter-spacing: -1px; margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(29px, 6vw, 44px); font-weight: 900; line-height: 1.12; letter-spacing: -1px; margin-bottom: 12px; text-align: center; }
     .hero h1 .hl { background: var(--navy); color: #fff; padding: 2px 10px; border-radius: 6px; }
     .hero .sub { font-size: clamp(15px, 2.4vw, 18px); color: var(--navy); line-height: 1.55; max-width: 520px; }
 
@@ -63,15 +63,10 @@
     .testimonial .author { font-size: 13px; font-weight: 700; color: var(--navy); }
     .testimonial .author span { color: var(--muted); font-weight: 500; }
 
-    /* RESULTS : carte résultats de campagne (preuve sociale chiffrée) */
-    .results { background: var(--navy); color: #fff; border-radius: 16px; padding: 20px 22px; }
-    .results-head { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; color: #cdd5e3; margin-bottom: 16px; }
-    .results-grid { display: flex; gap: 12px; }
-    .metric { flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
-    .m-num { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
-    .m-num .green { color: var(--green); }
-    .m-label { display: block; font-size: 11px; color: #aab4c5; margin-top: 4px; }
-    .results-note { font-size: 12.5px; color: #cdd5e3; margin-top: 14px; line-height: 1.5; }
+    /* RÉSULTAT intégré dans la carte témoignage */
+    .t-result { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line2); }
+    .t-result-num { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: var(--green); line-height: 1; flex-shrink: 0; }
+    .t-result-label { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
 
     /* STICKY CTA : barre fixe en bas (mobile), révélée une fois le témoignage dépassé */
     .sticky-cta { display: none; }
@@ -107,12 +102,11 @@
       .hero        { grid-column: 1; grid-row: 1; }
       .checks      { grid-column: 1; grid-row: 2; }
       .logos       { grid-column: 1; grid-row: 3; }
-      .results     { grid-column: 1; grid-row: 4; }
-      .testimonial { grid-column: 1; grid-row: 5; }
-      .how         { grid-column: 1; grid-row: 6; }
-      .founder     { grid-column: 1; grid-row: 7; }
+      .testimonial { grid-column: 1; grid-row: 4; }
+      .how         { grid-column: 1; grid-row: 5; }
+      .founder     { grid-column: 1; grid-row: 6; }
       /* Calendrier collé en haut de l'écran, visible sans scroll */
-      .booking { grid-column: 2; grid-row: 1 / span 7; position: sticky; top: 16px; }
+      .booking { grid-column: 2; grid-row: 1 / span 6; position: sticky; top: 16px; }
       /* Pastille d'audience : taille rétablie sur desktop */
       .audience { font-size: 14.5px; padding: 8px 18px; }
       /* Titres de section un peu plus grands sur desktop */
@@ -181,22 +175,15 @@
       </div>
     </div>
 
-    <!-- RÉSULTATS : campagne Rosh (données réelles juin). À valider avec Samy/Rosh avant mise en ligne. -->
-    <div class="results">
-      <div class="results-head">📊 Résultats de campagne Meta Ads pour Rosh</div>
-      <div class="results-grid">
-        <div class="metric"><span class="m-num">100 CHF</span><span class="m-label">investis</span></div>
-        <div class="metric"><span class="m-num">10</span><span class="m-label">appels réservés</span></div>
-        <div class="metric"><span class="m-num"><span class="green">9,58 CHF</span></span><span class="m-label">Coût / prospect</span></div>
-      </div>
-      <div class="results-note">Un coût d'acquisition excellent pour le secteur.</div>
-    </div>
-
-    <!-- TESTIMONIAL : à FAIRE VALIDER par Samy + accord de Mehmeti avant publication -->
+    <!-- TESTIMONIAL + RÉSULTAT : à FAIRE VALIDER par Samy + accord de Mehmeti avant publication -->
     <div class="testimonial">
       <div class="stars">★★★★★</div>
       <p class="quote">« Les résultats, ça se voit. Aujourd'hui, j'ai déjà eu deux appels, deux rendez-vous pour lundi. On voit que je suis bien tombé en vous trouvant : vous avez vraiment du talent pour ça. »</p>
       <p class="author">Mehmeti <span>· ROSH, fabricant de fenêtres (Suisse romande)</span></p>
+      <div class="t-result">
+        <span class="t-result-num">9,58 CHF</span>
+        <span class="t-result-label">de coût par prospect sur sa campagne Meta Ads</span>
+      </div>
     </div>
 
     <!-- HOW IT WORKS -->
