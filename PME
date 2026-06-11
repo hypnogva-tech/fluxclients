@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PME Suisse · FluxClient Publicité Meta pour dirigeants</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1501526864789476');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1501526864789476&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    :root {
+      --navy: #0f1b35; --navy2: #1e3a5f; --green: #22c55e;
+      --muted: #64748b; --muted2: #94a3b8; --line: #f1f5f9; --line2: #e2e8f0; --bg: #f8fafc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #ffffff; color: var(--navy); }
+
+    .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
+    .audience { display: flex; width: fit-content; align-items: center; gap: 8px; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.4); color: var(--navy); font-weight: 700; font-size: 13px; padding: 7px 15px; border-radius: 100px; margin: 0 auto 18px; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 14px 20px 48px; display: grid; grid-template-columns: 1fr; gap: 18px; }
+
+    .section-title { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--navy); margin-bottom: 18px; }
+
+    /* HERO */
+    .hero h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; line-height: 1.12; letter-spacing: -1px; margin-bottom: 16px; text-align: center; }
+    .hero h1 .hl { background: var(--navy); color: #fff; padding: 2px 10px; border-radius: 6px; display: inline; }
+    .hero .sub { font-size: clamp(15px, 2vw, 17px); color: var(--muted); line-height: 1.65; max-width: 540px; margin: 0 auto; text-align: center; }
+
+    /* CHECKS */
+    .checks { display: flex; flex-direction: column; gap: 10px; }
+    .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--navy); }
+    .check-icon { color: var(--green); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* LOGOS */
+    .logos-row { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
+    .logos-row img { width: auto; } .logos-row .logo-lm { background: #0f1b35; padding: 8px 14px; border-radius: 8px; }
+    .logos-row .logo-rosh { height: 32px; }
+    .logos-row .logo-lm { height: 56px; }
+
+    /* TESTIMONIAL */
+    .testimonial { background: var(--bg); border: 1px solid var(--line2); border-radius: 16px; padding: 22px 24px; }
+    .testimonial .stars { color: #f5b301; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+    .testimonial .quote { font-size: 15.5px; line-height: 1.6; color: var(--navy); font-style: italic; margin-bottom: 14px; }
+    .testimonial .author { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .testimonial .author span { color: var(--muted); font-weight: 500; }
+    .t-result { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line2); }
+    .t-result-num { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: var(--green); line-height: 1; flex-shrink: 0; }
+    .t-result-label { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+
+    /* STICKY CTA */
+    .sticky-cta { display: none; }
+
+    /* BOOKING */
+    .cal-card { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 28px rgba(15,27,53,0.07); background: #fff; }
+    .calendly-inline-widget { min-width: 300px; height: 720px; }
+    #rdv { scroll-margin-top: 16px; }
+
+    /* HOW IT WORKS */
+    .steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .steps .line { position: absolute; left: 19px; top: 40px; bottom: 40px; width: 2px; background: var(--line2); }
+    .step { display: flex; gap: 20px; padding-bottom: 24px; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step .num { width: 40px; height: 40px; background: var(--navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0; z-index: 1; }
+    .step .body { padding-top: 8px; }
+    .step .body strong { font-size: 15px; }
+    .step .body p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+
+    /* FOUNDER */
+    .founder { padding-top: 28px; border-top: 1px solid var(--line); }
+    .founder p.bio { font-size: 14px; color: var(--navy); line-height: 1.7; margin-bottom: 12px; }
+    .founder p.name { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+    footer { padding: 24px 20px; text-align: center; border-top: 1px solid var(--line); margin-top: 8px; }
+    footer p { font-size: 12px; color: var(--muted2); }
+    footer a { color: var(--muted); text-decoration: underline; }
+
+    /* DESKTOP */
+    @media (min-width: 900px) {
+      .wrap { grid-template-columns: 1.05fr 0.95fr; gap: 28px 48px; align-items: start; padding-top: 20px; }
+      .hero        { grid-column: 1; grid-row: 1; }
+      .checks      { grid-column: 1; grid-row: 2; }
+      .logos       { grid-column: 1; grid-row: 3; }
+      .testimonial { grid-column: 1; grid-row: 4; }
+      .how         { grid-column: 1; grid-row: 5; }
+      .founder     { grid-column: 1; grid-row: 6; }
+      .booking { grid-column: 2; grid-row: 1 / span 6; position: sticky; top: 16px; }
+      .audience { font-size: 14.5px; padding: 8px 18px; }
+      .section-title { font-size: 22px; }
+      .logos-row { gap: 48px; }
+      .logos-row .logo-rosh { height: 40px; }
+      .logos-row .logo-lm { height: 64px; }
+      .logos { border-top: 1px solid var(--line); padding-top: 28px; }
+      .how   { border-top: 1px solid var(--line); padding-top: 28px; }
+    }
+
+    @media (max-width: 899px) {
+      .sticky-cta { display: flex; align-items: center; justify-content: center; gap: 8px;
+        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+        background: var(--navy); color: #fff; font-size: 16px; font-weight: 700;
+        padding: 16px; border-radius: 12px; text-decoration: none;
+        box-shadow: 0 8px 24px rgba(15,27,53,0.28);
+        transform: translateY(160%); transition: transform .28s ease; }
+      .sticky-cta.show { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="audience"><span class="dot"></span> Pour les dirigeants de PME 🇨🇭 · +300k CHF/an</div>
+      <h1>
+        Générez un flux continu de prospects qualifiés<br>pour votre PME 🇨🇭<br>
+        <span class="hl">grâce à Meta Ads</span>
+      </h1>
+      <p class="sub">
+        La plupart des agences ne maîtrisent pas les codes actuels de Meta Ads post Andromeda et vous le payez chaque mois en budget gaspillé. Nous sommes spécialisés uniquement là-dedans.
+      </p>
+    </div>
+
+    <!-- CHECKS -->
+    <div class="checks">
+      <div class="check"><span class="check-icon">✓</span> Des prospects qualifiés qui correspondent exactement à votre clientèle cible</div>
+      <div class="check"><span class="check-icon">✓</span> Un algorithme qui identifie qui est prêt à acheter votre service en ce moment</div>
+      <div class="check"><span class="check-icon">✓</span> Vous contrôlez le volume de leads générés chaque mois</div>
+    </div>
+
+    <!-- BOOKING (Calendly) -->
+    <div class="booking" id="rdv">
+      <div class="cal-card">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans?hide_gdpr_banner=1&primary_color=0f1b35"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
+    </div>
+
+    <!-- LOGOS -->
+    <div class="logos">
+      <h2 class="section-title">Ils nous font confiance</h2>
+      <div class="logos-row">
+        <img class="logo-rosh" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI2NzYgODUwLjEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI2NzYgODUwLjE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4gPHN0eWxlIHR5cGU9InRleHQvY3NzIj4gLnN0MHtmaWxsOiNFRDFDMjQ7fSAuc3Qxe2ZpbGw6IzA3NzNCQjt9IC5zdDJ7ZmlsbDojRkZGRkZGO30gPC9zdHlsZT4gPHJlY3QgeT0iNjQ0LjUiIGNsYXNzPSJzdDAiIHdpZHRoPSIyNjc2IiBoZWlnaHQ9IjIwNS42Ij48L3JlY3Q+IDxyZWN0IGNsYXNzPSJzdDEiIHdpZHRoPSIyNjc2IiBoZWlnaHQ9IjY0NC44Ij48L3JlY3Q+IDxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik01NzQuOSw0OTAuMyI+PC9wYXRoPiA8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMjUxOSwxMzIuMmM1LTIuMiw3LjUtNi4xLDcuNS0xMS45YzAtNC4yLTEuMy03LjQtMy43LTkuNWMtMi41LTIuMi02LTMuNC0xMC41LTMuNGgtMTYuNnY0My4yaDguMnYtMTcuM2g2LjggbDguMSwxNy4zaDguNkwyNTE5LDEzMi4yeiBNMjUxMS43LDEyNi4xaC03Ljh2LTExLjVoNy44YzQuNSwwLDYuNiwxLjksNi42LDUuN0MyNTE4LjQsMTI0LjIsMjUxNi4yLDEyNi4xLDI1MTEuNywxMjYuMXoiPjwvcGF0aD4gPHBhdGggY2xhc3M9InN0MiIgZD0iTTc3NC43LDU1MS42Yy01LjctNC41LTExLjEtMTEuMS0xMS45LTEyYy0wLjEtMC4xLTAuMS0wLjEtMC4xLTAuMUw2MzcsMzcxLjJjMTMuNi0zLjQsMjYuNS04LjcsMzguMy0xNS44IGM0Mi0yNC45LDcwLjEtNTMuOSw3MS4xLTEyM2MxLjItODUuMS04NS0xNDMuNi0xNjUuMy0xNDMuNEgyMzMuM2M4LjIsMCw4LjMsMTUuMiw4LjMsMTUuOXY0MzQuNmMwLDAuNCwwLDQuNS0xLDguMyBjLTEsMy45LTMuMiw3LjctNy4yLDcuN0g0MjhjLTguMiwwLTguMy0xNS4yLTguMy0xNS45VjM5Ny4yaDMzLjhsODguNSwxNDIuMmwwLDBsMCwwYzAuNCwwLjYsOC4yLDE2LDAsMTZINzgzIEM3ODAuNSw1NTUuNSw3NzcuNiw1NTMuOCw3NzQuNyw1NTEuNnogTTU1NC43LDI2MWMtNS43LDIyLjEtMjUuNiwzOC4zLTQ5LjQsMzguM2gtODUuN1YxOTcuNGg4NS40YzAuMSwwLDAuMi0wLjEsMC4zLTAuMSBjMjEuNSwwLDUxLDIyLjgsNTEsNTFDNTU2LjMsMjUyLjgsNTU1LjgsMjU2LjksNTU0LjcsMjYxeiI+PC9wYXRoPiA8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTA4NC4yLDc1LjVjLTE4NS43LDAtMjcwLjcsMTEwLjYtMjcwLjcsMjQ3YzAsMTM2LjQsODAuMSwyNDQsMjcwLjcsMjQ3YzE5NS41LDMsMjcwLjctMTEwLjYsMjcwLjctMjQ3IFMxMjc0LjIsNzUuNSwxMDg0LjIsNzUuNXogTTEwODUuMiw0NDFjLTQ1LjMsMC04Mi40LTMxLTg0LjEtMTExLjFjLTAuMS0xLjktMC4xLTQtMC4xLTZjMC0yLDAtNC4xLDAuMS02IGMxLjgtODAuMiwzOC44LTExMS4yLDg0LjEtMTExLjJjNDYuNSwwLDg0LjIsMzQuNCw4NC4yLDExNy4yQzExNjkuNCw0MDguNywxMTMxLjcsNDQxLDEwODUuMiw0NDF6Ij48L3BhdGg+IDxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNjYyLjMsMjUxLjdjLTQ1LTkuNC00OS40LTI1LTQ5LjQtMjVzLTE1LjUtMjkuMiw1My40LTMyLjVjNjguOS0zLjIsMTU4LjYsMzQuNCwxNTguNiwzNC40IGMtMi0zMy41LDEwLjktMTI3LjIsMTAuOS0xMjcuMmMxMC4zLTcuNS00MDQuNy0xMDIuNy00MTIuOSwxMjQuN2MwLDAtMjEuMiwxMjIuMiwxODUuOCwxNTQuN2MwLDAsNzYuOCwxMS41LDc3LjgsMzYuOSBjMSwyNS41LTQwLjksMjkuNC00MC45LDI5LjRzLTk4LjcsMTAuOS0xOTIuNi0zOS40YzAsMC05LjQsNTguMi01MCwxMTcuOGMtMC42LDEtMS40LDItMiwzYzIyLjIsNywzNSw5LjksMzUuNiwxMGwwLDAgYzAsMCwyMzMuNSw2NC44LDM1OC4zLDBjMCwwLDgyLjQtMjMuOSw4Mi40LTEzOS4yQzE4NzcuNCwyODQsMTcwNy4yLDI2MSwxNjYyLjMsMjUxLjd6Ij48L3BhdGg+IDxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0yNDQyLjcsNTU3LjJjLTguMiwwLjEtOC4zLTE1LjEtOC4zLTE1LjlWMTA2LjZjMC4xLTAuNywwLjItMTUuOSw4LjMtMTUuOWgtMTk2LjFjOC4yLDAsOC4zLDE1LjIsOC4zLDE1LjkgdjE0Ni43aC0xMzBWMTA2LjZjMC0wLjgsMC4xLTE1LjksOC4zLTE1LjloLTE5Ni4zYzguMiwwLDguMywxNS4yLDguMywxNS45djQzNC42YzAsMC44LTAuMSwxNS45LTguMywxNS45SDIxMzMgYy04LjIsMC04LjMtMTUuMi04LjMtMTUuOVYzNzcuMWgxMzB2MTY0LjF2MGMwLDEtMC4xLDE1LjktOC4zLDE1LjloOC4zdjBoMTc5LjZ2MEgyNDQyLjd6Ij48L3BhdGg+IDwvc3ZnPiA=" alt="ROSH, Fabricant de fenêtres" />
+        <img class="logo-lm" src="data:image/png;base64,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" alt="La Maison des Énergies" />
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL -->
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">« Les résultats, ça se voit. Aujourd'hui, j'ai déjà eu deux appels, deux rendez-vous pour lundi. On voit que je suis bien tombé en vous trouvant : vous avez vraiment du talent pour ça. »</p>
+      <p class="author">Mehmeti <span>· ROSH, fabricant de fenêtres (Suisse romande)</span></p>
+      <div class="t-result">
+        <span class="t-result-num">9,58 CHF</span>
+        <span class="t-result-label">de coût par prospect sur sa campagne Meta Ads</span>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how">
+      <h2 class="section-title">Comment fonctionne notre accompagnement</h2>
+      <div class="steps">
+        <div class="line"></div>
+        <div class="step">
+          <div class="num">1</div>
+          <div class="body"><strong>Définition de votre cible et secteur</strong><p>Nous définissons votre zone géographique, votre client idéal et la stratégie publicitaire la plus performante pour votre secteur en Suisse romande.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div class="body"><strong>Création et paramétrage des campagnes</strong><p>Nous prenons en charge l'ensemble de la création : visuels, vidéos et messages publicitaires. Vous n'avez rien à gérer.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div class="body"><strong>Lancement et premières demandes</strong><p>Les campagnes sont mises en ligne dans votre région et commencent à générer leurs premières demandes en 24 à 48 heures.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div class="body"><strong>Suivi et optimisation continue</strong><p>Nous assurons un suivi actif pour analyser les performances et effectuer les ajustements nécessaires.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div class="body"><strong>Accompagnement et exploitation des leads</strong><p>Nous vous accompagnons dans le traitement des contacts générés afin d'optimiser la prise de rendez-vous et la conversion en clients.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDER -->
+    <div class="founder">
+      <h2 class="section-title">Le fondateur</h2>
+      <p class="bio">Fort de 5 années d'expérience en publicité digitale, j'ai accompagné de nombreuses PME romandes et constaté que les agences généralistes dépensent votre budget sans maîtriser les codes spécifiques de Meta.<br><br>FluxClient est né de ce constat : un accompagnement structuré, clé en main et orienté résultats uniquement spécialisé sur Meta Ads.</p>
+      <p class="name">Samy Dahhaoui · Fondateur FluxClient</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>
+      &copy; 2026 FluxClient · <a href="#">Mentions légales</a> · <a href="#">Politique de confidentialité</a> · <a href="mailto:contact@fluxclients.ch">contact@fluxclients.ch</a>
+    </p>
+  </footer>
+
+  <a href="#rdv" class="sticky-cta" id="stickyCta">Prendre rendez-vous →</a>
+  <script>
+    (function () {
+      var bar = document.getElementById('stickyCta');
+      var trigger = document.querySelector('.logos');
+      if (!bar || !trigger || !('IntersectionObserver' in window)) return;
+      new IntersectionObserver(function (entries) {
+        var e = entries[0];
+        var reached = e.isIntersecting || e.boundingClientRect.top < 0;
+        bar.classList.toggle('show', reached);
+      }, { threshold: 0 }).observe(trigger);
+    })();
+  </script>
+
+</body>
+</html>
