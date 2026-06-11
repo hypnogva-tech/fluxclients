@@ -68,13 +68,17 @@
     .t-result-num { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: var(--green); line-height: 1; flex-shrink: 0; }
     .t-result-label { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
 
-    /* STICKY CTA : barre fixe en bas (mobile), révélée une fois le témoignage dépassé */
+    /* STICKY CTA : barre fixe en bas (mobile), toujours visible */
     .sticky-cta { display: none; }
 
-    /* BOOKING : widget Calendly dans une carte */
-    .cal-card { border: 1px solid var(--line2); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 28px rgba(15,27,53,0.07); background: #fff; }
-    .calendly-inline-widget { min-width: 300px; height: 720px; }
-    #rdv { scroll-margin-top: 16px; }
+    /* CTA : bouton « Prendre rendez-vous » (remplace le widget Calendly inline pour un chargement instantané) */
+    .cta-block { text-align: center; padding: 4px 0; }
+    .cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--navy); color: #fff; font-size: 16px; font-weight: 700;
+      padding: 16px 30px; border-radius: 12px; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(15,27,53,0.18); transition: transform .15s ease, box-shadow .15s ease; }
+    .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(15,27,53,0.26); }
+    .cta-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
 
     /* HOW IT WORKS */
     .steps { display: flex; flex-direction: column; gap: 0; position: relative; }
@@ -88,6 +92,8 @@
 
     /* FOUNDER */
     .founder { padding-top: 28px; border-top: 1px solid var(--line); }
+    .founder-inner { display: flex; gap: 24px; align-items: flex-start; }
+    .founder-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; border: 3px solid var(--line2); }
     .founder p.bio { font-size: 14px; color: var(--navy); line-height: 1.7; margin-bottom: 12px; }
     .founder p.name { font-size: 14px; font-weight: 700; color: var(--navy); }
 
@@ -95,18 +101,9 @@
     footer p { font-size: 12px; color: var(--muted2); }
     footer a { color: var(--muted); text-decoration: underline; }
 
-    /* DESKTOP : 2 colonnes, Calendly sticky toujours visible */
+    /* DESKTOP : colonne unique centrée (plus de widget, donc plus de 2e colonne) */
     @media (min-width: 900px) {
-      /* gap: 28px (vertical, resserré) 48px (entre colonnes texte/calendrier) */
-      .wrap { grid-template-columns: 1.05fr 0.95fr; gap: 28px 48px; align-items: start; padding-top: 20px; }
-      .hero        { grid-column: 1; grid-row: 1; }
-      .checks      { grid-column: 1; grid-row: 2; }
-      .logos       { grid-column: 1; grid-row: 3; }
-      .testimonial { grid-column: 1; grid-row: 4; }
-      .how         { grid-column: 1; grid-row: 5; }
-      .founder     { grid-column: 1; grid-row: 6; }
-      /* Calendrier collé en haut de l'écran, visible sans scroll */
-      .booking { grid-column: 2; grid-row: 1 / span 6; position: sticky; top: 16px; }
+      .wrap { max-width: 640px; gap: 30px; padding-top: 28px; }
       /* Pastille d'audience : taille rétablie sur desktop */
       .audience { font-size: 14.5px; padding: 8px 18px; }
       /* Titres de section un peu plus grands sur desktop */
@@ -115,20 +112,26 @@
       .logos-row { gap: 48px; }
       .logos-row .logo-rosh { height: 40px; }
       .logos-row .logo-lm { height: 64px; }
-      /* Séparateurs desktop : structurent la colonne (bullets ↔ logos, témoignage ↔ process) */
+      /* Séparateurs desktop : structurent la colonne */
       .logos { border-top: 1px solid var(--line); padding-top: 28px; }
       .how   { border-top: 1px solid var(--line); padding-top: 28px; }
+      /* Bouton CTA un peu plus généreux sur desktop */
+      .cta-btn { font-size: 17px; padding: 17px 34px; }
     }
 
-    /* MOBILE : barre CTA fixe en bas, masquée jusqu'à ce qu'on dépasse le témoignage */
+    /* MOBILE : barre sticky toujours visible ; seul le 1er bouton du corps reste */
     @media (max-width: 899px) {
+      /* Espace pour que la barre fixe ne recouvre pas le dernier contenu */
+      body { padding-bottom: 86px; }
+      /* Le 2e bouton (bas de page) est superflu sur mobile : la barre sticky le remplace */
+      .cta-block--end { display: none; }
+      /* Image du fondateur au-dessus du texte (plus lisible que côte à côte) */
+      .founder-inner { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
       .sticky-cta { display: flex; align-items: center; justify-content: center; gap: 8px;
         position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
         background: var(--navy); color: #fff; font-size: 16px; font-weight: 700;
         padding: 16px; border-radius: 12px; text-decoration: none;
-        box-shadow: 0 8px 24px rgba(15,27,53,0.28);
-        transform: translateY(160%); transition: transform .28s ease; }
-      .sticky-cta.show { transform: translateY(0); }
+        box-shadow: 0 8px 24px rgba(15,27,53,0.28); }
     }
   </style>
 </head>
@@ -156,14 +159,10 @@
       <div class="check"><span class="check-icon">✓</span> Vous contrôlez le nombre de chantiers que vous générez</div>
     </div>
 
-    <!-- BOOKING (Calendly) : sticky à droite sur desktop -->
-    <div class="booking" id="rdv">
-      <div class="cal-card">
-        <!-- Début de widget en ligne Calendly -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans?hide_gdpr_banner=1&primary_color=0f1b35"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        <!-- Fin de widget en ligne Calendly -->
-      </div>
+    <!-- CTA 1 : juste après les bullet points (visible dès le départ ; déclenche la barre sticky mobile) -->
+    <div class="cta-block" id="ctaTop">
+      <a href="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans?primary_color=0f1b35" target="_blank" rel="noopener" class="cta-btn">Prendre rendez-vous →</a>
+      <p class="cta-note">Audit offert de 30 min · sans engagement</p>
     </div>
 
     <!-- PREUVE SOCIALE : logos + témoignage (juste après le calendrier sur mobile) -->
@@ -217,8 +216,19 @@
     <!-- FOUNDER -->
     <div class="founder">
       <h2 class="section-title">Le fondateur</h2>
-      <p class="bio">Fort de 5 années d'expérience en publicité digitale, j'ai accompagné de nombreuses PME romandes et constaté que les méthodes traditionnelles devenaient de moins en moins efficaces.<br><br>Flux Client est né de ce constat : un accompagnement structuré, clé en main et orienté résultats.</p>
-      <p class="name">Samy Dahhaoui · Fondateur FluxClient</p>
+      <div class="founder-inner">
+        <img src="__FOUNDER_PHOTO__" alt="Samy Dahhaoui" class="founder-photo">
+        <div>
+          <p class="bio">Fort de 5 années d'expérience en publicité digitale, j'ai accompagné de nombreuses PME romandes et constaté que les méthodes traditionnelles devenaient de moins en moins efficaces.<br><br>Flux Client est né de ce constat : un accompagnement structuré, clé en main et orienté résultats.</p>
+          <p class="name">Samy Dahhaoui · Fondateur FluxClient</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA 2 : tout en bas, après le fondateur (masqué sur mobile : la barre sticky le remplace) -->
+    <div class="cta-block cta-block--end">
+      <a href="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans?primary_color=0f1b35" target="_blank" rel="noopener" class="cta-btn">Prendre rendez-vous →</a>
+      <p class="cta-note">Audit offert de 30 min · sans engagement</p>
     </div>
 
   </div>
@@ -229,21 +239,8 @@
     </p>
   </footer>
 
-  <!-- Barre CTA fixe (mobile) : révélée une fois le témoignage dépassé -->
-  <a href="#rdv" class="sticky-cta" id="stickyCta">Prendre rendez-vous →</a>
-  <script>
-    (function () {
-      var bar = document.getElementById('stickyCta');
-      var trigger = document.querySelector('.logos');
-      if (!bar || !trigger || !('IntersectionObserver' in window)) return;
-      new IntersectionObserver(function (entries) {
-        var e = entries[0];
-        // Affiche la barre dès qu'on atteint « Ils nous font confiance » (calendrier dépassé), puis la garde
-        var reached = e.isIntersecting || e.boundingClientRect.top < 0;
-        bar.classList.toggle('show', reached);
-      }, { threshold: 0 }).observe(trigger);
-    })();
-  </script>
+  <!-- Barre CTA fixe (mobile) : toujours visible -->
+  <a href="https://calendly.com/artisanpro/audit-offert-de-30-min-artisans?primary_color=0f1b35" target="_blank" rel="noopener" class="sticky-cta">Prendre rendez-vous →</a>
 
 </body>
 </html>
