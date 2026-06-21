@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Écoles & Instituts de formation Suisse · FluxClient Publicité Meta</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1501526864789476');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1501526864789476&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    :root {
+      --navy: #0f172a; --accent: #2563eb; --accent2: #3b82f6; --green: #22c55e;
+      --muted: #64748b; --muted2: #94a3b8; --line: #f1f5f9; --line2: #e2e8f0; --bg: #f8fafc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #ffffff; color: var(--navy); }
+
+    .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
+    .audience { display: flex; width: fit-content; align-items: center; gap: 8px; background: rgba(34,197,94,0.10); border: 1px solid rgba(34,197,94,0.35); color: var(--navy); font-weight: 600; font-size: 12.5px; padding: 6px 14px; border-radius: 100px; margin: 0 auto 22px; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 14px 20px 48px; display: grid; grid-template-columns: 1fr; gap: 18px; }
+
+    .section-title { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--navy); margin-bottom: 18px; }
+
+    /* HERO */
+    .hero h1 { font-size: clamp(28px, 4.8vw, 44px); font-weight: 900; line-height: 1.3; letter-spacing: -0.5px; margin-bottom: 20px; text-align: center; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .hero h1 .hl { background: var(--accent); color: #fff; padding: 2px 10px; border-radius: 6px; display: inline; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .hero .sub { font-size: clamp(15px, 2vw, 17px); color: var(--muted); line-height: 1.65; max-width: 520px; margin: 0 auto; text-align: center; }
+    .hero { margin-bottom: 6px; }
+
+    /* HERO IMAGE */
+    .hero-image { width: 100%; }
+    .hero-image img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 8px 30px rgba(15,23,42,0.12); }
+
+    /* CHECKS */
+    .checks { display: flex; flex-direction: column; gap: 10px; }
+    .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--navy); }
+    .check-icon { color: var(--green); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* LOGOS */
+    .logos-row { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
+    .logos-row img { width: auto; } .logos-row .logo-lm { height: 64px; width: auto; }
+    .logos-row .logo-rosh { height: 32px; }
+    .logos-row .logo-lm { height: 56px; }
+
+    /* TESTIMONIAL */
+    .testimonial { background: var(--bg); border: 1px solid var(--line2); border-radius: 16px; padding: 22px 24px; }
+    .testimonial .stars { color: #f5b301; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+    .testimonial .quote { font-size: 15.5px; line-height: 1.6; color: var(--navy); font-style: italic; margin-bottom: 14px; }
+    .testimonial .author { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .testimonial .author span { color: var(--muted); font-weight: 500; }
+    .t-result { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line2); }
+    .t-result-num { font-size: 28px; font-weight: 800; letter-spacing: -1px; color: var(--green); line-height: 1; flex-shrink: 0; }
+    .t-result-label { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+
+    /* STICKY CTA : barre fixe en bas (mobile), apparaît après les bullet points */
+    .sticky-cta { display: none; }
+
+    /* CTA : bouton « Prendre rendez-vous » (remplace le widget Calendly inline pour un chargement instantané) */
+    .cta-block { text-align: center; padding: 4px 0; }
+    .cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: #fff; font-size: 16px; font-weight: 700;
+      padding: 16px 30px; border-radius: 12px; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37,99,235,0.25); transition: transform .15s ease, box-shadow .15s ease; }
+    .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(37,99,235,0.35); }
+    .cta-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+    /* HOW IT WORKS */
+    .steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .steps .line { position: absolute; left: 19px; top: 40px; bottom: 40px; width: 2px; background: var(--line2); }
+    .step { display: flex; gap: 20px; padding-bottom: 24px; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step .num { width: 40px; height: 40px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0; z-index: 1; }
+    .step .body { padding-top: 8px; }
+    .step .body strong { font-size: 15px; }
+    .step .body p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+
+    /* FOUNDER */
+    .founder { padding-top: 28px; border-top: 1px solid var(--line); }
+    .founder-inner { display: flex; gap: 24px; align-items: flex-start; }
+    .founder-photo { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; border: 3px solid var(--line2); }
+    .founder p.bio { font-size: 14px; color: var(--navy); line-height: 1.7; margin-bottom: 12px; }
+    .founder p.name { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+    footer { padding: 24px 20px; text-align: center; border-top: 1px solid var(--line); margin-top: 8px; }
+    footer p { font-size: 12px; color: var(--muted2); }
+    footer a { color: var(--muted); text-decoration: underline; }
+
+    /* DESKTOP : colonne unique centrée (plus de widget, donc plus de 2e colonne) */
+    @media (min-width: 900px) {
+      .wrap { max-width: 640px; gap: 30px; padding-top: 28px; }
+      .audience { font-size: 14.5px; padding: 8px 18px; }
+      .section-title { font-size: 22px; }
+      .logos-row { gap: 48px; }
+      .logos-row .logo-rosh { height: 40px; }
+      .logos-row .logo-lm { height: 64px; }
+      .logos { border-top: 1px solid var(--line); padding-top: 28px; }
+      .how   { border-top: 1px solid var(--line); padding-top: 28px; }
+      .cta-btn { font-size: 17px; padding: 17px 34px; }
+    }
+
+    /* MOBILE : barre sticky toujours visible ; seul le 1er bouton du corps reste */
+    @media (max-width: 899px) {
+      body { padding-bottom: 86px; }
+      /* Le 2e bouton (bas de page) est superflu sur mobile : la barre sticky le remplace */
+      .cta-block--end { display: none; }
+      /* Image du fondateur au-dessus du texte (plus lisible que côte à côte) */
+      .founder-inner { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+      .sticky-cta { display: flex; align-items: center; justify-content: center; gap: 8px;
+        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+        background: var(--accent); color: #fff; font-size: 16px; font-weight: 700;
+        padding: 16px; border-radius: 12px; text-decoration: none;
+        box-shadow: 0 8px 24px rgba(37,99,235,0.35); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="audience"><span class="dot"></span> Pour les écoles et instituts de formation 🇨🇭</div>
+      <h1>
+        Chaque <span class="hl">place non pourvue</span><br>
+        vous coûte cher.<br>
+        Remplissez vos <span class="hl">classes</span> grâce à Meta Ads.
+      </h1>
+      <p class="sub">
+        La plupart des instituts de formation se battent sur Google Ads et utilisent Meta Ads uniquement pour faire du branding. Pourtant, bien utilisé, Meta Ads peut vous amener directement de nouveaux élèves, chaque mois.
+      </p>
+    </div>
+
+    <!-- HERO IMAGE : comparaison classe vide / classe pleine -->
+    <div class="hero-image">
+      <img src="classe-comparaison.png" alt="Comparaison entre une salle de classe à moitié vide qui coûte cher et une salle de classe pleine d'adultes et jeunes adultes" />
+    </div>
+
+    <!-- CHECKS -->
+    <div class="checks">
+      <div class="check"><span class="check-icon">✓</span> Des élèves qualifiés qui correspondent exactement aux formations que vous proposez</div>
+      <div class="check"><span class="check-icon">✓</span> Un algorithme qui identifie qui est prêt à s'inscrire à votre formation en ce moment</div>
+      <div class="check"><span class="check-icon">✓</span> Vous contrôlez le volume d'inscriptions générées chaque mois</div>
+    </div>
+
+    <!-- CTA 1 : juste après les bullet points (visible dès le départ ; déclenche la barre sticky mobile) -->
+    <div class="cta-block" id="ctaTop">
+      <a href="https://calendly.com/artisanpro/audit-offert-de-30-min-flux?primary_color=0f1b35" target="_blank" rel="noopener" class="cta-btn">Prendre rendez-vous →</a>
+      <p class="cta-note">Audit offert de 30 min · sans engagement</p>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how">
+      <h2 class="section-title">Comment fonctionne notre accompagnement</h2>
+      <div class="steps">
+        <div class="line"></div>
+        <div class="step">
+          <div class="num">1</div>
+          <div class="body"><strong>Définition de vos formations et de votre public cible</strong><p>Nous définissons votre zone géographique, le profil de vos futurs élèves et la stratégie publicitaire la plus performante pour votre école en Suisse romande.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div class="body"><strong>Création et paramétrage des campagnes</strong><p>Nous prenons en charge l'ensemble de la création : visuels, vidéos et messages publicitaires. Vous n'avez rien à gérer.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div class="body"><strong>Lancement et premières demandes</strong><p>Les campagnes sont mises en ligne dans votre région et commencent à générer leurs premières demandes en 24 à 48 heures.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div class="body"><strong>Suivi et optimisation continue</strong><p>Nous assurons un suivi actif pour analyser les performances et effectuer les ajustements nécessaires.</p></div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div class="body"><strong>Accompagnement et exploitation des leads</strong><p>Nous vous accompagnons dans le traitement des contacts générés afin d'optimiser la prise de rendez-vous et la conversion en élèves inscrits.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDER -->
+    <div class="founder">
+      <h2 class="section-title">Le fondateur</h2>
+      <div class="founder-inner">
+        <img src="Samy.jpeg" alt="Samy Dahhaoui" class="founder-photo" />
+        <div>
+          <p class="bio">Fort de 5 années d'expérience en publicité digitale, j'ai accompagné de nombreuses PME romandes et constaté que les agences généralistes dépensent votre budget sans maîtriser les codes spécifiques de Meta.<br><br>FluxClient est né de ce constat : un accompagnement structuré, clé en main et orienté résultats, uniquement spécialisé sur Meta Ads.</p>
+          <p class="name">Samy Dahhaoui · Fondateur FluxClient</p>
+        </div>
+      </div>
+    </div>    </div>
+
+    <!-- CTA 2 : tout en bas, après le fondateur (masqué sur mobile : la barre sticky le remplace) -->
+    <div class="cta-block cta-block--end">
+      <a href="https://calendly.com/artisanpro/audit-offert-de-30-min-flux?primary_color=0f1b35" target="_blank" rel="noopener" class="cta-btn">Prendre rendez-vous →</a>
+      <p class="cta-note">Audit offert de 30 min · sans engagement</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>
+      &copy; 2026 FluxClient · <a href="#">Mentions légales</a> · <a href="#">Politique de confidentialité</a> · <a href="mailto:contact@fluxclients.ch">contact@fluxclients.ch</a>
+    </p>
+  </footer>
+
+  <!-- Barre CTA fixe (mobile) : toujours visible -->
+  <a href="https://calendly.com/artisanpro/audit-offert-de-30-min-flux?primary_color=0f1b35" target="_blank" rel="noopener" class="sticky-cta">Prendre rendez-vous →</a>
+
+</body>
+</html>
