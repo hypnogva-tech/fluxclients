@@ -33,7 +33,8 @@
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #ffffff; color: var(--navy); }
 
     .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
-    .audience { display: flex; width: fit-content; align-items: center; gap: 8px; background: var(--green-tint); border: 1px solid rgba(23,163,80,0.4); color: var(--navy); font-weight: 700; font-size: 13px; padding: 7px 15px; border-radius: 100px; margin: 0 auto 18px; }
+    .audience { display: flex; width: fit-content; max-width: 90%; align-items: flex-start; gap: 8px; background: var(--green-tint); border: 1px solid rgba(23,163,80,0.4); color: var(--navy); font-weight: 700; font-size: 13px; line-height: 1.4; padding: 10px 16px; border-radius: 16px; margin: 0 auto 18px; text-align: left; }
+    .audience .dot { margin-top: 5px; flex-shrink: 0; }
 
     .wrap { max-width: 1080px; margin: 0 auto; padding: 14px 20px 56px; display: grid; grid-template-columns: 1fr; gap: 26px; }
 
@@ -44,7 +45,7 @@
     /* HERO */
     .hero h1 { font-size: clamp(29px, 6vw, 44px); font-weight: 900; line-height: 1.14; letter-spacing: -1px; margin-bottom: 14px; text-align: center; }
     .hero h1 .hl { color: var(--green); }
-    .hero .sub { font-size: clamp(15px, 2.4vw, 18px); color: var(--navy); line-height: 1.6; max-width: 520px; margin: 0 auto; }
+    .hero .sub { font-size: clamp(15px, 2.4vw, 18px); color: var(--navy); line-height: 1.6; max-width: 520px; margin: 0 auto; text-align: center; }
     .hero .sub-bridge { font-weight: 700; color: var(--green-dark); }
 
     /* VIDEO : format 16:9 responsive */
@@ -122,7 +123,7 @@
     /* DESKTOP */
     @media (min-width: 900px) {
       .wrap { max-width: 660px; gap: 44px; padding-top: 32px; padding-bottom: 64px; }
-      .audience { font-size: 14.5px; padding: 8px 18px; }
+      .audience { font-size: 14.5px; padding: 12px 20px; }
       .section-title { font-size: 23px; }
       .logos-row { gap: 48px; }
       .logos-row .logo-rosh { height: 38px; }
