@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions Générales de Vente — Flux Clients</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5C518;
+    --yellow-dark: #D4A800;
+    --dark: #0E0E0E;
+    --dark2: #161616;
+    --dark3: #1E1E1E;
+    --light: #F8F7F2;
+    --white: #FFFFFF;
+    --text-muted: #888;
+    --text-light: #ccc;
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); }
 
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 18px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; text-decoration: none; color: var(--white); }
+  .logo span { color: var(--yellow); }
+  .nav-back {
+    color: var(--text-light); font-size: 14px; text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--yellow); }
+
+  .legal-wrap {
+    max-width: 760px; margin: 0 auto; padding: 160px 24px 120px;
+  }
+  .legal-header { margin-bottom: 56px; }
+  .legal-tag {
+    display: inline-block; background: rgba(245,197,24,0.12); border: 1px solid rgba(245,197,24,0.3);
+    color: var(--yellow); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .legal-header h1 {
+    font-family: var(--font-display); font-size: clamp(30px, 4vw, 44px); font-weight: 800;
+    letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px;
+  }
+  .legal-meta { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+  .legal-body h2 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 700;
+    margin-top: 44px; margin-bottom: 16px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .legal-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .legal-body p { font-size: 15.5px; line-height: 1.8; color: var(--text-light); margin-bottom: 14px; }
+  .legal-body ul { margin: 0 0 14px 20px; }
+  .legal-body li { font-size: 15.5px; line-height: 1.8; color: var(--text-light); margin-bottom: 6px; }
+  .legal-body strong { color: var(--white); font-weight: 600; }
+  .legal-contact {
+    margin-top: 56px; padding: 28px; background: var(--dark3); border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .legal-contact h3 { font-family: var(--font-display); font-size: 16px; margin-bottom: 10px; }
+  .legal-contact p { font-size: 14px; color: var(--text-light); line-height: 1.7; margin: 0; }
+
+  footer { background: var(--dark2); padding: 40px 60px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  footer p { font-size: 13px; color: var(--text-muted); }
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--yellow); }
+
+  @media (max-width: 700px) {
+    nav { padding: 16px 24px; }
+    .legal-wrap { padding: 120px 20px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Flux<span>Clients</span></a>
+  <a href="index.html" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="legal-wrap">
+  <div class="legal-header">
+    <div class="legal-tag">Conditions Générales de Vente</div>
+    <h1>Conditions Générales de Vente (CGV)</h1>
+    <div class="legal-meta">
+      Fluxclients — Samy Dahhaoui, entreprise individuelle<br>
+      Rue de Couvaloup 11, 1110 Morges, Suisse<br>
+      contact@fluxclients.ch<br>
+      N° IDE : CHE-295.853.054<br>
+      Dernière mise à jour : [À COMPLÉTER, ex. août 2026]
+    </div>
+  </div>
+
+  <div class="legal-body">
+    <h2>1. Champ d'application</h2>
+    <p>Les présentes Conditions Générales de Vente (ci-après « CGV ») régissent toutes les prestations de services de web marketing (ci-après les « Prestations ») fournies par Samy Dahhaoui, entreprise individuelle (ci-après « le Prestataire »), à ses clients (ci-après « le Client »), qu'il s'agisse de particuliers ou de professionnels.</p>
+    <p>Toute commande de Prestations implique l'acceptation pleine et entière des présentes CGV par le Client, sans réserve. Ces CGV prévalent sur tout document du Client, sauf accord écrit contraire entre les parties.</p>
+
+    <h2>2. Prestations</h2>
+    <p>Le Prestataire propose des services de web marketing, notamment : stratégie digitale, référencement (SEO/SEA), gestion de campagnes publicitaires, réseaux sociaux, création et optimisation de contenus web.</p>
+    <p>Le détail précis des Prestations fournies, leur périmètre et leurs modalités sont définis dans le devis ou l'offre acceptée par le Client, qui fait partie intégrante du contrat conclu entre les parties.</p>
+
+    <h2>3. Devis et commande</h2>
+    <p>Toute Prestation fait l'objet d'un devis préalable transmis au Client, précisant la nature des Prestations, leur prix et les délais estimés.</p>
+    <p>La commande est réputée ferme et définitive dès acceptation écrite du devis par le Client (signature, email de confirmation, ou tout autre moyen équivalent) ou dès le versement d'un éventuel acompte.</p>
+
+    <h2>4. Prix et modalités de paiement</h2>
+    <p>Les prix des Prestations sont ceux indiqués dans le devis, exprimés en francs suisses (CHF).</p>
+    <ul>
+      <li>Facturation [au forfait / à l'heure / par abonnement mensuel — à choisir selon la Prestation].</li>
+      <li>Paiement à réception de facture, dans un délai de [30 jours — À CONFIRMER].</li>
+      <li>Un acompte de [___%] peut être demandé à la commande pour toute Prestation dépassant [___ CHF].</li>
+    </ul>
+    <p>En cas de retard de paiement, le Prestataire se réserve le droit d'appliquer un intérêt moratoire conformément au Code des obligations suisse (CO), ainsi que de suspendre l'exécution des Prestations en cours jusqu'au règlement complet.</p>
+
+    <h2>5. Délais d'exécution</h2>
+    <p>Les délais indiqués dans le devis sont donnés à titre indicatif et ne constituent pas un engagement ferme, sauf mention contraire expresse. Le Prestataire ne pourra être tenu responsable des retards dus à un cas de force majeure ou à un manquement du Client dans la fourniture des éléments nécessaires à l'exécution des Prestations.</p>
+
+    <h2>6. Obligations du Client</h2>
+    <ul>
+      <li>Fournir en temps utile toutes les informations, accès et contenus nécessaires à la bonne exécution des Prestations.</li>
+      <li>Valider les livrables dans les délais convenus.</li>
+      <li>Garantir qu'il détient les droits nécessaires sur les contenus, marques, images et informations qu'il transmet au Prestataire.</li>
+    </ul>
+
+    <h2>7. Propriété intellectuelle</h2>
+    <p>Sauf accord contraire écrit, les livrables produits dans le cadre des Prestations sont cédés au Client une fois les Prestations intégralement payées. Le Prestataire conserve le droit de mentionner sa collaboration avec le Client à titre de référence commerciale, sauf opposition écrite de ce dernier.</p>
+
+    <h2>8. Confidentialité</h2>
+    <p>Les parties s'engagent à conserver confidentielles toutes les informations à caractère confidentiel échangées dans le cadre de l'exécution des Prestations, et à ne pas les divulguer à des tiers sans accord préalable, sauf obligation légale contraire.</p>
+
+    <h2>9. Responsabilité</h2>
+    <p>Le Prestataire s'engage à exécuter les Prestations avec diligence et selon les règles de l'art. Sa responsabilité ne saurait être engagée en cas de résultats insuffisants liés à des facteurs échappant à son contrôle. Si elle est engagée, elle est limitée au montant effectivement payé par le Client pour la Prestation concernée.</p>
+
+    <h2>10. Annulation et résiliation</h2>
+    <p>Toute annulation d'une commande par le Client après acceptation du devis peut donner lieu à la facturation des travaux déjà engagés ou réalisés. Pour les Prestations récurrentes, chaque partie peut résilier avec un préavis de [___ jours/mois — À PRÉCISER], sauf disposition contraire prévue au devis.</p>
+
+    <h2>11. Droit de rétractation</h2>
+    <p>Conformément au droit suisse, il n'existe pas de droit légal de rétractation généralisé pour les contrats de prestations de services, contrairement à certaines législations étrangères. Toute condition particulière de rétractation, si elle est accordée, sera précisée dans le devis.</p>
+
+    <h2>12. Droit applicable et for juridique</h2>
+    <p>Les présentes CGV sont soumises au droit suisse. Pour tout litige relatif à leur interprétation ou exécution, le for juridique exclusif est celui du siège du Prestataire, soit <strong>Morges (VD)</strong>, sous réserve des dispositions légales impératives applicables aux consommateurs.</p>
+  </div>
+
+  <div class="legal-contact">
+    <h3>Contact</h3>
+    <p>Samy Dahhaoui — Fluxclients<br>Rue de Couvaloup 11, 1110 Morges<br>contact@fluxclients.ch</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Flux Client. Tous droits réservés. — <a href="confidentialite.html">Politique de confidentialité</a></p>
+</footer>
+
+</body>
+</html>
