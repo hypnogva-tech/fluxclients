@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — Flux Clients</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5C518;
+    --yellow-dark: #D4A800;
+    --dark: #0E0E0E;
+    --dark2: #161616;
+    --dark3: #1E1E1E;
+    --light: #F8F7F2;
+    --white: #FFFFFF;
+    --text-muted: #888;
+    --text-light: #ccc;
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--white); }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 18px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; text-decoration: none; color: var(--white); }
+  .logo span { color: var(--yellow); }
+  .nav-back {
+    color: var(--text-light); font-size: 14px; text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--yellow); }
+
+  .legal-wrap {
+    max-width: 760px; margin: 0 auto; padding: 160px 24px 120px;
+  }
+  .legal-header { margin-bottom: 56px; }
+  .legal-tag {
+    display: inline-block; background: rgba(245,197,24,0.12); border: 1px solid rgba(245,197,24,0.3);
+    color: var(--yellow); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .legal-header h1 {
+    font-family: var(--font-display); font-size: clamp(30px, 4vw, 44px); font-weight: 800;
+    letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px;
+  }
+  .legal-meta { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+  .legal-body h2 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 700;
+    margin-top: 44px; margin-bottom: 16px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .legal-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .legal-body h3 { font-family: var(--font-display); font-size: 16px; font-weight: 600; margin: 20px 0 8px; color: var(--yellow); }
+  .legal-body p { font-size: 15.5px; line-height: 1.8; color: var(--text-light); margin-bottom: 14px; }
+  .legal-body ul { margin: 0 0 14px 20px; }
+  .legal-body li { font-size: 15.5px; line-height: 1.8; color: var(--text-light); margin-bottom: 6px; }
+  .legal-body strong { color: var(--white); font-weight: 600; }
+  .legal-body a { color: var(--yellow); text-decoration: none; }
+  .legal-body a:hover { text-decoration: underline; }
+  .legal-contact {
+    margin-top: 56px; padding: 28px; background: var(--dark3); border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .legal-contact h3 { font-family: var(--font-display); font-size: 16px; margin-bottom: 10px; color: var(--white); }
+  .legal-contact p { font-size: 14px; color: var(--text-light); line-height: 1.7; margin: 0; }
+
+  footer { background: var(--dark2); padding: 40px 60px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  footer p { font-size: 13px; color: var(--text-muted); }
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--yellow); }
+
+  @media (max-width: 700px) {
+    nav { padding: 16px 24px; }
+    .legal-wrap { padding: 120px 20px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Flux<span>Clients</span></a>
+  <a href="index.html" class="nav-back">← Retour au site</a>
+</nav>
+
+<div class="legal-wrap">
+  <div class="legal-header">
+    <div class="legal-tag">Politique de confidentialité</div>
+    <h1>Politique de confidentialité</h1>
+    <div class="legal-meta">
+      Fluxclients — Samy Dahhaoui, entreprise individuelle<br>
+      Rue de Couvaloup 11, 1110 Morges, Suisse<br>
+      contact@fluxclients.ch<br>
+      Dernière mise à jour : [À COMPLÉTER, ex. août 2026]
+    </div>
+  </div>
+
+  <div class="legal-body">
+    <h2>1. Introduction</h2>
+    <p>La présente politique de confidentialité décrit comment Samy Dahhaoui, entreprise individuelle exploitant le site fluxclients.ch (ci-après « nous »), collecte, utilise et protège les données personnelles des visiteurs et clients de ce site (ci-après « vous »).</p>
+    <p>Cette politique est établie conformément à la loi fédérale sur la protection des données (LPD), révisée et en vigueur depuis le 1er septembre 2023 en Suisse.</p>
+
+    <h2>2. Responsable du traitement</h2>
+    <p>Samy Dahhaoui — Fluxclients<br>Rue de Couvaloup 11, 1110 Morges, Suisse<br>Email : contact@fluxclients.ch</p>
+
+    <h2>3. Données collectées</h2>
+    <h3>Formulaire de contact</h3>
+    <p>Lorsque vous utilisez le formulaire de contact de notre site, nous collectons les informations que vous nous fournissez volontairement, telles que votre nom et prénom, votre adresse email et le contenu de votre message.</p>
+    <h3>Meta Pixel</h3>
+    <p>Notre site utilise le <strong>Meta Pixel</strong> (Facebook/Instagram), un outil de suivi fourni par Meta Platforms Ireland Limited, qui nous permet de mesurer l'efficacité de nos campagnes publicitaires. Il peut collecter votre adresse IP, des informations sur votre navigateur et votre appareil, les pages visitées et actions effectuées, ainsi que des identifiants publicitaires liés à votre compte Meta.</p>
+    <p>Ces données peuvent être transmises à Meta, y compris potentiellement hors Suisse/UE. Pour en savoir plus, consultez la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">politique de confidentialité de Meta</a>.</p>
+
+    <h2>4. Finalités du traitement</h2>
+    <ul>
+      <li>Répondre à vos demandes envoyées via le formulaire de contact.</li>
+      <li>Assurer le suivi commercial et la gestion de la relation client.</li>
+      <li>Mesurer et optimiser nos campagnes publicitaires (via Meta Pixel).</li>
+      <li>Respecter nos obligations légales, le cas échéant.</li>
+    </ul>
+
+    <h2>5. Base légale du traitement</h2>
+    <p>Le traitement de vos données repose sur votre consentement (notamment pour les cookies/pixels non essentiels), notre intérêt légitime à répondre à vos demandes, et l'exécution de mesures précontractuelles lorsque vous nous contactez en vue d'une prestation.</p>
+
+    <h2>6. Cookies</h2>
+    <p>Le Meta Pixel dépose des cookies ou identifiants similaires sur votre appareil. Vous pouvez à tout moment modifier vos préférences via les paramètres de votre navigateur, ou vous opposer au ciblage publicitaire de Meta via leurs <a href="https://www.facebook.com/adpreferences/" target="_blank" rel="noopener">paramètres publicitaires</a>.</p>
+
+    <h2>7. Partage des données</h2>
+    <p>Vos données ne sont pas vendues à des tiers. Elles peuvent être partagées avec Meta Platforms Ireland Limited dans le cadre du fonctionnement du Meta Pixel, ainsi qu'avec les autorités compétentes si la loi l'exige.</p>
+
+    <h2>8. Durée de conservation</h2>
+    <p>Les données transmises via le formulaire de contact sont conservées pendant [durée à préciser, ex. 2 ans à compter du dernier échange], sauf obligation légale de conservation plus longue.</p>
+
+    <h2>9. Vos droits</h2>
+    <p>Conformément à la LPD, vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition et de portabilité de vos données. Pour exercer ces droits, contactez-nous à <strong>contact@fluxclients.ch</strong>. Vous pouvez aussi déposer une réclamation auprès du Préposé fédéral à la protection des données et à la transparence (PFPDT).</p>
+
+    <h2>10. Sécurité des données</h2>
+    <p>Nous mettons en œuvre des mesures techniques et organisationnelles raisonnables pour protéger vos données contre tout accès non autorisé, perte ou divulgation.</p>
+
+    <h2>11. Modifications</h2>
+    <p>Nous pouvons modifier cette politique, notamment pour refléter des évolutions légales. Toute modification sera publiée sur cette page avec une date de mise à jour actualisée.</p>
+  </div>
+
+  <div class="legal-contact">
+    <h3>Contact</h3>
+    <p>Samy Dahhaoui — Fluxclients<br>Rue de Couvaloup 11, 1110 Morges<br>contact@fluxclients.ch</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Flux Client. Tous droits réservés. — <a href="cgv.html">CGV</a></p>
+</footer>
+
+</body>
+</html>
