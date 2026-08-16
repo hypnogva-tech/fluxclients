@@ -60,6 +60,13 @@
     .video-poster:hover .play-circle, .video-poster:focus-visible .play-circle { transform: scale(1.06); background: var(--green-dark); }
     .play-circle svg { margin-left: 4px; }
     .video-poster .poster-label { position: relative; z-index: 1; position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; color: #fff; font-size: 14px; font-weight: 700; }
+    .video-poster.is-loading .play-circle { animation: none; }
+    .video-poster.is-loading .play-circle svg { display: none; }
+    .video-poster.is-loading .play-circle::after {
+      content: ""; width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.35);
+      border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     .checks { display: flex; flex-direction: column; gap: 12px; background: var(--bg); border: 1px solid var(--line2); border-radius: 14px; padding: 18px 20px; }
     .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--navy); font-weight: 500; }
@@ -309,13 +316,19 @@
     });
 
     // Chargement différé de la vidéo Loom : l'iframe (lourde) ne se charge
-    // qu'au moment où l'utilisateur clique sur le bouton play.
+    // qu'au moment où l'utilisateur interagit avec le bouton play.
+    // L'iframe est insérée directement dans le DOM au clic (pas d'attente
+    // d'un événement "load" qui ne peut pas se déclencher tant qu'elle
+    // n'est pas attachée) pour ne nécessiter qu'un seul clic.
     (function () {
       var poster = document.getElementById('videoPoster');
       var container = document.getElementById('videoEmbed');
       if (!poster || !container) return;
+      var triggered = false;
 
-      poster.addEventListener('click', function () {
+      function loadVideo() {
+        if (triggered) return;
+        triggered = true;
         var loomId = container.getAttribute('data-loom-id');
         var iframe = document.createElement('iframe');
         iframe.src = 'https://www.loom.com/embed/' + loomId + '?autoplay=1';
@@ -328,7 +341,10 @@
         container.innerHTML = '';
         container.appendChild(iframe);
         if (window.fbq) { fbq('track', 'ViewContent', { content_name: 'video_play' }); }
-      }, { once: true });
+      }
+
+      poster.addEventListener('pointerdown', loadVideo, { once: true });
+      poster.addEventListener('click', loadVideo, { once: true });
     })();
   </script>
 
