@@ -51,8 +51,14 @@
     .hero .sub { font-size: clamp(15px, 2.4vw, 18px); color: var(--navy); line-height: 1.6; max-width: 560px; margin: 0 auto; text-align: center; }
     .hero .sub-bridge { font-weight: 700; color: var(--green-dark); }
 
-   .video-embed { position: relative; padding-bottom: 177.77777777777777%; height: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(15,27,53,0.16); }
+   .video-embed { position: relative; padding-bottom: 177.77777777777777%; height: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(15,27,53,0.16); background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); }
     .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-poster { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 0; padding: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); }
+    .video-poster:focus-visible { outline: 3px solid var(--green); outline-offset: -3px; }
+    .play-circle { width: 76px; height: 76px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transition: transform .15s ease, background .15s ease; }
+    .video-poster:hover .play-circle, .video-poster:focus-visible .play-circle { transform: scale(1.06); background: var(--green-dark); }
+    .play-circle svg { margin-left: 4px; }
+    .video-poster .poster-label { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; color: #fff; font-size: 14px; font-weight: 700; opacity: 0.9; }
 
     .checks { display: flex; flex-direction: column; gap: 12px; background: var(--bg); border: 1px solid var(--line2); border-radius: 14px; padding: 18px 20px; }
     .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--navy); font-weight: 500; }
@@ -163,9 +169,14 @@
       </p>
     </div>
 
-    <!-- VIDEO -->
-    <div class="video-embed">
-      <iframe src="https://www.loom.com/embed/ea08d3981ace49269e245cbbe349cc23" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen title="Présentation FluxClient"></iframe>
+    <!-- VIDEO (chargement différé : l'iframe Loom ne se charge qu'au clic, pour ne pas ralentir l'affichage initial) -->
+    <div class="video-embed" id="videoEmbed" data-loom-id="ea08d3981ace49269e245cbbe349cc23">
+      <button type="button" class="video-poster" id="videoPoster" aria-label="Lire la vidéo de présentation FluxClient">
+        <span class="play-circle">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3.5C6 2.62 6.98 2.09 7.71 2.58L21.5 11.68C22.17 12.12 22.17 13.08 21.5 13.52L7.71 22.62C6.98 23.11 6 22.58 6 21.7V3.5Z" fill="#fff"/></svg>
+        </span>
+        <span class="poster-label">▶ Regarder la vidéo</span>
+      </button>
     </div>
     <!-- CTA 1 -->
     <div class="cta-block" id="ctaTop">
@@ -294,6 +305,29 @@
         if (window.fbq) { fbq('track', 'Schedule'); }
       });
     });
+
+    // Chargement différé de la vidéo Loom : l'iframe (lourde) ne se charge
+    // qu'au moment où l'utilisateur clique sur le bouton play.
+    (function () {
+      var poster = document.getElementById('videoPoster');
+      var container = document.getElementById('videoEmbed');
+      if (!poster || !container) return;
+
+      poster.addEventListener('click', function () {
+        var loomId = container.getAttribute('data-loom-id');
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.loom.com/embed/' + loomId + '?autoplay=1';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('webkitallowfullscreen', '');
+        iframe.setAttribute('mozallowfullscreen', '');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('allow', 'autoplay; fullscreen');
+        iframe.title = 'Présentation FluxClient';
+        container.innerHTML = '';
+        container.appendChild(iframe);
+        if (window.fbq) { fbq('track', 'ViewContent', { content_name: 'video_play' }); }
+      }, { once: true });
+    })();
   </script>
 
 </body>
