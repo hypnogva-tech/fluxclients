@@ -52,8 +52,10 @@
     .hero .sub-bridge { font-weight: 700; color: var(--green-dark); }
 
    .video-embed { position: relative; width: min(100%, calc(62vh * 9 / 16)); aspect-ratio: 9 / 16; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 32px rgba(15,27,53,0.16); background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); }
-    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .video-poster { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 0; padding: 0; width: 100%; height: 100%; background-size: cover; background-position: center; }
+    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity 0.4s ease; }
+    .video-embed iframe.is-visible { opacity: 1; }
+    .video-poster { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 0; padding: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 2; transition: opacity 0.3s ease; }
+    .video-poster.is-fading { opacity: 0; pointer-events: none; }
     .video-poster::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,27,53,0.05) 0%, rgba(15,27,53,0.55) 100%); }
     .video-poster:focus-visible { outline: 3px solid var(--green); outline-offset: -3px; }
     .play-circle { position: relative; z-index: 1; width: 76px; height: 76px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.35); transition: transform .15s ease, background .15s ease; }
@@ -329,17 +331,33 @@
       function loadVideo() {
         if (triggered) return;
         triggered = true;
+        poster.classList.add('is-loading');
         var loomId = container.getAttribute('data-loom-id');
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.loom.com/embed/' + loomId + '?autoplay=1';
+        iframe.src = 'https://www.loom.com/embed/' + loomId + '?autoplay=1&muted=1&mute=1';
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('webkitallowfullscreen', '');
         iframe.setAttribute('mozallowfullscreen', '');
         iframe.setAttribute('allowfullscreen', '');
         iframe.setAttribute('allow', 'autoplay; fullscreen');
         iframe.title = 'Présentation FluxClient';
-        container.innerHTML = '';
         container.appendChild(iframe);
+
+        function reveal() {
+          iframe.classList.add('is-visible');
+          poster.classList.add('is-fading');
+          setTimeout(function () {
+            if (poster.parentNode) poster.parentNode.removeChild(poster);
+          }, 350);
+        }
+        // On laisse un tout petit délai après le "load" pour que le lecteur
+        // Loom ait le temps de peindre sa première image avant le fondu.
+        iframe.addEventListener('load', function () {
+          setTimeout(reveal, 300);
+        });
+        // Filet de sécurité si l'événement load tarde anormalement
+        setTimeout(reveal, 3000);
+
         if (window.fbq) { fbq('track', 'ViewContent', { content_name: 'video_play' }); }
       }
 
