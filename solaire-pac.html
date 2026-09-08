@@ -62,29 +62,6 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   }
   .hero h1 .accent{ color:#3FCB8E; }
 
-  .hero-video{
-    position:absolute;
-    left:50%;
-    bottom:-60px;
-    transform:translateX(calc(-50% - 210px));
-    width:180px;
-    height:230px;
-    border-radius:14px;
-    background:#1B2027;
-    border:1px solid rgba(255,255,255,0.08);
-    box-shadow:0 20px 40px -12px rgba(0,0,0,0.5);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:2;
-  }
-  .hero-video .play{
-    width:44px;height:44px;border-radius:50%;
-    background:rgba(255,255,255,0.12);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .hero-video .play svg{ width:16px;height:16px; color:#fff; }
-
   /* ---------- FUNNEL CARD ---------- */
   .funnel-wrap{
     max-width:520px;
@@ -177,7 +154,6 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   }
 
   @media (max-width:640px){
-    .hero-video{ display:none; }
     .hero{ padding:48px 18px 90px; }
     .funnel-wrap{ margin-top:-70px; }
     .funnel-card{ padding:30px 22px 26px; }
@@ -188,11 +164,6 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 <body>
 
 <section class="hero">
-  <div class="hero-video">
-    <div class="play">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-    </div>
-  </div>
   <div class="hero-inner">
     <div class="eyebrow-1">SYSTÈME SUR MESURE</div>
     <div class="eyebrow-2">FINI LES LEADS NON QUALIFIÉS, FINI LA DÉPENDANCE AU BOUCHE À OREILLE</div>
