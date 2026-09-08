@@ -181,7 +181,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
         <p>On travaille avec 1 seul installateur par région.<br>Répondez à quelques questions rapides.</p>
       </div>
 
-      <div class="progress-row"><span>Étape 1 sur 4</span><span>0%</span></div>
+      <div class="progress-row"><span>Étape 1 sur 3</span><span>0%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
 
       <p class="step-q">Combien d'installations solaire et/ou PAC faites-vous par mois ?</p>
@@ -209,8 +209,8 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
         <p style="font-size:17px; color:var(--ink); font-weight:700; line-height:1.45;">On estime que pour 15 rendez-vous qualifiés, il faut investir 3'000.– en publicité par mois.</p>
       </div>
 
-      <div class="progress-row"><span>Étape 2 sur 4</span><span>25%</span></div>
-      <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
+      <div class="progress-row"><span>Étape 2 sur 3</span><span>33%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:33%"></div></div>
 
       <p style="font-size:14px; font-weight:500; color:var(--muted); text-align:center; margin:0 0 18px; line-height:1.5;">En admettant que vous vouliez installer ce système sur mesure dans votre entreprise, avez-vous ce budget disponible à investir ?</p>
       <div class="opt-grid single" data-group="budget">
@@ -220,41 +220,14 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       <button class="back-link">← Retour</button>
     </div>
 
-    <!-- STEP 3 -->
+    <!-- STEP 3: Calendly booking -->
     <div class="step" data-step="3">
-      <div class="funnel-head">
-        <h2>Votre situation actuelle</h2>
-      </div>
-
-      <div class="progress-row"><span>Étape 3 sur 4</span><span>50%</span></div>
-      <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
-
-      <p class="step-q">Qu'avez-vous déjà essayé pour générer des leads ?</p>
-      <div class="opt-grid" data-group="tried" style="margin-bottom:22px;">
-        <button class="opt-btn multi" data-value="Pub payante">Pub payante</button>
-        <button class="opt-btn multi" data-value="Achat de leads">Achat de leads</button>
-        <button class="opt-btn multi" data-value="SEO">SEO</button>
-        <button class="opt-btn multi" data-value="Prospection téléphonique">Prospection téléphonique</button>
-        <button class="opt-btn multi" data-value="Agence de publicité" style="grid-column:1 / -1;">Agence de publicité</button>
-      </div>
-
-      <p class="step-q">Quel est votre plus gros challenge pour atteindre le volume d'installations que vous visez ?</p>
-      <div class="field">
-        <textarea id="fchallenge" rows="3" placeholder="Décrivez-le en quelques mots..." style="width:100%; border:1.5px solid var(--line); border-radius:10px; padding:13px 14px; font-size:15px; font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); outline:none; resize:vertical;"></textarea>
-      </div>
-
-      <button class="cta-primary" id="continue-btn">Continuer</button>
-      <button class="back-link">← Retour</button>
-    </div>
-
-    <!-- STEP 4: Calendly booking -->
-    <div class="step" data-step="4">
       <div class="funnel-head">
         <h2>Réservez votre audit offert</h2>
         <p>Choisissez le créneau qui vous convient — 30 minutes, sans engagement.</p>
       </div>
 
-      <div class="progress-row"><span>Étape 4 sur 4</span><span>100%</span></div>
+      <div class="progress-row"><span>Étape 3 sur 3</span><span>100%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
 
       <!-- Début de widget en ligne Calendly (méthode officielle) -->
@@ -303,26 +276,18 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       document.querySelectorAll('[data-group="budget"] .opt-btn').forEach(b=>b.classList.remove('selected'));
       btn.classList.add('selected');
       setTimeout(()=>{
-        if(btn.dataset.value.startsWith('Oui')){ showStep(3); } else { showStep('disqualified'); }
+        if(btn.dataset.value.startsWith('Oui')){
+          showStep(3);
+          if (window.fbq) { fbq('track', 'Schedule'); }
+        } else {
+          showStep('disqualified');
+        }
       }, 200);
     });
   });
 
-  // Step 3: multi-select "already tried"
-  document.querySelectorAll('[data-group="tried"] .opt-btn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      btn.classList.toggle('selected');
-    });
-  });
-
-  document.getElementById('continue-btn').addEventListener('click', ()=>{
-    showStep(4);
-    if (window.fbq) { fbq('track', 'Schedule'); }
-  });
-
   document.querySelectorAll('.step[data-step="2"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(1)));
   document.querySelectorAll('.step[data-step="3"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(2)));
-  document.querySelectorAll('.step[data-step="4"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(3)));
 </script>
 
 </body>
