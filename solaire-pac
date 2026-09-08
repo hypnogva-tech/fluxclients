@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voyez si votre marché est disponible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1625681889142535');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<style>
+  :root{
+    --ink:#111318;
+    --muted:#6B7280;
+    --line:#E5E7EB;
+    --green:#0E8F5C;
+    --green-soft:#E9F7F1;
+    --paper:#FFFFFF;
+    --bg:#FAFAFA;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); font-family:'Inter',sans-serif; color:var(--ink); -webkit-font-smoothing:antialiased;}
+  h1,h2{ letter-spacing:-0.02em; margin:0; }
+
+  /* ---------- HERO (dark, like the reference) ---------- */
+  .hero{
+    background:linear-gradient(180deg, #0B0D10 0%, #14171C 100%);
+    padding:56px 24px 170px;
+    position:relative;
+  }
+  .hero-inner{ max-width:760px; margin:0 auto; text-align:center; }
+  .eyebrow-1{
+    font-size:12.5px; font-weight:700; letter-spacing:0.14em;
+    color:#8A94A0; margin-bottom:8px;
+  }
+  .eyebrow-2{
+    font-size:13px; font-weight:700; letter-spacing:0.08em;
+    color:var(--green); margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(28px, 4.6vw, 44px);
+    line-height:1.22;
+    font-weight:800;
+    color:#fff;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .hero h1 .accent{ color:#3FCB8E; }
+
+  .hero-video{
+    position:absolute;
+    left:50%;
+    bottom:-60px;
+    transform:translateX(calc(-50% - 210px));
+    width:180px;
+    height:230px;
+    border-radius:14px;
+    background:#1B2027;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 20px 40px -12px rgba(0,0,0,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+  }
+  .hero-video .play{
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-video .play svg{ width:16px;height:16px; color:#fff; }
+
+  /* ---------- FUNNEL CARD ---------- */
+  .funnel-wrap{
+    max-width:520px;
+    margin:-120px auto 90px;
+    padding:0 20px;
+    position:relative;
+    z-index:1;
+  }
+  .funnel-card{
+    background:var(--paper);
+    border-radius:18px;
+    box-shadow:0 25px 60px -20px rgba(0,0,0,0.35);
+    padding:38px 34px 32px;
+    min-height:400px;
+    transition:max-width .3s ease;
+  }
+  .funnel-wrap:has(.step[data-step="4"].active){ max-width:640px; }
+  .calendly-inline-widget{ width:100%; }
+  .funnel-head{ text-align:center; margin-bottom:26px; }
+  .funnel-head h2{ font-size:21px; font-weight:800; margin-bottom:8px; }
+  .funnel-head h2 .green{ color:var(--green); }
+  .funnel-head p{ font-size:14px; color:var(--muted); line-height:1.5; margin:0; }
+
+  .progress-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:12px; color:var(--muted); font-weight:600; margin-bottom:8px;
+  }
+  .progress-track{ height:5px; background:#EEF0F2; border-radius:100px; overflow:hidden; margin-bottom:28px; }
+  .progress-fill{ height:100%; background:var(--green); border-radius:100px; transition:width .45s cubic-bezier(.65,0,.35,1); }
+
+  .step{ display:none; animation:fadeUp .3s ease; }
+  .step.active{ display:block; }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .step-q{ font-size:16.5px; font-weight:700; text-align:center; margin:0 0 20px; line-height:1.4; }
+
+  .opt-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:6px; }
+  .opt-grid.single{ grid-template-columns:1fr; }
+  .opt-btn{
+    appearance:none; border:1.5px solid var(--line); background:var(--paper); color:var(--ink);
+    font-family:'Inter',sans-serif; font-size:15px; font-weight:600; padding:15px 14px;
+    border-radius:10px; cursor:pointer; transition:border-color .15s, background .15s, transform .1s; text-align:center;
+  }
+  .opt-btn:hover{ border-color:var(--green); background:var(--green-soft); }
+  .opt-btn:active{ transform:scale(0.98); }
+  .opt-btn.selected{ border-color:var(--green); background:var(--green-soft); color:var(--green); }
+
+  .field{ margin-bottom:14px; }
+  .field input{
+    width:100%; border:1.5px solid var(--line); border-radius:10px; padding:14px;
+    font-size:15px; font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper);
+    outline:none; transition:border-color .15s;
+  }
+  .field input::placeholder{ color:#9AA3AD; }
+  .field input:focus{ border-color:var(--green); }
+  .field input.err{ border-color:#C2453A; }
+  .err-msg{ font-size:12px; color:#C2453A; margin-top:5px; display:none; }
+  .err-msg.show{ display:block; }
+
+  .cta-primary{
+    width:100%; background:var(--green); color:#fff; border:none;
+    font-family:'Inter',sans-serif; font-size:16px; font-weight:700; letter-spacing:0.02em;
+    padding:17px; border-radius:10px; cursor:pointer; margin-top:12px;
+    transition:background .15s, transform .1s;
+  }
+  .cta-primary:hover{ background:#0B7749; }
+  .cta-primary:active{ transform:scale(0.99); }
+
+  .back-link{
+    display:block; text-align:center; margin-top:18px; font-size:13.5px; color:var(--muted);
+    background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif;
+  }
+  .back-link:hover{ color:var(--ink); }
+  .back-link.hidden{ visibility:hidden; }
+
+  .success-icon{
+    width:52px;height:52px;border-radius:50%;background:var(--green-soft);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+  }
+  .success-icon svg{ width:24px;height:24px;color:var(--green); }
+
+  .soft-note{
+    background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:16px 18px;
+    font-size:13.5px; color:var(--muted); line-height:1.55; margin-top:4px;
+  }
+
+  footer{
+    text-align:center; color:var(--muted); font-size:12.5px; padding:0 20px 56px;
+    max-width:400px; margin:0 auto; line-height:1.6;
+  }
+
+  @media (max-width:640px){
+    .hero-video{ display:none; }
+    .hero{ padding:48px 18px 90px; }
+    .funnel-wrap{ margin-top:-70px; }
+    .funnel-card{ padding:30px 22px 26px; }
+    .opt-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-video">
+    <div class="play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+  <div class="hero-inner">
+    <div class="eyebrow-1">SYSTÈME SUR MESURE</div>
+    <div class="eyebrow-2">FINI LES LEADS NON QUALIFIÉS, FINI LA DÉPENDANCE AU BOUCHE À OREILLE</div>
+    <h1>Nous vous envoyons des demandes de devis <span class="accent">illimitées et qualifiées</span> pour vos installations solaires &amp; PAC, sans gestion de pub de votre côté</h1>
+  </div>
+</section>
+
+<div class="funnel-wrap">
+  <div class="funnel-card">
+
+    <!-- STEP 1 -->
+    <div class="step active" data-step="1">
+      <div class="funnel-head">
+        <h2>Vérifier si votre <span class="green">région est encore disponible</span></h2>
+        <p>On travaille avec 1 seul installateur par région.<br>Répondez à quelques questions rapides.</p>
+      </div>
+
+      <div class="progress-row"><span>Étape 1 sur 4</span><span>0%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
+
+      <p class="step-q">Combien d'installations solaire et/ou PAC faites-vous par mois ?</p>
+      <div class="opt-grid" data-group="volume">
+        <button class="opt-btn" data-value="Moins de 3" data-qualify="no">Moins de 3</button>
+        <button class="opt-btn" data-value="3 à 10" data-qualify="no">3 à 10</button>
+        <button class="opt-btn" data-value="10 à 30" data-qualify="yes">10 à 30</button>
+        <button class="opt-btn" data-value="30+" data-qualify="yes">30+</button>
+      </div>
+      <button class="back-link hidden">← Retour</button>
+    </div>
+
+    <!-- STEP 1b: soft disqualify (volume) -->
+    <div class="step" data-step="disqualified-volume">
+      <div class="funnel-head">
+        <h2>Pas encore le bon moment</h2>
+        <p>Notre système est pensé pour des installateurs réalisant au moins 10 installations par mois — c'est le volume nécessaire pour rentabiliser la mise en place.</p>
+      </div>
+      <div class="soft-note">Si votre volume évolue, revenez faire la demande à tout moment.</div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" data-step="2">
+      <div class="funnel-head" style="text-align:left; margin-bottom:20px;">
+        <p style="font-size:15px; color:var(--ink); font-weight:600; line-height:1.5;">On estime que pour 15 rendez-vous qualifiés, il faut investir 3'000.– en publicité par mois.</p>
+      </div>
+
+      <div class="progress-row"><span>Étape 2 sur 4</span><span>25%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
+
+      <p class="step-q">En admettant que vous vouliez installer ce système sur mesure dans votre entreprise, avez-vous ce budget disponible à investir ?</p>
+      <div class="opt-grid single" data-group="budget">
+        <button class="opt-btn" data-value="Oui j'ai ce budget">Oui, j'ai ce budget</button>
+        <button class="opt-btn" data-value="Non c'est trop cher">Non, c'est trop cher</button>
+      </div>
+      <button class="back-link">← Retour</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" data-step="3">
+      <div class="funnel-head">
+        <h2>Votre situation actuelle</h2>
+      </div>
+
+      <div class="progress-row"><span>Étape 3 sur 4</span><span>50%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
+
+      <p class="step-q">Qu'avez-vous déjà essayé pour générer des leads ?</p>
+      <div class="opt-grid" data-group="tried" style="margin-bottom:22px;">
+        <button class="opt-btn multi" data-value="Pub payante">Pub payante</button>
+        <button class="opt-btn multi" data-value="Achat de leads">Achat de leads</button>
+        <button class="opt-btn multi" data-value="SEO">SEO</button>
+        <button class="opt-btn multi" data-value="Prospection téléphonique">Prospection téléphonique</button>
+        <button class="opt-btn multi" data-value="Agence de publicité" style="grid-column:1 / -1;">Agence de publicité</button>
+      </div>
+
+      <p class="step-q">Quel est votre plus gros challenge pour atteindre le volume d'installations que vous visez ?</p>
+      <div class="field">
+        <textarea id="fchallenge" rows="3" placeholder="Décrivez-le en quelques mots..." style="width:100%; border:1.5px solid var(--line); border-radius:10px; padding:13px 14px; font-size:15px; font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); outline:none; resize:vertical;"></textarea>
+      </div>
+
+      <button class="cta-primary" id="continue-btn">Continuer</button>
+      <button class="back-link">← Retour</button>
+    </div>
+
+    <!-- STEP 4: Calendly booking -->
+    <div class="step" data-step="4">
+      <div class="funnel-head">
+        <h2>Réservez votre audit offert</h2>
+        <p>Choisissez le créneau qui vous convient — 30 minutes, sans engagement.</p>
+      </div>
+
+      <div class="progress-row"><span>Étape 4 sur 4</span><span>100%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+
+      <!-- Calendrier GHL -->
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/booking/iKnC9PmxnGkkx10wcJyv"
+        style="width:100%; min-width:280px; height:640px; border:none; overflow:hidden;"
+        scrolling="no"
+        id="iKnC9PmxnGkkx10wcJyv_booking"
+        title="Réserver un appel">
+      </iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+      <!-- Fin calendrier GHL -->
+
+      <button class="back-link">← Retour</button>
+    </div>
+
+    <!-- Soft disqualify (budget) -->
+    <div class="step" data-step="disqualified">
+      <div class="funnel-head">
+        <h2>Pas encore le bon moment</h2>
+        <p>Nous travaillons uniquement avec des sociétés qui veulent investir sérieusement dans leur marketing pour obtenir des résultats sérieux.</p>
+      </div>
+      <div class="soft-note">Si votre budget évolue, revenez faire la demande à tout moment.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Aucune carte bancaire requise pour réserver l'appel. Réponse sous 24h ouvrées.
+</footer>
+
+<script>
+  const steps = document.querySelectorAll('.step');
+  function showStep(name){
+    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(name)));
+    window.scrollTo({top: document.querySelector('.funnel-wrap').offsetTop - 20, behavior:'smooth'});
+  }
+
+  document.querySelectorAll('[data-group="volume"] .opt-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('[data-group="volume"] .opt-btn').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(()=>{
+        if(btn.dataset.qualify === 'yes'){ showStep(2); } else { showStep('disqualified-volume'); }
+      }, 200);
+    });
+  });
+
+  document.querySelectorAll('[data-group="budget"] .opt-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('[data-group="budget"] .opt-btn').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(()=>{
+        if(btn.dataset.value.startsWith('Oui')){ showStep(3); } else { showStep('disqualified'); }
+      }, 200);
+    });
+  });
+
+  // Step 3: multi-select "already tried"
+  document.querySelectorAll('[data-group="tried"] .opt-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.classList.toggle('selected');
+    });
+  });
+
+  document.getElementById('continue-btn').addEventListener('click', ()=>{
+    showStep(4);
+    if (window.fbq) { fbq('track', 'Schedule'); }
+  });
+
+  document.querySelectorAll('.step[data-step="2"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(1)));
+  document.querySelectorAll('.step[data-step="3"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(2)));
+  document.querySelectorAll('.step[data-step="4"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(3)));
+</script>
+
+</body>
+</html>
