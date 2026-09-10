@@ -61,6 +61,14 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
     margin:0 auto;
   }
   .hero h1 .accent{ color:#3FCB8E; }
+  .hero-sub{
+    font-size:clamp(14px, 1.9vw, 17px);
+    line-height:1.5;
+    font-weight:500;
+    color:#A7AFB9;
+    max-width:520px;
+    margin:16px auto 0;
+  }
 
   /* ---------- FUNNEL CARD ---------- */
   .funnel-wrap{
@@ -167,7 +175,8 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   <div class="hero-inner">
  <div class="eyebrow-1">NOUVEAU TUNNEL DE VENTE SUR MESURE</div>
     <div class="eyebrow-2">DES LEADS EXCLUSIFS, PRÉQUALIFIÉS À L'AVANCE</div>
-    <h1>Ajoutez <span class="accent">5 à 10 installations</span> en plus chaque mois pour votre société de panneaux solaires &amp; PAC, des leads exclusifs, préqualifiés à l'avance et qui ont un projet d'installation rapide</h1>
+    <h1>Ajoutez <span class="accent">5 à 10 installations</span> en plus chaque mois pour votre société de panneaux solaires &amp; PAC</h1>
+    <p class="hero-sub">Des leads exclusifs, préqualifiés à l'avance et qui ont un projet d'installation rapide</p>
   </div>
 </section>
 
@@ -205,17 +214,19 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 
     <!-- STEP 2 -->
     <div class="step" data-step="2">
-      <div class="funnel-head" style="text-align:left; margin-bottom:22px;">
-        <p style="font-size:17px; color:var(--ink); font-weight:700; line-height:1.45;">On estime que pour 15 rendez-vous qualifiés, il faut investir 3'000.– en publicité par mois.</p>
+      <div class="funnel-head">
+        <h2>Quel est votre <span class="green">budget marketing mensuel</span> actuel ?</h2>
+        <p>Ça nous permet de savoir si notre système sur mesure correspond à votre structure.</p>
       </div>
 
       <div class="progress-row"><span>Étape 2 sur 3</span><span>33%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:33%"></div></div>
 
-      <p style="font-size:14px; font-weight:500; color:var(--muted); text-align:center; margin:0 0 18px; line-height:1.5;">En admettant que vous vouliez installer ce système sur mesure dans votre entreprise, avez-vous ce budget disponible à investir ?</p>
       <div class="opt-grid single" data-group="budget">
-        <button class="opt-btn" data-value="Oui j'ai ce budget">Oui, j'ai ce budget</button>
-        <button class="opt-btn" data-value="Non c'est trop cher">Non, c'est trop cher</button>
+        <button class="opt-btn" data-value="Zéro budget marketing" data-qualify="no">Zéro budget marketing</button>
+        <button class="opt-btn" data-value="Moins de 1'000.-" data-qualify="no">Moins de 1'000.-</button>
+        <button class="opt-btn" data-value="Entre 1'000.- et 3'000.-" data-qualify="yes">Entre 1'000.- et 3'000.-</button>
+        <button class="opt-btn" data-value="Plus de 3'000.-" data-qualify="yes">Plus de 3'000.-</button>
       </div>
       <button class="back-link">← Retour</button>
     </div>
@@ -242,7 +253,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
     <div class="step" data-step="disqualified">
       <div class="funnel-head">
         <h2>Pas encore le bon moment</h2>
-        <p>Nous travaillons uniquement avec des sociétés qui veulent investir sérieusement dans leur marketing pour obtenir des résultats sérieux.</p>
+        <p>Nous travaillons uniquement avec des sociétés qui ont déjà un budget marketing en place pour investir sérieusement dans leur croissance.</p>
       </div>
       <div class="soft-note">Si votre budget évolue, revenez faire la demande à tout moment.</div>
     </div>
@@ -276,7 +287,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       document.querySelectorAll('[data-group="budget"] .opt-btn').forEach(b=>b.classList.remove('selected'));
       btn.classList.add('selected');
       setTimeout(()=>{
-        if(btn.dataset.value.startsWith('Oui')){
+        if(btn.dataset.qualify === 'yes'){
           showStep(3);
           if (window.fbq) { fbq('track', 'Schedule'); }
         } else {
