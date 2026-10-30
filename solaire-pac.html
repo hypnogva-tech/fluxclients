@@ -23,6 +23,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <style>
   :root{
     --ink:#111318;
@@ -37,7 +38,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   body{margin:0; background:var(--bg); font-family:'Inter',sans-serif; color:var(--ink); -webkit-font-smoothing:antialiased;}
   h1,h2{ letter-spacing:-0.02em; margin:0; }
 
-  /* ---------- HERO (dark, like the reference) ---------- */
+  /* ---------- HERO ---------- */
   .hero{
     background:linear-gradient(180deg, #0B0D10 0%, #14171C 100%);
     padding:56px 24px 170px;
@@ -87,7 +88,6 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
     transition:max-width .3s ease;
   }
   .funnel-wrap:has(.step[data-step="4"].active){ max-width:640px; }
-  .calendly-inline-widget{ width:100%; }
   .funnel-head{ text-align:center; margin-bottom:26px; }
   .funnel-head h2{ font-size:21px; font-weight:800; margin-bottom:8px; }
   .funnel-head h2 .green{ color:var(--green); }
@@ -137,6 +137,9 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   }
   .cta-primary:hover{ background:#0B7749; }
   .cta-primary:active{ transform:scale(0.99); }
+  .cta-primary:disabled{ opacity:.7; cursor:wait; }
+
+  .consent{ font-size:12px; color:var(--muted); line-height:1.5; text-align:center; margin:14px 0 0; }
 
   .back-link{
     display:block; text-align:center; margin-top:18px; font-size:13.5px; color:var(--muted);
@@ -145,16 +148,12 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   .back-link:hover{ color:var(--ink); }
   .back-link.hidden{ visibility:hidden; }
 
-  .success-icon{
-    width:52px;height:52px;border-radius:50%;background:var(--green-soft);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
-  }
-  .success-icon svg{ width:24px;height:24px;color:var(--green); }
-
   .soft-note{
     background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:16px 18px;
     font-size:13.5px; color:var(--muted); line-height:1.55; margin-top:4px;
   }
+
+  #calendly-embed{ min-width:280px; height:640px; width:100%; }
 
   footer{
     text-align:center; color:var(--muted); font-size:12.5px; padding:0 20px 56px;
@@ -173,7 +172,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 
 <section class="hero">
   <div class="hero-inner">
- <div class="eyebrow-1">NOUVEAU TUNNEL DE VENTE SUR MESURE</div>
+    <div class="eyebrow-1">NOUVEAU TUNNEL DE VENTE SUR MESURE</div>
     <div class="eyebrow-2">DES LEADS EXCLUSIFS, PRÉQUALIFIÉS À L'AVANCE</div>
     <h1>Ajoutez <span class="accent">5 à 10 installations</span> en plus chaque mois pour votre société de panneaux solaires &amp; PAC</h1>
     <p class="hero-sub">Des leads exclusifs, préqualifiés à l'avance et qui ont un projet d'installation rapide</p>
@@ -183,14 +182,14 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 <div class="funnel-wrap">
   <div class="funnel-card">
 
-    <!-- STEP 1 -->
+    <!-- STEP 1 : volume -->
     <div class="step active" data-step="1">
       <div class="funnel-head">
         <h2>Vérifier si votre <span class="green">région est encore disponible</span></h2>
         <p>On travaille avec 1 seul installateur par région.<br>Répondez à quelques questions rapides.</p>
       </div>
 
-      <div class="progress-row"><span>Étape 1 sur 3</span><span>0%</span></div>
+      <div class="progress-row"><span>Étape 1 sur 4</span><span>0%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
 
       <p class="step-q">Combien d'installations solaire et/ou PAC faites-vous par mois ?</p>
@@ -203,7 +202,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       <button class="back-link hidden">← Retour</button>
     </div>
 
-    <!-- STEP 1b: soft disqualify (volume) -->
+    <!-- Disqualif volume -->
     <div class="step" data-step="disqualified-volume">
       <div class="funnel-head">
         <h2>Pas encore le bon moment</h2>
@@ -212,14 +211,14 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       <div class="soft-note">Si votre volume évolue, revenez faire la demande à tout moment.</div>
     </div>
 
-    <!-- STEP 2 -->
+    <!-- STEP 2 : budget -->
     <div class="step" data-step="2">
       <div class="funnel-head">
         <h2>Quel est votre <span class="green">budget marketing mensuel</span> actuel ?</h2>
         <p>Ça nous permet de savoir si notre système sur mesure correspond à votre structure.</p>
       </div>
 
-      <div class="progress-row"><span>Étape 2 sur 3</span><span>33%</span></div>
+      <div class="progress-row"><span>Étape 2 sur 4</span><span>33%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:33%"></div></div>
 
       <div class="opt-grid single" data-group="budget">
@@ -231,25 +230,47 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       <button class="back-link">← Retour</button>
     </div>
 
-    <!-- STEP 3: Calendly booking -->
+    <!-- STEP 3 : opt-in e-mail -->
     <div class="step" data-step="3">
+      <div class="funnel-head">
+        <h2>Bonne nouvelle, <span class="green">votre profil correspond</span></h2>
+        <p>Indiquez où vous envoyer la confirmation, puis choisissez votre créneau.</p>
+      </div>
+
+      <div class="progress-row"><span>Étape 3 sur 4</span><span>66%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:66%"></div></div>
+
+      <form id="optin-form" novalidate>
+        <div class="field">
+          <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" autocomplete="given-name">
+          <div class="err-msg" id="err-prenom">Indiquez votre prénom.</div>
+        </div>
+        <div class="field">
+          <input type="email" id="email" name="email" placeholder="Votre e-mail professionnel" autocomplete="email">
+          <div class="err-msg" id="err-email">Indiquez une adresse e-mail valide.</div>
+        </div>
+        <button type="submit" class="cta-primary" id="optin-btn">Choisir mon créneau →</button>
+        <p class="consent">En continuant, vous acceptez de recevoir quelques e-mails liés à votre demande. Désinscription en un clic.</p>
+      </form>
+      <button class="back-link">← Retour</button>
+    </div>
+
+    <!-- STEP 4 : Calendly -->
+    <div class="step" data-step="4">
       <div class="funnel-head">
         <h2>Réservez votre audit offert</h2>
         <p>Choisissez le créneau qui vous convient — 30 minutes, sans engagement.</p>
       </div>
 
-      <div class="progress-row"><span>Étape 3 sur 3</span><span>100%</span></div>
+      <div class="progress-row"><span>Étape 4 sur 4</span><span>100%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
 
-      <!-- Début de widget en ligne Calendly (méthode officielle) -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/artisanpro/audit-offert-de-30-min-solaire" style="min-width:280px;height:640px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Fin de widget en ligne Calendly -->
+      <div id="calendly-embed"></div>
 
       <button class="back-link">← Retour</button>
     </div>
 
-    <!-- Soft disqualify (budget) -->
+    <!-- Disqualif budget -->
     <div class="step" data-step="disqualified">
       <div class="funnel-head">
         <h2>Pas encore le bon moment</h2>
@@ -266,39 +287,120 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 </footer>
 
 <script>
+  const CALENDLY_URL = 'https://calendly.com/artisanpro/audit-offert-de-30-min-solaire';
+  const lead = { prenom: '', email: '', volume: '', budget: '' };
+  let booked = false;
+
   const steps = document.querySelectorAll('.step');
-  function showStep(name){
+  function showStep(name, scroll = true){
     steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(name)));
-    window.scrollTo({top: document.querySelector('.funnel-wrap').offsetTop - 20, behavior:'smooth'});
+    if (String(name) === '4') initCalendly();
+    if (scroll) window.scrollTo({top: document.querySelector('.funnel-wrap').offsetTop - 20, behavior:'smooth'});
   }
 
+  function sendToBrevo(action){
+    return fetch('/api/optin', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ action, email: lead.email, prenom: lead.prenom }),
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  // Étape 1 : volume
   document.querySelectorAll('[data-group="volume"] .opt-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       document.querySelectorAll('[data-group="volume"] .opt-btn').forEach(b=>b.classList.remove('selected'));
       btn.classList.add('selected');
+      lead.volume = btn.dataset.value;
       setTimeout(()=>{
-        if(btn.dataset.qualify === 'yes'){ showStep(2); } else { showStep('disqualified-volume'); }
+        showStep(btn.dataset.qualify === 'yes' ? 2 : 'disqualified-volume');
       }, 200);
     });
   });
 
+  // Étape 2 : budget
   document.querySelectorAll('[data-group="budget"] .opt-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       document.querySelectorAll('[data-group="budget"] .opt-btn').forEach(b=>b.classList.remove('selected'));
       btn.classList.add('selected');
+      lead.budget = btn.dataset.value;
       setTimeout(()=>{
-        if(btn.dataset.qualify === 'yes'){
-          showStep(3);
-          if (window.fbq) { fbq('track', 'Schedule'); }
-        } else {
-          showStep('disqualified');
-        }
+        showStep(btn.dataset.qualify === 'yes' ? 3 : 'disqualified');
       }, 200);
     });
   });
 
+  // Étape 3 : opt-in -> Brevo (liste Optin) -> calendrier
+  document.getElementById('optin-form').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const prenomEl = document.getElementById('prenom');
+    const emailEl = document.getElementById('email');
+    const prenom = prenomEl.value.trim();
+    const email = emailEl.value.trim();
+    const okPrenom = prenom.length > 0;
+    const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    prenomEl.classList.toggle('err', !okPrenom);
+    emailEl.classList.toggle('err', !okEmail);
+    document.getElementById('err-prenom').classList.toggle('show', !okPrenom);
+    document.getElementById('err-email').classList.toggle('show', !okEmail);
+    if (!okPrenom || !okEmail) return;
+
+    lead.prenom = prenom;
+    lead.email = email;
+
+    const btn = document.getElementById('optin-btn');
+    btn.disabled = true;
+    btn.textContent = 'Un instant…';
+
+    await sendToBrevo('optin');
+    if (window.fbq) fbq('track', 'Lead');
+
+    btn.disabled = false;
+    btn.textContent = 'Choisir mon créneau →';
+    showStep(4);
+  });
+
+  // Calendly pré-rempli avec le prénom et l'e-mail
+  function initCalendly(){
+    const el = document.getElementById('calendly-embed');
+    if (el.dataset.ready) return;
+    const go = () => {
+      if (!window.Calendly) return setTimeout(go, 150);
+      el.dataset.ready = '1';
+      window.Calendly.initInlineWidget({
+        url: CALENDLY_URL,
+        parentElement: el,
+        prefill: { name: lead.prenom, email: lead.email }
+      });
+    };
+    go();
+  }
+
+  // Réservation confirmée -> Brevo (liste RDV réservé) + pixel
+  window.addEventListener('message', (e)=>{
+    let host = '';
+    try { host = new URL(e.origin).hostname; } catch {}
+    if (host !== 'calendly.com' && !host.endsWith('.calendly.com')) return;
+    if (!e.data || e.data.event !== 'calendly.event_scheduled' || booked) return;
+    booked = true;
+    if (lead.email) sendToBrevo('booked');
+    if (window.fbq) fbq('track', 'Schedule');
+  });
+
+  // Retour depuis un e-mail de relance : ?email=...&prenom=... -> directement au calendrier
+  const params = new URLSearchParams(location.search);
+  if (params.get('email')) {
+    lead.email = params.get('email');
+    lead.prenom = params.get('prenom') || '';
+    showStep(4, false);
+  }
+
+  // Boutons retour
   document.querySelectorAll('.step[data-step="2"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(1)));
   document.querySelectorAll('.step[data-step="3"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(2)));
+  document.querySelectorAll('.step[data-step="4"] .back-link').forEach(b=>b.addEventListener('click', ()=>showStep(3)));
 </script>
 
 </body>
