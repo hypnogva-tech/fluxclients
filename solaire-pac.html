@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voyez si votre marché est disponible</title>
+<title>Voyez si votre région est disponible</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- Meta Pixel Code -->
@@ -27,10 +27,12 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 <style>
   :root{
     --ink:#111318;
-    --muted:#6B7280;
-    --line:#E5E7EB;
-    --green:#0E8F5C;
-    --green-soft:#E9F7F1;
+    --muted:#4B5563;
+    --line:#D1D5DB;
+    --green:#FACC15;
+    --green-ink:#111318;
+    --amber-text:#8A5A00;
+    --green-soft:#FEF6C7;
     --paper:#FFFFFF;
     --bg:#FAFAFA;
   }
@@ -40,33 +42,33 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
 
   /* ---------- HERO ---------- */
   .hero{
-    background:linear-gradient(180deg, #0B0D10 0%, #14171C 100%);
+    background:linear-gradient(180deg, #0B0D10 0%, #16191F 100%);
     padding:56px 24px 170px;
     position:relative;
   }
   .hero-inner{ max-width:760px; margin:0 auto; text-align:center; }
   .eyebrow-1{
     font-size:12.5px; font-weight:700; letter-spacing:0.14em;
-    color:#8A94A0; margin-bottom:8px;
+    color:#C9D1DA; margin-bottom:8px;
   }
   .eyebrow-2{
     font-size:13px; font-weight:700; letter-spacing:0.08em;
-    color:var(--green); margin-bottom:22px;
+    color:#FACC15; margin-bottom:22px;
   }
   .hero h1{
     font-size:clamp(28px, 4.6vw, 44px);
     line-height:1.22;
     font-weight:800;
-    color:#fff;
+    color:#FFFFFF;
     max-width:640px;
     margin:0 auto;
   }
-  .hero h1 .accent{ color:#3FCB8E; }
+  .hero h1 .accent{ color:#FACC15; }
   .hero-sub{
     font-size:clamp(14px, 1.9vw, 17px);
     line-height:1.5;
     font-weight:500;
-    color:#A7AFB9;
+    color:#374151;
     max-width:520px;
     margin:16px auto 0;
   }
@@ -82,7 +84,8 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   .funnel-card{
     background:var(--paper);
     border-radius:18px;
-    box-shadow:0 25px 60px -20px rgba(0,0,0,0.35);
+    border:1px solid var(--line);
+    box-shadow:0 25px 60px -20px rgba(0,0,0,0.45);
     padding:38px 34px 32px;
     min-height:400px;
     transition:max-width .3s ease;
@@ -90,15 +93,15 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   .funnel-wrap:has(.step[data-step="4"].active){ max-width:640px; }
   .funnel-head{ text-align:center; margin-bottom:26px; }
   .funnel-head h2{ font-size:21px; font-weight:800; margin-bottom:8px; }
-  .funnel-head h2 .green{ color:var(--green); }
-  .funnel-head p{ font-size:14px; color:var(--muted); line-height:1.5; margin:0; }
+  .funnel-head h2 .green{ color:var(--ink); }
+  .funnel-head p{ font-size:15px; color:var(--muted); line-height:1.5; margin:0; }
 
   .progress-row{
     display:flex; justify-content:space-between; align-items:baseline;
-    font-size:12px; color:var(--muted); font-weight:600; margin-bottom:8px;
+    font-size:12.5px; color:var(--muted); font-weight:600; margin-bottom:8px;
   }
-  .progress-track{ height:5px; background:#EEF0F2; border-radius:100px; overflow:hidden; margin-bottom:28px; }
-  .progress-fill{ height:100%; background:var(--green); border-radius:100px; transition:width .45s cubic-bezier(.65,0,.35,1); }
+  .progress-track{ height:6px; background:#E5E7EB; border-radius:100px; overflow:hidden; margin-bottom:28px; }
+  .progress-fill{ height:100%; background:#EAB308; border-radius:100px; transition:width .45s cubic-bezier(.65,0,.35,1); }
 
   .step{ display:none; animation:fadeUp .3s ease; }
   .step.active{ display:block; }
@@ -113,9 +116,9 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
     font-family:'Inter',sans-serif; font-size:15px; font-weight:600; padding:15px 14px;
     border-radius:10px; cursor:pointer; transition:border-color .15s, background .15s, transform .1s; text-align:center;
   }
-  .opt-btn:hover{ border-color:var(--green); background:var(--green-soft); }
+  .opt-btn:hover{ border-color:#CA9A04; background:var(--green-soft); }
   .opt-btn:active{ transform:scale(0.98); }
-  .opt-btn.selected{ border-color:var(--green); background:var(--green-soft); color:var(--green); }
+  .opt-btn.selected{ border-color:#CA9A04; background:var(--green-soft); color:var(--ink); }
 
   .field{ margin-bottom:14px; }
   .field input{
@@ -123,26 +126,26 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
     font-size:15px; font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper);
     outline:none; transition:border-color .15s;
   }
-  .field input::placeholder{ color:#9AA3AD; }
-  .field input:focus{ border-color:var(--green); }
-  .field input.err{ border-color:#C2453A; }
-  .err-msg{ font-size:12px; color:#C2453A; margin-top:5px; display:none; }
+  .field input::placeholder{ color:#6B7280; }
+  .field input:focus{ border-color:#CA9A04; }
+  .field input.err{ border-color:#B42318; }
+  .err-msg{ font-size:12.5px; color:#B42318; margin-top:5px; display:none; }
   .err-msg.show{ display:block; }
 
   .cta-primary{
-    width:100%; background:var(--green); color:#fff; border:none;
+    width:100%; background:var(--green); color:var(--ink); border:none;
     font-family:'Inter',sans-serif; font-size:16px; font-weight:700; letter-spacing:0.02em;
     padding:17px; border-radius:10px; cursor:pointer; margin-top:12px;
     transition:background .15s, transform .1s;
   }
-  .cta-primary:hover{ background:#0B7749; }
+  .cta-primary:hover{ background:#EAB308; }
   .cta-primary:active{ transform:scale(0.99); }
   .cta-primary:disabled{ opacity:.7; cursor:wait; }
 
   .consent{ font-size:12px; color:var(--muted); line-height:1.5; text-align:center; margin:14px 0 0; }
 
   .back-link{
-    display:block; text-align:center; margin-top:18px; font-size:13.5px; color:var(--muted);
+    display:block; width:100%; text-align:center; margin-top:18px; font-size:13.5px; color:var(--muted);
     background:none; border:none; cursor:pointer; font-family:'Inter',sans-serif;
   }
   .back-link:hover{ color:var(--ink); }
@@ -156,7 +159,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   #calendly-embed{ min-width:280px; height:640px; width:100%; }
 
   footer{
-    text-align:center; color:var(--muted); font-size:12.5px; padding:0 20px 56px;
+    text-align:center; color:var(--muted); font-size:13px; padding:0 20px 56px;
     max-width:400px; margin:0 auto; line-height:1.6;
   }
 
@@ -174,8 +177,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
   <div class="hero-inner">
     <div class="eyebrow-1">NOUVEAU TUNNEL DE VENTE SUR MESURE</div>
     <div class="eyebrow-2">DES LEADS EXCLUSIFS, PRÉQUALIFIÉS À L'AVANCE</div>
-    <h1>Ajoutez <span class="accent">5 à 10 installations</span> en plus chaque mois pour votre société de panneaux solaires &amp; PAC</h1>
-    <p class="hero-sub">Des leads exclusifs, préqualifiés à l'avance et qui ont un projet d'installation rapide</p>
+    <h1>Ajoutez <span class="accent">3 à 7 installations</span> en plus chaque mois pour votre société de panneaux solaires, PAC ou bornes de recharge</h1>
   </div>
 </section>
 
@@ -192,7 +194,7 @@ src="https://www.facebook.com/tr?id=1625681889142535&ev=PageView&noscript=1"
       <div class="progress-row"><span>Étape 1 sur 4</span><span>0%</span></div>
       <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
 
-      <p class="step-q">Combien d'installations solaire et/ou PAC faites-vous par mois ?</p>
+      <p class="step-q">Combien d'installations (solaire, PAC ou bornes de recharge) faites-vous par mois ?</p>
       <div class="opt-grid" data-group="volume">
         <button class="opt-btn" data-value="Moins de 3" data-qualify="no">Moins de 3</button>
         <button class="opt-btn" data-value="3 à 10" data-qualify="no">3 à 10</button>
